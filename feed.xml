@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>Giovanni Farfán B.</title>
+		<description>Sitio Web y Blog de Giovanni Farfán Briceño. Herramientas de desarrollo de  Software, desarrollo Front-end con JavaScript, desarrollo Back-end con Java.  Todas las opiniones expresadas son basadas en experiencias o impresiones personales. 
+</description>
+		<link>https://giovannifarfan.com</link>
+		<atom:link href="https://giovannifarfan.com/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>Despliegue de Sitio Web en Jekyll con Jenkins</title>
+				
+				
+					<description>&lt;p&gt;Muy posiblemente alguien tendrá la misma inquietud por poner un Blog y quizá 
+hasta coincida en la fórmula &lt;strong&gt;Jekyll-Nginx-GitHub&lt;/strong&gt;. ¿En qué consiste?
+desarrollas un Sitio Web Estático con Jekyll y tienes tres posibles alternativas
+para publicarlo: levantas un servidor con Nginx y despliegas tu Sitio Web o 
+generas un repositorio en GitHub y publicas tu Sitio en GitHub Pages o ambas 
+(Nginx para el acceso principal y GitHub para el acceso con alta disponibilidad). 
+Ahora que si crees que tener dos medios para publicar tu Sitio es mucho mantenimiento 
+¡para nada! un flujo de Jenkins puede ayudar a evitar ese esfuerzo.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 27 Oct 2016 00:00:00 +0000</pubDate>
+				<link>https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html</link>
+				<guid isPermaLink="true">https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html</guid>
+			</item>
+		
+			<item>
+				<title>Notificaciones con Slack y Ryver en Jenkins</title>
+				
+				
+					<description>&lt;p&gt;Las herramientas de comunicación te ofrecen la posibilidad de intercambiar 
+información, sin perder la continuidad del conocimiento que se va formando a 
+través de las múltiples aportaciones que genera el equipo. Esto va en razón 
+al tan acostumbrado problema de pérdida de tiempo al manejar tu bandeja de 
+entrada de Email como medio para la resolución o seguimiento de las actividades. 
+A grandes rasgos, una herramienta de comunicación ofrece: distinción y dirección 
+de mensajes (mensajes públicos, privados y directos), manejo de documentos, 
+integración con herramientas (video conferencias, redes sociales, repositorios, 
+administración de proyectos), indexación y búsqueda sobre todo el contenido 
+generado del equipo.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sun, 16 Oct 2016 00:00:00 +0000</pubDate>
+				<link>https://giovannifarfan.com/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html</link>
+				<guid isPermaLink="true">https://giovannifarfan.com/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html</guid>
+			</item>
+		
+			<item>
+				<title>Ejecución de Jenkins mediante push en GitHub</title>
+				
+				
+					<description>&lt;p&gt;En Jenkins existen varias alternativas para lanzar una tarea de construcción: 
+después de otras construcciones, por periodos, revisión adengada de 
+repositorio, mediante &lt;abbr title=&quot;Uniform Resource Locator&quot;&gt;URL&lt;/abbr&gt; 
+(ejecución remota) y la que considero más agradable, por detección de cambios 
+en GitHub. En otras palabras, cada que tu código se impacte en GitHub se 
+generará una solicitud a tu Jenkins y si dentro de esa solicitud se encuentra 
+un repositorio asociado a una tarea, la tarea se ejecuta.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 06 Oct 2016 00:00:00 +0000</pubDate>
+				<link>https://giovannifarfan.com/integration/2016/10/06/ejecucion-jenkins-mediante-push-github.html</link>
+				<guid isPermaLink="true">https://giovannifarfan.com/integration/2016/10/06/ejecucion-jenkins-mediante-push-github.html</guid>
+			</item>
+		
+			<item>
+				<title>Jenkins en Ubuntu 16.04</title>
+				
+				
+					<description>&lt;p&gt;Si necesitas a alguien que se encargue por ti en las tareas de ciclo de vida tales
+como construcción, documentación, pruebas, empaquetado, despliegue, análisis estático 
+o alguna otra, simplemente pon a trabajar a un Jenkins. Hablando técnicamente es uno 
+de los mejores sistemas que he conocido por su manera en que está construido y por 
+su funcionalidad. Desde mi punto de vista es pionero en esto de la 
+&lt;abbr title=&quot;Continuous Integration&quot;&gt;Integración Continua&lt;/abbr&gt; y ahora con un 
+soporte más evidente para el &lt;abbr title=&quot;Continuous Deployment&quot;&gt;Despliegue Continuo&lt;/abbr&gt;. 
+Permite la gestión de todo lo que tiene que ver con ambiente, cuentas, extensiones, 
+distribución del sistema, seguridad, tiene además una comunidad muy grande y un 
+universo de extensiones (¿alguna idea que tengas de automatización? da por hecho 
+que podrás encontrar el plugin respectivo). La imaginación para todo lo que puedas 
+automatizar ya depende de ti.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sat, 01 Oct 2016 00:00:00 +0000</pubDate>
+				<link>https://giovannifarfan.com/compilation/2016/10/01/jenkins-ubuntu-16_04.html</link>
+				<guid isPermaLink="true">https://giovannifarfan.com/compilation/2016/10/01/jenkins-ubuntu-16_04.html</guid>
+			</item>
+		
+			<item>
+				<title>Configuración de Ubuntu 16.04</title>
+				
+				
+					<description>&lt;p&gt;En este Post se muestra la recopilación de instalaciones y configuraciones para un
+servidor Ubuntu 16.04. La idea es centralizar los pasos que he realizado para levantar 
+un ambiente sobre Ubuntu y sirva como referencia para la utilización de material 
+presentado en este Blog. Es necesario que consideres que se parte de un servidor 
+Ubuntu alojado en DigitalOcean (una buena idea si necesitas un servidor de 
+inmediato y de costo accesible).&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sun, 25 Sep 2016 00:00:00 +0000</pubDate>
+				<link>https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html</link>
+				<guid isPermaLink="true">https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html</guid>
+			</item>
+		
+			<item>
+				<title>Hello World!!</title>
+				
+				
+					<description>&lt;p&gt;Tengo el recuerdo de un profesor que nos decía que cada que comenzáramos a utilizar
+alguna tecnología primero hicieramos un Hello World - ¡O si no te caerá una 
+maldición!. Estoy completamente seguro que no me ocurrirá nada, aunque es cierto
+que si no se hace un Hello World se tienen altas posibilidades de perder unas
+3 o 4 horas por querer expandir tu imaginación antes de ejecutar por primera vez
+tu proyecto con un Hello World. ¿La razón? un proyecto de esa naturaleza provee 
+lo indispensable para que ejecute el código sin ningún problema, a partir 
+de ahí y debido a que ya conoces cómo funciona el proyecto, tu podrías empezar a 
+deselvolver tu idea.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Fri, 09 Sep 2016 00:00:00 +0000</pubDate>
+				<link>https://giovannifarfan.com/tour/2016/09/09/hello-world.html</link>
+				<guid isPermaLink="true">https://giovannifarfan.com/tour/2016/09/09/hello-world.html</guid>
+			</item>
+		
+	</channel>
+</rss>

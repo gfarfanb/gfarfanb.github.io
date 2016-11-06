@@ -1,0 +1,1593 @@
+
+<!-- Post Layout Start -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+  
+<!-- HEAD Start -->
+
+<head>
+  
+
+
+  <!-- Force HTTPS Start -->
+  <script>
+  // Don't force http when serving the website locally
+  if (!(window.location.host.startsWith("127.0.0.1")) && (window.location.protocol != "https:"))
+    window.location.protocol = "https";
+  </script>
+
+  <!-- Force HTTPS End -->
+
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sitio Web y Blog de Giovanni Farfán Briceño. Herramientas de desarrollo de  Software, desarrollo Front-end con JavaScript, desarrollo Back-end con Java.  Todas las opiniones expresadas son basadas en experiencias o impresiones personales. 
+">
+  <meta name="author" content="Giovanni Farfán Briceño">
+  <meta name="keywords" content="giovanni, farfán, briceño, development, tools, front-end, back-end, java,  javascript, jenkins, open-source
+">
+  <meta name="p:domain_verify" content="d1b1aa35f4a88a3c1517698c77ea25cd"/>
+  <link rel="canonical" href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html">
+  <title>Giovanni Farfán B. | Configuración de Ubuntu 16.04</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link href="/assets/css/grayscale.css" rel="stylesheet">
+  
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/assets/css/rrssb.css" />
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+  
+
+  
+
+  
+
+
+  <!-- iOS Web App mode -->
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" sizes="36x36" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-36p.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-48p.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-72p.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-96p.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-144p.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-192p.png">
+
+  <!-- Android Web App mode -->
+
+  <link rel="manifest" href="/manifest.json">
+
+
+
+
+  
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#ffffff">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#ffffff">
+<!-- iOS Safari -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="white">
+
+
+  
+
+
+  <!-- Syntax highlight in post pages -->
+
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/idea.min.css">
+
+
+
+
+  <script type="text/javascript"> //<![CDATA[ 
+    var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
+    document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+    //]]>
+  </script>
+
+</head>
+
+<!-- HEAD End -->
+
+
+  <body>
+
+    
+<!-- Navigation Start -->
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+      
+        <a class="navbar-brand" href="/">
+        <div>
+      
+          Giovanni Farfán B.
+        </div>
+        </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        
+          <!-- Blog, Post, Tag and Error pages -->
+          
+            
+              
+
+            
+              
+                <li>
+                
+                    <a href="/#about"> Sobre mi </a>
+                
+                </li>
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+          
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+                <li>
+                
+                  
+                    <a href="/blog/"> Blog </a>
+                  
+                
+                </li>
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+          
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+                <li>
+                
+                    <a href="/#contact"> Contacto </a>
+                
+                </li>
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+              
+
+            
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Navigation End -->
+
+
+    <section id="post" class="container content-section text-justify">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+
+          
+<!-- Swipe Instructions Start -->
+
+<div id="swipe-instruction">
+  <div>
+    <center>
+    <p><br><br><br></p>
+    <i id="hand-swipe" class="fa fa-hand-o-up"></i>    
+    <p><strong>
+    
+      ¿Sabías que puede navegar por los posts deslizando a la derecha o a la izquierda?
+    
+    </strong></p>
+    <button type="button" class="btn btn-info btn-lg close-swipe-instruction">
+      
+        ¡Genial! 
+      
+    </button>
+    </center>
+  </div>
+</div>
+
+<!-- Swipe Instructions End -->
+
+
+          <h1><strong>Configuración de Ubuntu 16.04</strong></h1>
+          <h4>
+            <strong>25 Sep 2016</strong>
+            <small>
+              . categoría:
+              <a class="category" href="/categories/compilation.html">
+                compilation
+              </a>.
+              <a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#disqus_thread">Comentarios</a>
+              <br />
+              
+                <a class="tag" href="/tags/ubuntu.html">#ubuntu</a>
+              
+                <a class="tag" href="/tags/domain.html">#domain</a>
+              
+                <a class="tag" href="/tags/git.html">#git</a>
+              
+                <a class="tag" href="/tags/nginx.html">#nginx</a>
+              
+                <a class="tag" href="/tags/ruby.html">#ruby</a>
+              
+            </small>
+          </h4>
+
+          <p>En este Post se muestra la recopilación de instalaciones y configuraciones para un
+servidor Ubuntu 16.04. La idea es centralizar los pasos que he realizado para levantar 
+un ambiente sobre Ubuntu y sirva como referencia para la utilización de material 
+presentado en este Blog. Es necesario que consideres que se parte de un servidor 
+Ubuntu alojado en DigitalOcean (una buena idea si necesitas un servidor de 
+inmediato y de costo accesible).</p>
+
+<h3 id="nbsp"> </h3>
+
+<h3 id="usuario-sudo">Usuario SUDO</h3>
+
+<p>Asignación de permisos de administrador sobre usuarios normales [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-1">1</a>].</p>
+
+<ul>
+  <li>Agregación de nuevo usuario (<strong>UsuarioNuevo</strong>). 
+Se solicitará asignación de contraseña, información de usuario y confirmación de
+información.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+adduser UsuarioNuevo
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Asignación de privilegios de administrador.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+usermod -aG sudo UsuarioNuevo
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Inicia sesión con tu nuevo usuario e intenta realizar una operación de administrador.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+su - UsuarioNuevo
+sudo ls -la /root
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Si necesitas cambiar la contraseña del usuario realiza lo siguiente. Se solicitará
+contraseña de administrador y posteriormente la nueva contraseña y su respectiva 
+confirmación.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+sudo passwd UsuarioNuevo
+</code></pre>
+
+<h3 id="nbsp-1"> </h3>
+
+<h3 id="configuracin-de-swap-space">Configuración de Swap Space</h3>
+
+<p>Como alternativa a la prevención de errores de aplicación por consumo de memoria
+se tiene el mecanismo de Swap, que básicamente reserva espacio en disco para 
+utilizarlo como RAM cuando la memoria deja de ser suficiente [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-2">2</a>].</p>
+
+<div class="alert alert-warning alert-content" role="alert"><i class="fa fa-warning"></i> <b>Importante: </b><br />Ten en cuenta que el rendimiento no es el 
+mismo y que incluso puede afectar el hardware si se utiliza almacenamiento SSD. 
+Lee la advertencia de la referencia [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-2">2</a>].</div>
+
+<ul>
+  <li>Reserva de memoria para archivo Swap (1Gb), accesible solo a usuario <strong>root</strong>.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+sudo fallocate -l 1G /swapfile 
+sudo chmod 600 /swapfile 
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Designación de archivo generado como Swap y activación de archivo Swap en
+sistema.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+sudo mkswap /swapfile 
+sudo swapon /swapfile
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Establecer como permanente la configuración Swap en el sistema.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+sudo cp /etc/fstab /etc/fstab.bak 
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab 
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Ajuste de propiedad para frecuencia de intercambio a memoria Swap.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+sudo sysctl vm.swappiness=10 
+sudo vim /etc/sysctl.conf 
+</code></pre>
+
+<pre><code data-trim="" class="vi">
+# Última línea de archivo /etc/sysctl.conf
+vm.swappiness=10 
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Ajuste de propiedad para elección del sistema entre información de caché 
+<em>inode</em> y <em>dentry</em> [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-3">3</a>] sobre datos.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+sudo sysctl vm.vfs_cache_pressure=50 
+sudo vim /etc/sysctl.conf 
+</code></pre>
+
+<pre><code data-trim="" class="vi">
+# Última línea de archivo /etc/sysctl.conf
+vm.vfs_cache_pressure=50 
+</code></pre>
+
+<h3 id="nbsp-2"> </h3>
+
+<h3 id="configuracin-de-dominio-namecheap-y-digitalocean">Configuración de Dominio: Namecheap y DigitalOcean</h3>
+
+<p>Posiblemente hayas adquirido algún dominio en Namecheap y quisieras que se comunicara 
+diréctamente con tu máquina en DigitalOcean.</p>
+
+<h4 id="en-namecheap">En Namecheap</h4>
+
+<ul>
+  <li>Selecciona la opción <strong>Domain List</strong> una ves que hayas ingresado a tu dashboard
+en tu cuenta Namecheap.</li>
+</ul>
+
+<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/160925_configuracion-ubuntu-16_04/namecheap-01-list.png" alt="Opción DomainList" /></p>
+
+<ul>
+  <li>Selecciona la opción de <strong>Manage</strong> sobre el dominio de tu listado que quieres
+configurar.</li>
+</ul>
+
+<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/160925_configuracion-ubuntu-16_04/namecheap-02-manage.png" alt="Administración de dominio" /></p>
+
+<ul>
+  <li>Dentro del apartado <strong>Nameservers</strong>, selecciona <em class="text-primary">Custom DNS</em> 
+e ingresa las direcciones <abbr title="Domain Name System">DNS</abbr> de los 
+servidores de DigitalOcean. El tiempo pronosticado para tomar la configuración 
+es de 24 hrs. (a veces solo toma unas horas ver el efecto de la configuración).</li>
+</ul>
+
+<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/160925_configuracion-ubuntu-16_04/namecheap-03-dns.png" alt="DNS personalizado" /></p>
+
+<h3 id="nbsp-3"> </h3>
+
+<h4 id="en-digitalocean">En DigitalOcean</h4>
+
+<ul>
+  <li>Selecciona la opción de <strong>Networking</strong> una ves que hayas ingresado a tu cuenta
+en DigitalOcean.</li>
+</ul>
+
+<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/160925_configuracion-ubuntu-16_04/digitalocean-01-networking.png" alt="Opción de Networking" /></p>
+
+<ul>
+  <li>En el apartatado <strong>Add a domain</strong> ingresa tu dominio y el Droplet o
+<abbr title="Internet Protocol">IP</abbr> al que hará referencia dicho dominio.</li>
+</ul>
+
+<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/160925_configuracion-ubuntu-16_04/digitalocean-02-domain.png" alt="Nuevo dominio" /></p>
+
+<ul>
+  <li>Agrega un registro <abbr title="Domain Name System">DNS</abbr> de dirección 
+<strong>A</strong> con tu <abbr title="Internet Protocol">IP</abbr> y un comodín 
+<em class="text-primary">@</em> que hará referencia a tu dominio (por default te 
+cargará tres registros <strong>NS</strong> que te servirán si tu dominio lo quieres dividir 
+en sub-dominios) [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-4">4</a>].</li>
+</ul>
+
+<div class="alert alert-success alert-content" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: Registros DNS</b><br />Puedes ver la descripción de 
+los registros <abbr title="Domain Name System">DNS</abbr> en la referencia [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-5">5</a>].</div>
+
+<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/160925_configuracion-ubuntu-16_04/digitalocean-03-record.png" alt="Configuración de registros" /></p>
+
+<ul>
+  <li>Tu configuración estará completa cuando en el apartado <strong>Zone File</strong> 
+aparezca el re-direccionamiento de tu dominio con los servidores 
+<abbr title="Domain Name System">DNS</abbr> de DigitalOcean.</li>
+</ul>
+
+<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/160925_configuracion-ubuntu-16_04/digitalocean-04-zone.png" alt="Validación de configuración" /></p>
+
+<h3 id="nbsp-4"> </h3>
+
+<h3 id="instalacin-de-git">Instalación de Git</h3>
+
+<p>Una herramienta que no puede falta en tu repertorio de desarrollador. Git es un 
+sistema de control de versiones distribuido, que ofrece una gran funcionalidad
+para el mantenimiento de código fuente en cualquier tamaño de proyecto. Trayectorias
+alternativas de desarrollo (branch), seguimiento de cambios, recuperación de 
+versiones, todo con una interfaz simple de comandos. La distribución la puedes 
+obtener de los repositorios de Ubuntu [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-6">6</a>].</p>
+
+<ul>
+  <li>Obtención de paquete Git con <abbr title="Advanced Packing Tool">APT</abbr>.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+sudo apt-get update 
+sudo apt-get install git 
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Configuración de información personalizada de usuario (<em class="text-primary">Nombre Personal</em>,
+<em class="text-primary">tu.email@email.com</em>).</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+git config --global user.name "Nombre Personal" 
+git config --global user.email "tu.email@email.com" 
+
+# Codificación de commits en UTF-8
+git config --global i18n.commitencoding "UTF-8" 
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Generación de llave <abbr title="Secure Shell">SSH</abbr> [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-7">7</a>] y agregación
+de llave en agente <abbr title="Secure Shell">SSH</abbr>.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+# Acepta con [enter] todos las confirmaciones de datos si no deseas especificar contraseña
+ssh-keygen -t rsa -b 4096 -C "tu.email@email.com" 
+
+eval "$(ssh-agent -s)" 
+ssh-add ~/.ssh/id_rsa 
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Copiar en portapapeles la llave pública para agregarla a GitHub [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-8">8</a>].</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+cat &lt; ~/.ssh/id_rsa.pub
+</code></pre>
+<p><br /></p>
+
+<blockquote>
+  <ol>
+    <li>Desplegar opciones en foto de perfil y seleccionar <strong>Settings</strong>.</li>
+    <li>Seleccionar la opción de <strong>SSH and GPG keys</strong>.</li>
+    <li>Agregar nueva llave <strong>New SSH key</strong>.</li>
+    <li>Ingresar descripción y Llave Pública en los campos respectivos y clic en <strong>Add SSH key</strong></li>
+    <li>Confirmar cambio con contraseña de GitHub.</li>
+  </ol>
+</blockquote>
+
+<ul>
+  <li>Verifica que la configuración de tu llave <abbr title="Secure Shell">SSH</abbr> sea correcta.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+ssh -T git@github.com 
+</code></pre>
+
+<h3 id="nbsp-5"> </h3>
+
+<h3 id="instalacin-de-nginx">Instalación de Nginx</h3>
+
+<p>Nginx es un servidor HTTP de alto rendimiento y proxy inverso. Uno de entre los 
+muchos servidores escrito para solucionar el <a href="http://www.kegel.com/c10k.html">C10K problem</a>. Utilizado para exponer
+este sitio Web. La distribución se encuentra disponible en los repositorios por 
+defecto de Ubuntu [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-9">9</a>].</p>
+
+<ul>
+  <li>Obtención de paquete Nginx con <abbr title="Advanced Packing Tool">APT</abbr>.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+sudo apt-get update 
+sudo apt-get install nginx 
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Verifica en tu navegador que el servidor se esté ejecutando correctamente
+<em class="text-primary">http://dominio_de_servidor_o_IP</em>.</li>
+</ul>
+
+<h3 id="nbsp-6"> </h3>
+
+<h3 id="instalacin-de-ruby">Instalación de Ruby</h3>
+
+<p><em>“El mejor amigo de un desarrollador”</em>, muchas de las soluciones que puedes 
+encontrar en la Web se encuentran como gemas. Mi conocimiento sobre 
+Ruby se basa solamente en la necesidad de configurar algún proyecto 
+<abbr title="Open Source Software">OSS</abbr> que me facilite tareas (como 
+Jekyll que utilizo para este sitio). Suena interesante y no descartaré la 
+posibilidad de involucrarme más sériamente en esta tecnología.</p>
+
+<div class="alert alert-success alert-content" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b><br />Por si necesitas configurar de muchos “sabores” 
+Ruby en Ubuntu [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#ref-10">10</a>].</div>
+
+<ul>
+  <li>Instalar las dependencias de Ruby.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+sudo apt-get update 
+sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev 
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Instalación de <strong>rbenv</strong> y <strong>ruby-build</strong>.</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv 
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc 
+echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc 
+exec $SHELL 
+
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build 
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' &gt;&gt; ~/.bashrc 
+exec $SHELL
+
+rbenv install 2.3.1 
+rbenv global 2.3.1 
+ruby -v 
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Instalación de <strong>bundler</strong> (para verificar que tu ambiente esté correctamente
+instalado).</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+gem install bundler 
+rbenv rehash 
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Instalación de <strong>jekyll</strong> (con las dependencias utilizadas para este sitio Web).</li>
+</ul>
+
+<pre><code data-trim="" class="batch">
+gem install jekyll jekyll-paginate jemoji html-proofer 
+</code></pre>
+
+<!--
+### &nbsp;
+
+### Instalación de MySQL
+
+Debido a la simplicidad, velocidad (desarrollo y respuesta), el rendimiento 
+que ofrece sobre sistemas grandes y fácil integración con muchas herramientas 
+de desarrollo, MySQL es una herramienta potencial para administración de base 
+de datos; otro uso más común es el almacenamiento y administración de tus datos
+para tu sitio o Aplicación Web [#].
+
+* Obtención de paquete MySQL con <abbr title="Advanced Packing Tool">APT</abbr>. 
+Se solicitará asignación de contraseña para utilizar como administrador de MySQL.
+
+<pre><code data-trim class="batch">
+sudo apt-get update 
+sudo apt-get install mysql-server
+</code></pre><br>
+
+* Complemento para una instalación segura. Tendrás que ingresar la contraseña
+que configuraste en el paso anterior.
+
+<pre><code data-trim class="batch">
+sudo mysql_secure_installation 
+</code></pre><br>
+
+* Para la activación del plugin de validación de contraseñas debes aceptar 
+la confirmación que se muestra después de introducir la contraseña. Si aceptas, 
+debes definir el nivel de validación y posteriormente actualizar (si lo deseas)
+la contraseña de administrador. Las demás confirmaciones basta con aceptarlas 
+**Y + Enter**.
+
+<pre><code data-trim class="vi">
+VALIDATE PASSWORD PLUGIN can be used to test passwords
+and improve security. It checks the strength of password
+and allows the users to set only those passwords which are
+secure enough. Would you like to setup VALIDATE PASSWORD plugin?
+
+Press y|Y for Yes, any other key for No:
+</code></pre>
+
+<pre><code data-trim class="vi">
+There are three levels of password validation policy:
+
+LOW    Length >= 8
+MEDIUM Length >= 8, numeric, mixed case, and special characters
+STRONG Length >= 8, numeric, mixed case, special characters and dictionary                  file
+
+Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG: 1
+</code></pre>
+
+<pre><code data-trim class="vi">
+Using existing password for root.
+
+Estimated strength of the password: 100
+Change the password for root ? ((Press y|Y for Yes, any other key for No) : n
+</code></pre>
+-->
+
+<h3 id="nbsp-7"> </h3>
+
+<h3 id="conclusin">Conclusión</h3>
+
+<p>Ubuntu es un sistema operativo particularmente muy agradle para desarrollar, en 
+especial para realizar configuraciones de ambiente, muchas de las soluciones las
+puedes encontrar documentadas y el procedimiento para aplicar la solución resulta
+ser muy práctico. La comunidad en general ya se encuentra bastante experimentada, 
+así que difícilmente te quedarás sin respuesta ante un problema.</p>
+
+<h3 id="nbsp-8"> </h3>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title text-uppercase">Referencias</h3></div>
+  <div class="panel-body">    
+    <span class="references">
+
+      <br /><span id="ref-1"><b>[1]</b></span> 
+      M. Anicas, "How to create a Sudo user on Ubuntu [Quickstart]," DigitalOcean, 2016. [Online]. 
+      Available: <a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart">https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart</a>. 
+      Accessed: Sep. 22, 2016.
+
+      <br /><span id="ref-2"><b>[2]</b></span> 
+      J. Ellingwood, "How to add swap space on Ubuntu 16.04," DigitalOcean, 2016. [Online]. 
+      Available: <a href="https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04">https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04</a>. 
+      Accessed: Sep. 22, 2016.
+
+      <br /><span id="ref-3"><b>[3]</b></span> 
+      "What are pagecache, dentries, inodes?," 2015. [Online]. 
+      Available: <a href="http://stackoverflow.com/questions/29870068/what-are-pagecache-dentries-inodes">http://stackoverflow.com/questions/29870068/what-are-pagecache-dentries-inodes</a>. 
+      Accessed: Sep. 22, 2016.
+
+      <br /><span id="ref-4"><b>[4]</b></span> 
+      E. Sverdlov, "How to set up a host name with DigitalOcean," DigitalOcean, 2012. [Online]. 
+      Available: <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean">https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean</a>. 
+      Accessed: Sep. 25, 2016.
+
+      <br /><span id="ref-5"><b>[5]</b></span> 
+      "Namecheap.com Knowledgebase • how do I set up host records for a domain when I use FreeDNS? (FreeDNS)," 2016. [Online]. 
+      Available: <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/544/51/how-do-i-set-up-host-records-for-a-domain-when-i-use-freedns">https://www.namecheap.com/support/knowledgebase/article.aspx/544/51/how-do-i-set-up-host-records-for-a-domain-when-i-use-freedns</a>. 
+      Accessed: Sep. 23, 2016.
+
+      <br /><span id="ref-6"><b>[6]</b></span> 
+      B. Bearnes, "How to install git on Ubuntu 16.04," DigitalOcean, 2016. [Online]. 
+      Available: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-16-04">https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-16-04</a>. 
+      Accessed: Sep. 22, 2016.
+
+      <br /><span id="ref-7"><b>[7]</b></span> 
+      "Generating a new SSH key and adding it to the ssh-agent - user documentation,". [Online]. 
+      Available: <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/</a>. 
+      Accessed: Sep. 22, 2016.
+
+      <br /><span id="ref-8"><b>[8]</b></span> 
+      "Adding a new SSH key to your GitHub account - user documentation,". [Online]. 
+      Available: <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/</a>.
+      Accessed: Sep. 23, 2016.
+
+      <br /><span id="ref-9"><b>[9]</b></span> 
+      J. Ellingwood, "How to install Nginx on Ubuntu 16.04," DigitalOcean, 2016. [Online]. 
+      Available: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04">https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04</a>. 
+      Accessed: Sep. 22, 2016.
+      
+      <br /><span id="ref-10"><b>[10]</b></span> 
+      C. Oliver, "Setup Ruby on rails on Ubuntu 16.04 Xenial Xerus," GoRails. [Online]. 
+      Available: <a href="https://gorails.com/setup/ubuntu/16.04">https://gorails.com/setup/ubuntu/16.04</a>. 
+      Accessed: Sep. 23, 2016.
+      
+      <br /><span id="ref-11"><b>[11]</b></span> 
+      M. Anicas, "Initial server setup with Ubuntu 16.04," DigitalOcean, 2016. [Online]. 
+      Available: <a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04">https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04</a>.
+      Accessed: Sep. 22, 2016.
+
+      <!--
+      <br><span id="ref-#"><b>[#]</b></span> 
+      J. Ellingwood, "How to install Linux, Nginx, MySQL, PHP (LEMP stack) in Ubuntu 16.04," DigitalOcean, 2016. [Online]. 
+      Available: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04">https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04</a>. 
+      Accessed: Sep. 23, 2016.
+      -->
+      
+      <br /><br />
+    </span>
+  </div>
+</div>
+
+
+
+          <span class="end-content">
+            POST SUCCESSFUL
+            <br>Time: 
+              <script>
+                function pad(n, width, z) {
+                  z = z || '0';
+                  n = n + '';
+                  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+                }
+                var now = new Date();
+                var offset = pad(now.getTimezoneOffset()/60, 2) + ':' + pad(now.getTimezoneOffset()%60, 2);
+                now = new Date(now.getTime() - (now.getTimezoneOffset() * 60000));
+                document.write(now.toJSON() + '-' + offset);
+              </script>
+          </span>
+
+          <h1 class="brand-heading">&nbsp;</h1>
+          <h1 class="brand-heading">&nbsp;</h1>
+
+          <div class="row">
+            <div class="col-md-7">
+              <div class="row">
+                <div class="col-md-3">
+                  <form class="paypalform" action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick"><input type="hidden" name="hosted_button_id" value="49ZMF7YEPCR34"><button class="paypalbutton" name="submit"><span>Your donations are appreciated!</span></button><img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"></form>
+                  <br>
+                </div>
+                <div class="col-md-3">
+                  <p class="blockchainbutton">                    
+                    <a href="https://blockchain.info/address/1P4w32KT7NwjfGLmnr1eeWs2xJs468PKSk">
+                      <img src="https://blockchain.info/Resources/buttons/donate_64.png"/>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              
+<!-- Share Buttons Start -->
+
+<ul class="rrssb-buttons clearfix">
+  
+    <li class="rrssb-facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html&title=Configuración de Ubuntu 16.04" class="popup">
+        <span class="rrssb-icon">
+          <svg xmlns="https://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="29" height="29" viewBox="0 0 29 29"><path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"
+            class="cls-2" fill-rule="evenodd"></path></svg>
+        </span>
+        <span class="rrssb-text">facebook</span>
+      </a>
+    </li>
+  
+  
+    <li class="rrssb-twitter">
+      <a href="https://twitter.com/share?url=https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html&text=Configuración de Ubuntu 16.04"
+      class="popup">
+        <span class="rrssb-icon"><svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"></path></svg></span>
+        <span class="rrssb-text">twitter</span>
+      </a>
+    </li>
+  
+  
+    <li class="rrssb-linkedin">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html" class="popup">
+      <span class="rrssb-icon">
+        <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+          <path d="M25.424 15.887v8.447h-4.896v-7.882c0-1.98-.71-3.33-2.48-3.33-1.354 0-2.158.91-2.514 1.802-.13.315-.162.753-.162 1.194v8.216h-4.9s.067-13.35 0-14.73h4.9v2.087c-.01.017-.023.033-.033.05h.032v-.05c.65-1.002 1.812-2.435 4.414-2.435 3.222 0 5.638 2.106 5.638 6.632zM5.348 2.5c-1.676 0-2.772 1.093-2.772 2.54 0 1.42 1.066 2.538 2.717 2.546h.032c1.71 0 2.77-1.132 2.77-2.546C8.056 3.593 7.02 2.5 5.344 2.5h.005zm-2.48 21.834h4.896V9.604H2.867v14.73z"></path>
+        </svg>
+      </span>
+      <span class="rrssb-text">linkedin</span>
+    </a>
+    </li>
+      
+  
+    <li class="rrssb-googleplus">
+      <a href="https://plus.google.com/share?url=https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html" class="popup">
+        <span class="rrssb-icon">
+          <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 8.29h-1.95v2.6h-2.6v1.82h2.6v2.6H21v-2.6h2.6v-1.885H21V8.29zM7.614 10.306v2.925h3.9c-.26 1.69-1.755 2.925-3.9 2.925-2.34 0-4.29-2.016-4.29-4.354s1.885-4.353 4.29-4.353c1.104 0 2.014.326 2.794 1.105l2.08-2.08c-1.3-1.17-2.924-1.883-4.874-1.883C3.65 4.586.4 7.835.4 11.8s3.25 7.212 7.214 7.212c4.224 0 6.953-2.988 6.953-7.082 0-.52-.065-1.104-.13-1.624H7.614z"></path></svg>
+        </span>
+        <span class="rrssb-text">google+</span>
+      </a>
+    </li>
+  
+  
+    <li class="rrssb-share">
+      <a role="button" data-toggle="collapse" href="#collapseShare" aria-expanded="false" aria-controls="collapseShare">
+        <span class="rrssb-icon">
+          <svg enable-background="new 0 0 1024 1024" height="1024px" id="Layer_1" version="1.1" viewBox="0 0 1024 1024" width="1024px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path clip-rule="evenodd" d="M698.44,222.769c-51.163,39.134-101.954,78.037-152.806,116.865    c-64.785,49.47-129.53,98.995-194.541,148.168c-8.614,6.517-11.543,12.923-9.233,23.95c7.134,34.07,0.273,66.178-17.473,97.15    c3.178,1.623,6.025,3.17,8.946,4.56c123.325,58.73,246.684,117.388,369.928,176.284c8.962,4.284,15.924,4.304,23.876-2.427    c40.493-34.267,85.486-41.74,134.674-21.089c48.869,20.521,74.321,58.249,79.451,110.146    c7.212,73.003-39.093,133.523-111.096,145.969c-68.385,11.82-139.308-41.242-148.199-110.46    c-2.573-20.037-1.576-39.658,3.601-59.06c1.578-5.911,0.352-8.838-5.445-11.579C550.872,780.097,421.704,718.764,292.602,657.3    c-7.721-3.676-14.379-3.231-22.078,0.162c-51.746,22.818-100.626,17.308-143.144-19.994    c-44.041-38.64-54.686-88.722-37.724-143.504c16.559-53.485,55.417-83.152,110.325-90.721c37.448-5.16,70.438,6.872,98.98,31.368    c3.055,2.623,6.019,5.347,9.681,8.608c16.679-12.679,33.229-25.207,49.724-37.805c97.709-74.626,195.274-149.438,293.269-223.687    c12.321-9.334,17.21-18.307,15.11-34.629C658.003,79.112,704.646,15.631,771.084,2.591    c68.72-13.488,133.149,26.764,151.554,95.693c14.011,52.477,1.009,98.688-38.753,135.282    c-37.396,34.414-82.044,43.298-130.588,27.347C731.834,253.862,713.963,240.659,698.44,222.769z" fill-rule="evenodd"></path></g></svg>
+        </span>
+        <span class="rrssb-text">Share</span>
+      </a>
+    </li>
+  
+</ul>
+
+<!-- Share Buttons End -->
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-4">
+              
+<!-- Share Buttons Start -->
+  
+<ul class="rrssb-buttons collapse" id="collapseShare">
+  
+    <li class="rrssb-pocket">
+      <a href="https://getpocket.com/save?url=https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html">
+        <span class="rrssb-icon">
+          <svg width="32" height="28" viewBox="0 0 32 28" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28.782.002c2.03.002 3.193 1.12 3.182 3.106-.022 3.57.17 7.16-.158 10.7-1.09 11.773-14.588 18.092-24.6 11.573C2.72 22.458.197 18.313.057 12.937c-.09-3.36-.05-6.72-.026-10.08C.04 1.113 1.212.016 3.02.008 7.347-.006 11.678.004 16.006.002c4.258 0 8.518-.004 12.776 0zM8.65 7.856c-1.262.135-1.99.57-2.357 1.476-.392.965-.115 1.81.606 2.496 2.453 2.334 4.91 4.664 7.398 6.966 1.086 1.003 2.237.99 3.314-.013 2.407-2.23 4.795-4.482 7.17-6.747 1.203-1.148 1.32-2.468.365-3.426-1.01-1.014-2.302-.933-3.558.245-1.596 1.497-3.222 2.965-4.75 4.526-.706.715-1.12.627-1.783-.034-1.597-1.596-3.25-3.138-4.93-4.644-.47-.42-1.123-.647-1.478-.844z"></path>
+          </svg>
+        </span>
+        <span class="rrssb-text">pocket</span>
+      </a>
+    </li>
+  
+  
+    <li class="rrssb-reddit">
+      <a href="https://www.reddit.com/submit?url=https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html&title=Configuración de Ubuntu 16.04" target="_blank">
+        <span class="rrssb-icon">
+          <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+            <path d="M11.794 15.316c0-1.03-.835-1.895-1.866-1.895-1.03 0-1.893.866-1.893 1.896s.863 1.9 1.9 1.9c1.023-.016 1.865-.916 1.865-1.9zM18.1 13.422c-1.03 0-1.895.864-1.895 1.895 0 1 .9 1.9 1.9 1.865 1.03 0 1.87-.836 1.87-1.865-.006-1.017-.875-1.917-1.875-1.895zM17.527 19.79c-.678.68-1.826 1.007-3.514 1.007h-.03c-1.686 0-2.834-.328-3.51-1.005-.264-.265-.693-.265-.958 0-.264.265-.264.7 0 1 .943.9 2.4 1.4 4.5 1.402.005 0 0 0 0 0 .005 0 0 0 0 0 2.066 0 3.527-.46 4.47-1.402.265-.264.265-.693.002-.958-.267-.334-.688-.334-.988-.043z"></path>
+            <path d="M27.707 13.267c0-1.785-1.453-3.237-3.236-3.237-.792 0-1.517.287-2.08.76-2.04-1.294-4.647-2.068-7.44-2.218l1.484-4.69 4.062.955c.07 1.4 1.3 2.6 2.7 2.555 1.488 0 2.695-1.208 2.695-2.695C25.88 3.2 24.7 2 23.2 2c-1.06 0-1.98.616-2.42 1.508l-4.633-1.09c-.344-.082-.693.117-.803.454l-1.793 5.7C10.55 8.6 7.7 9.4 5.6 10.75c-.594-.45-1.3-.75-2.1-.72-1.785 0-3.237 1.45-3.237 3.2 0 1.1.6 2.1 1.4 2.69-.04.27-.06.55-.06.83 0 2.3 1.3 4.4 3.7 5.9 2.298 1.5 5.3 2.3 8.6 2.325 3.227 0 6.27-.825 8.57-2.325 2.387-1.56 3.7-3.66 3.7-5.917 0-.26-.016-.514-.05-.768.965-.465 1.577-1.565 1.577-2.698zm-4.52-9.912c.74 0 1.3.6 1.3 1.3 0 .738-.6 1.34-1.34 1.34s-1.343-.602-1.343-1.34c.04-.655.596-1.255 1.396-1.3zM1.646 13.3c0-1.038.845-1.882 1.883-1.882.31 0 .6.1.9.21-1.05.867-1.813 1.86-2.26 2.9-.338-.328-.57-.728-.57-1.26zm20.126 8.27c-2.082 1.357-4.863 2.105-7.83 2.105-2.968 0-5.748-.748-7.83-2.105-1.99-1.3-3.087-3-3.087-4.782 0-1.784 1.097-3.484 3.088-4.784 2.08-1.358 4.86-2.106 7.828-2.106 2.967 0 5.7.7 7.8 2.106 1.99 1.3 3.1 3 3.1 4.784C24.86 18.6 23.8 20.3 21.8 21.57zm4.014-6.97c-.432-1.084-1.19-2.095-2.244-2.977.273-.156.59-.245.928-.245 1.036 0 1.9.8 1.9 1.9-.016.522-.27 1.022-.57 1.327z"></path>
+          </svg>
+        </span>
+        <span class="rrssb-text">reddit</span>
+      </a>
+    </li>
+  
+  
+    <li class="rrssb-hackernews">
+      <a href="https://news.ycombinator.com/submitlink?u=https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html&t=Configuración de Ubuntu 16.04&text=<p>En este Post se muestra la recopilación de instalaciones y configuraciones para un servidor Ubuntu 16.04. La idea es centralizar los pasos que he realizado para levantar un ambiente sobre Ubuntu y sirva como referencia para la utilización de material presentado en este Blog. Es necesario que consideres que se...">
+        <span class="rrssb-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewbox="0 0 28 28">
+            <path fill="#FFF" d="M14 13.626l-4.508-9.19H6.588l6.165 12.208v6.92h2.51v-6.92l6.15-12.21H18.69"></path>
+          </svg>
+        </span>
+        <span class="rrssb-text">hackernews</span>
+      </a>
+    </li>
+  
+  
+    <li class="rrssb-github">
+      <a href="https://github.com/gfarfanb">
+        <span class="rrssb-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewbox="0 0 28 28">
+            <path d="M13.97 1.57c-7.03 0-12.733 5.703-12.733 12.74 0 5.622 3.636 10.393 8.717 12.084.637.13.87-.277.87-.615 0-.302-.013-1.103-.02-2.165-3.54.77-4.29-1.707-4.29-1.707-.578-1.473-1.413-1.863-1.413-1.863-1.154-.79.09-.775.09-.775 1.276.104 1.96 1.316 1.96 1.312 1.135 1.936 2.99 1.393 3.712 1.06.116-.823.445-1.384.81-1.704-2.83-.32-5.802-1.414-5.802-6.293 0-1.39.496-2.527 1.312-3.418-.132-.322-.57-1.617.123-3.37 0 0 1.07-.343 3.508 1.305 1.016-.282 2.105-.424 3.188-.43 1.082 0 2.167.156 3.198.44 2.43-1.65 3.498-1.307 3.498-1.307.695 1.754.258 3.043.13 3.37.815.903 1.314 2.038 1.314 3.43 0 4.893-2.978 5.97-5.814 6.286.458.388.876 1.16.876 2.358 0 1.703-.016 3.076-.016 3.482 0 .334.232.748.877.61 5.056-1.687 8.7-6.456 8.7-12.08-.055-7.058-5.75-12.757-12.792-12.75z"></path>
+          </svg>
+        </span>
+        <span class="rrssb-text">github</span>
+      </a>
+    </li>
+  
+  
+  
+    <li class="rrssb-pinterest">
+      <a href="https://pinterest.com/pin/create/button/?url=https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html" target="_blank">
+        <span class="rrssb-icon">
+          <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+            <path d="M14.02 1.57c-7.06 0-12.784 5.723-12.784 12.785S6.96 27.14 14.02 27.14c7.062 0 12.786-5.725 12.786-12.785 0-7.06-5.724-12.785-12.785-12.785zm1.24 17.085c-1.16-.09-1.648-.666-2.558-1.22-.5 2.627-1.113 5.146-2.925 6.46-.56-3.972.822-6.952 1.462-10.117-1.094-1.84.13-5.545 2.437-4.632 2.837 1.123-2.458 6.842 1.1 7.557 3.71.744 5.226-6.44 2.924-8.775-3.324-3.374-9.677-.077-8.896 4.754.19 1.178 1.408 1.538.49 3.168-2.13-.472-2.764-2.15-2.683-4.388.132-3.662 3.292-6.227 6.46-6.582 4.008-.448 7.772 1.474 8.29 5.24.58 4.254-1.815 8.864-6.1 8.532v.003z"></path>
+          </svg>
+        </span>
+        <span class="rrssb-text">pinterest</span>
+      </a>
+    </li>
+      
+  
+  
+  
+  
+    <li class="rrssb-whatsapp">
+      <a href="whatsapp://send?text=Configuración de Ubuntu 16.04%3A%20https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html" data-action="share/whatsapp/share">
+        <span class="rrssb-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewbox="0 0 90 90">
+            <path d="M90 43.84c0 24.214-19.78 43.842-44.182 43.842a44.256 44.256 0 0 1-21.357-5.455L0 90l7.975-23.522a43.38 43.38 0 0 1-6.34-22.637C1.635 19.63 21.415 0 45.818 0 70.223 0 90 19.628 90 43.84zM45.818 6.983c-20.484 0-37.146 16.535-37.146 36.86 0 8.064 2.63 15.533 7.076 21.61l-4.64 13.688 14.274-4.537A37.122 37.122 0 0 0 45.82 80.7c20.48 0 37.145-16.533 37.145-36.857S66.3 6.983 45.818 6.983zm22.31 46.956c-.272-.447-.993-.717-2.075-1.254-1.084-.537-6.41-3.138-7.4-3.495-.993-.36-1.717-.54-2.438.536-.72 1.076-2.797 3.495-3.43 4.212-.632.72-1.263.81-2.347.27-1.082-.536-4.57-1.672-8.708-5.332-3.22-2.848-5.393-6.364-6.025-7.44-.63-1.076-.066-1.657.475-2.192.488-.482 1.084-1.255 1.625-1.882.543-.628.723-1.075 1.082-1.793.363-.718.182-1.345-.09-1.884-.27-.537-2.438-5.825-3.34-7.977-.902-2.15-1.803-1.793-2.436-1.793-.63 0-1.353-.09-2.075-.09-.722 0-1.896.27-2.89 1.344-.99 1.077-3.788 3.677-3.788 8.964 0 5.288 3.88 10.397 4.422 11.113.54.716 7.49 11.92 18.5 16.223 11.01 4.3 11.01 2.866 12.996 2.686 1.984-.18 6.406-2.6 7.312-5.107.9-2.513.9-4.664.63-5.112z"></path>
+          </svg>
+        </span>
+        <span class="rrssb-text">whatsapp</span>
+      </a>
+    </li>
+  
+  
+    <li class="rrssb-email">
+      <a href="mailto:?subject=Configuración de Ubuntu 16.04&body=https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html" data-proofer-ignore>
+        <span class="rrssb-icon">
+          <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+            <path d="M20.11 26.147c-2.335 1.05-4.36 1.4-7.124 1.4C6.524 27.548.84 22.916.84 15.284.84 7.343 6.602.45 15.4.45c6.854 0 11.8 4.7 11.8 11.252 0 5.684-3.193 9.265-7.398 9.3-1.83 0-3.153-.934-3.347-2.997h-.077c-1.208 1.986-2.96 2.997-5.023 2.997-2.532 0-4.36-1.868-4.36-5.062 0-4.75 3.503-9.07 9.11-9.07 1.713 0 3.7.4 4.6.972l-1.17 7.203c-.387 2.298-.115 3.3 1 3.4 1.674 0 3.774-2.102 3.774-6.58 0-5.06-3.27-8.994-9.304-8.994C9.05 2.87 3.83 7.545 3.83 14.97c0 6.5 4.2 10.2 10 10.202 1.987 0 4.09-.43 5.647-1.245l.634 2.22zM16.647 10.1c-.31-.078-.7-.155-1.207-.155-2.572 0-4.596 2.53-4.596 5.53 0 1.5.7 2.4 1.9 2.4 1.44 0 2.96-1.83 3.31-4.088l.592-3.72z"></path>
+          </svg>
+        </span>
+        <span class="rrssb-text">email</span>
+      </a>
+    </li>
+  
+  
+</ul>
+
+<!-- Share Buttons End -->
+
+            </div>
+          </div>
+
+          
+            
+<!-- Disqus Comments Start -->
+
+
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<!-- Disqus Comments End -->
+
+          
+
+          <hr />
+
+          
+          <div class="author row">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="row">
+                <img class="col-xs-4 col-sm-4 col-md-3" src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/author.png" alt="Me" />
+                <p class="col-xs-8 col-sm-8 col-md-9">
+                  <small> 
+                    Giovanni Farfán Briceño es un desarrollador FullStack (BETA) con la decisión de conquistar al mundo como desarrollador; o al menos poder cambiarlo.
+ 
+                    Síguelo en 
+                    <a href="https://www.facebook.com/gfarfanb.dev">Facebook</a>,
+                    <a href="https://twitter.com/gfarfanb">Twitter</a>,
+                    <a href="https://www.linkedin.com/in/gfarfanb">LinkedIn</a> o
+                    <a href="https://plus.google.com/communities/104188641991862714557">Google+</a>.
+                  </small>
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Start -->
+
+<p><br><br></p>
+
+
+<div class="text-right trust-logo">
+  <script language="JavaScript" type="text/javascript">
+    TrustLogo("/assets/img/comodo_secure_seal_113x59_transp.png", "CL1", "none");
+  </script>
+  <a href="https://www.positivessl.com/" id="comodoTL">Positive SSL</a>
+</div>
+
+
+<footer>
+
+  <div class="container-fluid">
+    <div class="row">
+	  <div class="col-sm-4 col-sm-offset-1">
+	    <p class="footer-content">Copyright &copy; 2016 Giovanni Farfán Briceño</p>
+	    
+	    <br>
+	    <!-- Social Buttons Start -->
+
+<ul class="list-inline social-buttons">
+    
+    <li><a href="https://github.com/gfarfanb" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+    
+    <li><a href="https://stackoverflow.com/users/5133929/gfarfanb" target="_blank"><i class="fa fa-stack-overflow fa-fw"></i></a></li>
+    
+    <li><a href="https://facebook.com/gfarfanb.dev" target="_blank"><i class="fa fa-facebook fa-fw"></i></a></li>
+    
+    <li><a href="https://twitter.com/gfarfanb" target="_blank"><i class="fa fa-twitter fa-fw"></i></a></li>
+    
+    <li><a href="https://www.linkedin.com/in/gfarfanb" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+    
+    <li><a href="https://plus.google.com/communities/104188641991862714557" target="_blank"><i class="fa fa-google-plus fa-fw"></i></a></li>
+    
+    <li><a href="/feed.xml" target="_blank"><i class="fa fa-rss fa-fw"></i></a></li>
+    
+    
+</ul>
+
+<!-- Social Buttons End -->
+
+	  </div>
+	  <div class="col-sm-6 col-sm-offset-1">
+	    <p class="footer-content">Tema original de <a href="https://github.com/PanosSakkos/personal-jekyll-theme" target="_blank">{ Personal }</a></p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!-- Footer End -->
+
+
+    
+<!-- Javascript Start -->
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<!--* Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
+* Code licensed under the Apache License v2.0.
+* For details, see http://www.apache.org/licenses/LICENSE-2.0.-->
+<script>
+function toggleNavCollapse(){50<$(".navbar").offset().top?addNavbarIntroTop():removeNavbarIntroTop();}
+function addNavbarIntroTop(){$(".navbar-fixed-top").addClass("top-nav-collapse");$(".navbar-intro-top-ref").removeClass("navbar-intro-top");$(".navbar-intro-top-bg-ref").removeClass("navbar-intro-top-bg");}
+function removeNavbarIntroTop(){$(".navbar-fixed-top").removeClass("top-nav-collapse");$(".navbar-intro-top-ref").addClass("navbar-intro-top");$(".navbar-intro-top-bg-ref").addClass("navbar-intro-top-bg");}
+$(document).ready(toggleNavCollapse);
+$(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click",function(b){var a=$(this);$("html, body").stop().animate({scrollTop:$(a.attr("href")).offset().top-50},1500,"easeInOutExpo",function(){a.blur()});b.preventDefault()})});$(".navbar-collapse ul li a").click(function(){$(".navbar-toggle:visible").click()});
+</script>
+
+
+
+
+
+  <!-- Syntax highlight in post pages-->
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+
+  <!-- Google Tracking Id Start -->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-34247146-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!-- Google Tracking Id End -->
+
+  
+
+
+
+
+  <!-- Disqus -->
+
+  
+
+    <script type="text/javascript">
+    var disqus_shortname = 'giovannifarfan';
+    (function() {
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        dsq.setAttribute('data-timestamp', +new Date());
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+  
+
+  
+
+    <!-- Comments Counter Start -->
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'giovannifarfan'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+    var dsq = document.createElement('script'); 
+    dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.setAttribute('data-timestamp', +new Date());
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+    </script>
+
+    <!-- Comments Counter End -->
+
+  
+
+
+
+
+
+  <!-- Share buttons Start -->
+
+  <script src="/assets/js/rrssb.min.js"></script>
+
+  <!-- Share buttons End -->
+
+
+
+
+
+<script>
+function addTohistory() {
+  if (!window.location.host.startsWith("127.0.0.1")) {
+    history.pushState({}, 'Configuración de Ubuntu 16.04', 'https://giovannifarfan.com/compilation/2016/09/25/configuracion-ubuntu-16_04.html');
+  }
+}
+</script>
+
+<!-- Gesture Navigation / Swipe Instruction Start -->
+
+
+  
+
+    <!-- Post Gesture Navigation Start -->
+
+    <script type="text/javascript" src="/assets/js/hammer.min.js"></script>
+
+    <script>
+      var post = document.getElementById('post');
+
+      new Hammer(post).on('swipeleft', function(event) {
+        addTohistory();
+        
+          document.location.replace("/tour/2016/09/09/hello-world.html");
+        
+      });
+
+      new Hammer(post).on('swiperight', function(event) {
+        addTohistory();
+        
+          document.location.replace("/compilation/2016/10/01/jenkins-ubuntu-16_04.html");
+        
+      });
+    </script>
+
+    <!-- Post Gesture Navigation Start -->
+
+  
+
+  
+
+  
+
+  
+
+    <!-- Swipe Instructions for Post Start -->
+
+    <script>
+      $(document).ready(function(){
+        if(!localStorage.getItem('post-swipeshowed')){
+          $("#swipe-instruction").fadeIn();
+          $("#swipe-instruction .close-swipe-instruction").click(function(){
+            $("#swipe-instruction").fadeOut();
+          });
+          localStorage.setItem('post-swipeshowed', true);
+        }
+      });
+    </script>
+
+    <!-- Swipe Instructions for Post End -->
+
+  
+
+<!-- Gesture Navigation / Swipe Instruction End -->
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script>
+window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'es'}
+</script>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<!-- Javascript End -->
+
+
+  </body>
+</html>
+
+<!-- Post Layout End -->
