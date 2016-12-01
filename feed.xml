@@ -8,6 +8,27 @@
 		<atom:link href="https://giovannifarfan.com/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Sobre flujo de ejecuciones en Jenkins por push en GitHub</title>
+				
+				
+					<description>&lt;p&gt;Aún cuando resulta muy cómodo realizar la ejecución de Jenkins mediante push
+a GitHub, debes tener en cuenta lo siguiente: GitHub solo notifica a un Webhook 
+que se ha efectuado un push sin importar la procedencia y Jenkins ejecuta tareas
+cuando le notifican algún push. Eso significa que si por alguna razón el proceso
+que diseñas en Jenkins incluye un push hacía el mismo repositorio GitHub que causó
+la ejecución, tendrás en automático una cadena infinita de ejecuciones de tu 
+proceso; a menos que cuentes con una estrategia para controlar las ejecuciones
+o más bien puedas controlar los push automáticos, que son los que te causarían 
+el problema.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
+				<link>https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html</link>
+				<guid isPermaLink="true">https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html</guid>
+			</item>
+		
+			<item>
 				<title>Despliegue de Sitio Web en Jekyll con Jenkins</title>
 				
 				

@@ -31,8 +31,8 @@
   <meta name="keywords" content="giovanni, farfán, briceño, development, tools, front-end, back-end, java,  javascript, jenkins, open-source
 ">
   <meta name="p:domain_verify" content="d1b1aa35f4a88a3c1517698c77ea25cd"/>
-  <link rel="canonical" href="/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html">
-  <title>Giovanni Farfán B. | Despliegue de Sitio Web en Jekyll con Jenkins</title>
+  <link rel="canonical" href="/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html">
+  <title>Giovanni Farfán B. | Sobre flujo de ejecuciones en Jenkins por push en GitHub</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -549,15 +549,15 @@
 <!-- Swipe Instructions End -->
 
 
-          <h1><strong>Despliegue de Sitio Web en Jekyll con Jenkins</strong></h1>
+          <h1><strong>Sobre flujo de ejecuciones en Jenkins por push en GitHub</strong></h1>
           <h4>
-            <strong>27 Oct 2016</strong>
+            <strong>01 Dec 2016</strong>
             <small>
               . categoría:
-              <a class="category" href="/categories/deployment.html">
-                deployment
+              <a class="category" href="/categories/issue.html">
+                issue
               </a>.
-              <a href="/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html#disqus_thread">Comentarios</a>
+              <a href="/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html#disqus_thread">Comentarios</a>
               <br />
               
                 <a class="tag" href="/tags/ci.html">#ci</a>
@@ -566,23 +566,20 @@
               
                 <a class="tag" href="/tags/jenkins.html">#jenkins</a>
               
-                <a class="tag" href="/tags/nginx.html">#nginx</a>
-              
                 <a class="tag" href="/tags/github.html">#github</a>
-              
-                <a class="tag" href="/tags/jekyll.html">#jekyll</a>
               
             </small>
           </h4>
 
-          <p>Muy posiblemente alguien tendrá la misma inquietud por poner un Blog y quizá 
-hasta coincida en la fórmula <strong>Jekyll-Nginx-GitHub</strong>. ¿En qué consiste?
-desarrollas un Sitio Web Estático con Jekyll y tienes tres posibles alternativas
-para publicarlo: levantas un servidor con Nginx y despliegas tu Sitio Web o 
-generas un repositorio en GitHub y publicas tu Sitio en GitHub Pages o ambas 
-(Nginx para el acceso principal y GitHub para el acceso con alta disponibilidad). 
-Ahora que si crees que tener dos medios para publicar tu Sitio es mucho mantenimiento 
-¡para nada! un flujo de Jenkins puede ayudar a evitar ese esfuerzo.</p>
+          <p>Aún cuando resulta muy cómodo realizar la ejecución de Jenkins mediante push
+a GitHub, debes tener en cuenta lo siguiente: GitHub solo notifica a un Webhook 
+que se ha efectuado un push sin importar la procedencia y Jenkins ejecuta tareas
+cuando le notifican algún push. Eso significa que si por alguna razón el proceso
+que diseñas en Jenkins incluye un push hacía el mismo repositorio GitHub que causó
+la ejecución, tendrás en automático una cadena infinita de ejecuciones de tu 
+proceso; a menos que cuentes con una estrategia para controlar las ejecuciones
+o más bien puedas controlar los push automáticos, que son los que te causarían 
+el problema.</p>
 
 <h3 id="nbsp"> </h3>
 
@@ -601,29 +598,34 @@ Ahora que si crees que tener dos medios para publicar tu Sitio es mucho mantenim
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="intencion">
       <p>
-        Establecer un proceso de despliegue para tu Sitio Web (Jekyll) con Jenkins, sobre un 
-        servidor Nginx y GitHub Pages.
+        Implementar una solución para el sobre flujo de ejecuciones Jenkins, causado por push 
+        a GitHub automatizados.
       </p>
     </div>
     <div role="tabpanel" class="tab-pane" id="motivacion">
       <p>
-        Cuentas con un servidor y has adquirido un dominio para exponer las particularidades
-        de un proyecto o simplemente estás escribiendo un Blog. Adicional, consideras que 
-        es conveniente utilizar tu servidor para tareas más hayá de alojar tu Sitio. Entonces
-        puedes tener tu servidor como punto de acceso principal de tu Sitio y en
-        caso de alguna catástrofe con el servidor (o poco cuidado con los experimentos) 
-        tener expuesta tu página en un servicio dedicado como GitHub Pages. 
+        En GitHub Pages es posible publicar contenido Web a partir de un repositorio GitHub.
+        Si tuvieras un proceso Jenkins que se encargue de construir tu contenido y publicarlo
+        a GitHub, pensando que es el mismo repositorio de trabajo, por cada push de despliegue
+        sobre GitHub tendrías una nueva ejecución del proceso Jenkins.
         <br /><br />
-        Si quisieras que en cada cambio al repositorio principal de tu proyecto, los cambios
-        se vieran reflejados en el Sitio, sin importar que el despliegue tuviera más de un 
-        destino, podrías pensar en el diseño de un proceso mediante Jenkins.
+        Si necesitas que en tu proceso de Jenkins, las construcciones que hayan sido correctas 
+        en todas las fases diseñadas, sean etiquetadas (tag) en tu repositorio GitHub, el push 
+        del tag será el causante de una nueva ejecución del proceso Jenkins.
+        <br /><br />
+        Si requieres acotar las ejecuciones de Jenkins de acuerdo al contenido del commit o de
+        acuerdo a la etiqueta del commit, se podrían tener variantes en el orden de las etapas 
+        de construcción. Por ejemplo, aquellos procesos de Jenkins que especifiquen versión en 
+        el producto final generado, no deberían ejecutarse completamente si se tratara, por 
+        ejemplo, de un simple cambio ortográfico en la documentación.
       </p>
     </div>
     <div role="tabpanel" class="tab-pane" id="aplicabilidad">
       <p>
         <ul>
-          <li>Automatización de despliegue de Sito Web en Nginx.</li>
-          <li>Automatización de despliegue de Sito Web en GitHub Pages.</li>
+          <li>Control de las ejecuciones de Jenkins efectuadas por push a GitHub.</li>
+          <li>Control de ejecución de tareas particulares de un flujo de trabajo de Jenkins 
+          a partir de la identificación de commits o tags.</li>
         </ul>
       </p>
     </div>
@@ -634,463 +636,287 @@ Ahora que si crees que tener dos medios para publicar tu Sitio es mucho mantenim
 
 <h3 id="estructura">Estructura</h3>
 
-<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/161027_despliegue-sitio-web-jekyll-jenkins/jenkins-jekyll-01-deploy.png" alt="Despliegue en Nginx y GiHub Pages" /></p>
+<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/sobre-flujo-ejecuciones-jenkins-push-github/jekyll-jenkins-01-overflow.png" alt="Sobre flujo de ejecuciones" /></p>
 
 <ol>
   <li>Un desarrollador realiza commit de sus cambios y los centraliza mediante un push.</li>
   <li>GitHub detecta el push efectuado y genera un evento de push.</li>
-  <li>Se ejecuta un proceso con el evento de push que realiza dos despliegues: uno sobre un 
-servidor Nginx y otro sobre GitHub Pages.</li>
+  <li>Se ejecuta un proceso con el evento de push.</li>
+  <li>Dentro del proceso se tiene una operación de push hacia el mismo repositorio del 
+que escucha notificaciones de push.</li>
+  <li>Se repiten los pasos <strong>push &gt; evento push &gt; ejecuta</strong>, hasta que se aborte el proceso
+o el proceso se termine por algún otro medio.</li>
 </ol>
+
+<div class="alert alert-info alert-content" role="alert"><i class="fa fa-info-circle"></i> <b>Nota: </b><br />El <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">Git Plugin</a> provee un apartado de 
+<abbr title="Additional Behaviours">comportamiento adicional</abbr>
+para robustecer la configuración en el manejo del repositorio Git en las
+configuraciones de las tareas en Jenkins.</div>
 
 <h3 id="nbsp-2"> </h3>
 
 <h3 id="implementacin">Implementación</h3>
 
-<h4 id="prerrequisitos">Prerrequisitos</h4>
+<p>Tomando en cuenta que Jenkins funciona como una distribución de archivos de configuración 
+organizados en un espacio de trabajo <em>.jenkins</em>. Podemos pensar una solución 
+basada en un archivo de referencia para el último commit ejecutado, sobre un repositorio
+y un branch en particular, que se vaya actualizando con cada ejecución nueva y con el
+que se pueda distinguir aquella ejecución que ya ha sido ejecutada. Sobre la misma 
+verificación del commit sería posible determinar si el commit fue realizado automáticamente
+por Jenkins mediante el reconocimiento de patrones en el mensaje de commit. Por lo tanto, 
+podríamos tener lo siguiente:</p>
 
-<ol>
-  <li>Tener configurada la <a href="/integration/2016/10/06/ejecucion-jenkins-mediante-push-github.html">ejecución de Jenkins mediante push</a>.</li>
-  <li>Tener configurado <a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#instalacin-de-ruby">Ruby y Jekyll</a>.</li>
-  <li>Tener instalado <a href="https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin">Environment Injector Plugin</a>.</li>
-</ol>
+<ul>
+  <li>Generar un directorio dentro del espacio de trabajo de Jenkins.</li>
+</ul>
 
-<div class="alert alert-warning alert-content" role="alert"><i class="fa fa-warning"></i> <b>Importante: Ambiente</b><br />Ubuntu 16.04.1 alojado en DigitalOcean.
-<br /><a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#instalacin-de-ruby">Jekyll</a> 3.2.1
-<br /><a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#instalacin-de-nginx">Nginx</a> 1.10.0</div>
+<pre><code data-trim="" class="groovy">
+def verifyCommit() {
+  if(!fileExists("${env.JENKINS_HOME}/githistory")) {
+    // Si no se encuentra generamos el directorio para los temporales de commits
+    sh "mkdir ${env.JENKINS_HOME}/githistory"
+  }
+}
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Obtenemos el último commit registrado en base a un archivo de referencia con nombre
+conformado por la tarea y el branch. El archivo se irá sobre escribiendo para tener solo
+el último commit.</li>
+</ul>
+
+<pre><code data-trim="" class="groovy">
+def verifyCommit() {
+  
+  // ...
+
+  def branch = 'master'
+  // Se construye la cadena para el archivo del último commit
+  def commitLogPath = "${env.JENKINS_HOME}/githistory/${env.JOB_BASE_NAME}-${branch}"
+  // Inicialización en vacío por si no existe registro
+  def previousCommit = ''
+
+  try {
+    // En la primer ejecución no se encontrará el archivo de referencia, eso arrojará una excepción
+    previousCommit = readFile("${commitLogPath}").trim()
+  } catch(any) {}
+}
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Se necesita obtener el commit de la ejecución. Aún no necesitamos reemplazar el registro 
+de referencia con dicho commit, así que utilizaremos un archivo temporal y los siguientes
+comandos git.</li>
+</ul>
+
+<pre><code data-trim="" class="groovy">
+def verifyCommit() {
+  
+  // ...
+
+  // Reutilizamos el nombre para nuestro archivo de referencia
+  sh "git log -1 --pretty=%B &gt; ${commitLogPath}-tmp"
+
+  // El comando anterior genera un archivo con el commit (mensaje) anterior
+  def lastCommit = readFile("${commitLogPath}-tmp").trim()
+
+  // Obtenido el valor en la variable procedemos a eliminar el archivo temporal
+  sh "rm -rf ${commitLogPath}-tmp"
+}
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Una vez obtenidos el commit de la ejecución y el último commit ejecutado, podemos proceder
+a las validaciones. Dado que lo obtenido del commit fue el mensaje, es posible mediante
+expresión regular saber si fue generado por Jenkins. Si el commit no fue realizado por 
+Jenkins entonces comparamos el último commit con el commit de la ejecución. Tendríamos
+algo como lo siguiente:</li>
+</ul>
+
+<pre><code data-trim="" class="groovy">
+def verifyCommit() {
+  
+  // ...
+  
+  // Patrón para reconocer commits donde el contenido del mensaje incluya "#jenkins-jobname"
+  def patternDetectCommit = "(?s).*#jenkins-${env.JOB_NAME}.*"
+  // Se evalúa si el commit fue generado por Jenkins
+  def isJenkinsCommit = (lastCommit ==~ /${patternDetectCommit}/)
+  // Si el commit no fue generado por Jenkins, se evalúa el último commit con el commit actual
+  def isSkipBuild = (isJenkinsCommit ? true : lastCommit == previousCommit)
+
+  if(isJenkinsCommit) {
+    // Commit generado por Jenkins, se regresa false
+    false
+  } else if(isSkipBuild) {
+    // Commit previamente construido, se regresa false
+    false
+  } else {
+    // Sin coincidencias, commit válido, se regresa true 
+    true
+  }
+}
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>En algún momento necesitarás guardar en commit de la ejecución, para ir manteniendo actualizado
+el registro del último commit.</li>
+</ul>
+
+<div class="alert alert-warning alert-content" role="alert"><i class="fa fa-warning"></i> <b>Importante: Función de actualización de commit</b><br />Aún cuando la actualización del registro se pudiera realizar durante la misma 
+validación, ten en cuenta que se pueden presentar errores por configuración en tu diseño
+de proceso Jenkins, evitando que se pueda volver a ejecutar el commit una vez corregida 
+la configuración. En otras palabras estarías descartando commits correctos por 
+cuestiones de configuración en la ejecución.</div>
+
+<pre><code data-trim="" class="groovy">
+def saveCommit() {
+  def branch = 'master'
+  // Se construye la cadena para el archivo del último commit
+  def commitLogPath = "${env.JENKINS_HOME}/githistory/${env.JOB_BASE_NAME}-${branch}"
+
+  // Guardamos el commit en el archivo de referencia
+  sh "git log -1 --pretty=%B &gt; ${commitLogPath}"
+}
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Como conclusión a la lógica planteada, dentro de tu diseño de ejecución podrías tener algo como:</li>
+</ul>
+
+<pre><code data-trim="" class="groovy">
+stage('Commit verification') {
+
+  // Se verifica la ejecución sobre el registro del último commit
+  if(verifyCommit()) {
+    
+    // Lógica de ejecución de la tarea
+
+    // ...
+
+    // Termina lógica de ejecución de tarea
+
+    // Se registra el commit actual
+    saveCommit()
+  }
+}
+</code></pre>
 
 <h3 id="nbsp-3"> </h3>
 
-<h4 id="despliegue-en-github-pages">Despliegue en GitHub Pages</h4>
+<h3 id="identificacin-va-tag">Identificación vía tag</h3>
 
-<p>Un despliegue en GitHub Pages se realiza a partir de un repositorio en GitHub. 
-En este sentido, puedes tener, un Sitio general y una página Web por cada
-uno de tus proyectos en GitHub. El Sitio general lo obtienes generando un repositorio 
-nuevo en GitHub con una característica, que el nombre se conforme de tu usuario
-seguido del dominio <strong>github.io</strong>, teniendo algo como: 
-<em class="text-primary">tu_usuario.github.io</em>. Cualquier contenido agregado dentro 
-del branch <strong>master</strong> será automáticamente reflejado como contenido Web. Al repositorio 
-general lo accesas mediante <em class="text-primary">https://tu_usuario.github.io/</em>.</p>
+<p>Como variante a la lógica anterior, tenemos la verificación de tag en el commit
+de la ejecución. Dado que un tag es único y su asignación es indiscutiblemente 
+a partir de una decisión sobre un punto de control de tu código fuente, se puede
+pensar la validación como un factor de comportamiento para tu proceso Jenkins.
+Es decir, ciertas etapas del proceso se llevarían a cabo siempre y cuando el 
+commit de la ejecución cuente con un tag. El procedimiento se realizaría con los
+siguientes pasos:</p>
 
-<p>Por otra parte, cada repositorio que tengas en GitHub tiene la capacidad de exponer a Web. 
-Para esto utiliza un branch con el nombre <strong>gh-pages</strong>. Todo el contenido dentro del branch 
-<strong>gh-pages</strong> será publicado en Web. El acceso es mediante 
-<em class="text-primary">https://tu_usuario.github.io/tu_repositorio</em> (independientemente
-de que tengas o no un repositorio general para tu usuario en GitHub).</p>
+<ul>
+  <li>Se necesita obtener el identificador del commit.</li>
+</ul>
 
-<p>Por lo tanto, el despliegue para GitHub Pages se realiza mediante una operación de push
-al branch <strong>master</strong> si se trata de una página personal (por usuario) o un push al branch
-<strong>gh-pages</strong> si se trata de una página para un repositorio del usuario (sub-página de usuario).</p>
+<pre><code data-trim="" class="groovy">
+def verifyTag() {
 
-<div class="alert alert-success alert-content" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b><br />Puedes ver la siguiente referencia para conocer más a detalle
-la generación y publicación de un Sitio personal con GitHub [<a href="/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html#ref-1">1</a>].</div>
+  // Se guarda en un archivo temporal el identificador del commit actual
+  sh 'git log -1 --pretty=%H &gt; currentCommit'
 
-<pre><code data-trim="" class="batch">
-// Todos los cambios sobre archivos con seguimiento o sin seguimiento
-git add -A
-git commit -m "Actualización a contenido Web."
+  // Guardamos el valor del commit actual
+  def currentCommit = readFile('currentCommit').trim()
+
+  // Eliminamos el archivo temporal
+  sh 'rm -rf currentCommit'
+}
 </code></pre>
+<p><br /></p>
 
-<pre><code data-trim="" class="batch">
-// Push a página general por usuario GitHub
-git push origin master
+<ul>
+  <li>Obtenemos el tag a partir del identificador del commit.</li>
+</ul>
+
+<pre><code data-trim="" class="groovy">
+def verifyTag() {
+
+  // ...
+
+  // Buscamos el tag para el identificador del commit, y lo guardamos en un archivo temporal
+  sh "git tag --contains ${currentCommit} &gt; commitTag"
+
+  // Obtenermos el valor del tag
+  def commitTag = readFile('commitTag').trim()
+
+  // Eliminamos el archivo temporal
+  sh 'rm -rf commitTag'
+}
 </code></pre>
+<p><br /></p>
 
-<pre><code data-trim="" class="batch">
-// Push a página por repositorio GitHub
-git push origin gh-pages
+<ul>
+  <li>Finalmente procedemos a evaluar el contenido (cadena no vacía) del tag.</li>
+</ul>
+
+<div class="alert alert-success alert-content" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip: </b><br />Si necesitas ser más estricto con la validación
+del tag, puedes agregar una lógica para un formato predefinido.</div>
+
+<pre><code data-trim="" class="groovy">
+def verifyTag() {
+
+  // ...
+
+  // Regresamos como valor boleano en true si el tag tiene valor
+  !commitTag?.trim()
+}
+</code></pre>
+<p><br /></p>
+
+<ul>
+  <li>Dentro de tu proceso Jenkins podrías integrar la lógica de validación 
+de tag de la siguiente manera:</li>
+</ul>
+
+<pre><code data-trim="" class="groovy">
+stage('Tag verification') {
+
+  // Se verifica que el commit actual se encuentre etiquetado
+  if(verifyTag()) {
+    
+    // Lógica de ejecución de la tarea
+
+    // ...
+
+    // Termina lógica de ejecución de tarea
+  }
+}
 </code></pre>
 
 <h3 id="nbsp-4"> </h3>
-
-<h4 id="despliegue-en-nginx">Despliegue en Nginx</h4>
-
-<p>Para realizar un despliegue en Nginx necesitas técnicamente de dos cosas, un 
-archivo de configuración para las peticiones dirigidas al recurso que quieres
-hacer público y el contenido de tu recurso con el formato disponible para su
-publicación. De este modo, los pasos para el despliegue se resumen en lo siguiente:</p>
-
-<ul>
-  <li>Configurar el acceso a tu recurso. La configuración más elemental para un 
-recurso en Nginx necesita definir cuál será la 
-<abbr title="Uniform Resource Locator">URL</abbr> base (dominio, 
-<abbr title="Internet Protocol">IP</abbr>:puerto) de 
-todas las peticiones y dónde se encuentra el contenido con el que se responderá
-la solicitud.</li>
-</ul>
-
-<div class="alert alert-info alert-content" role="alert"><i class="fa fa-info-circle"></i> <b>Nota: </b><br />Es posible exponer mediante Nginx: aplicaciones,
-contenido estático, imágenes, audio, video, archivos.</div>
-
-<div class="alert alert-info alert-content" role="alert"><i class="fa fa-info-circle"></i> <b>Nota: </b><br />Si tienes un dominio y necesitas direccionarlo a 
-tu servidor, quizá pueda servirte <a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#configuracin-de-dominio-namecheap-y-digitalocean]">esta configuración</a>.</div>
-
-<pre><code data-trim="" class="vi">
-server {
-  // Puerto para peticiones HTTP
-  listen 80;
-  listen [::]:80;
-
-  // Configuración para escuchar peticiones tusitioweb.com
-  server_name tusitioweb.com;
-
-  // Ubicación física del contenido de tu Sitio Web
-  root /var/www/tusitioweb_com;
-  // Página principal
-  index index.html;
-
-  // Verificación y redireccionamiento interno hacia el
-  // recurso solicitado
-  location / {
-    try_files $uri $uri/ =404;
-  }
-}
-</code></pre>
-<p><br /></p>
-
-<ul>
-  <li>Si necesitas agregar <abbr title="Secure Sockets Layer">SSL</abbr> a tu 
-configuración y forzar que tus peticiones sean 
-<abbr title="HTTP sobre TLS">HTTPS</abbr> considera el siguiente ejemplo.</li>
-</ul>
-
-<pre><code data-trim="" class="vi">
-server {
-  // Puerto para peticiones HTTP
-  listen 80;
-
-  // Configuración para escuchar peticiones tusitioweb.com
-  server_name tusitioweb.com;
-
-  // Redireccionamiento a petición HTTPS
-  return 301 https://$host$request_uri;
-}
-
-server {
-  // Configuración para escuchar peticiones tusitioweb.com
-  server_name tusitioweb.com;
-
-  // Puerto para peticiones SSL (HTTPS)
-  listen 443 ssl default_server;
-  listen [::]:443 ssl default_server;
-
-  // Activación del SSL
-  // Necesitas un certificado y su llave
-  ssl on;
-  ssl_certificate /etc/nginx/ssl/tusitioweb_com.crt;
-  ssl_certificate_key /etc/nginx/ssl/tusitioweb.com.key;
-
-  // Ubicación de Log de acceso y error
-  access_log /var/log/nginx/tusitioweb_com.access.log;
-  error_log /var/log/nginx/tusitioweb_com.error.log;
-
-  // Ubicación física del contenido de tu Sitio Web
-  root /var/www/tusitioweb_com;
-  // Página principal
-  index index.html;
-
-  // Verificación y redireccionamiento interno hacia el
-  // recurso solicitado
-  location / {
-    try_files $uri $uri/ =404;
-  }
-}
-</code></pre>
-<p><br /></p>
-
-<ul>
-  <li>Aunque es posible tener un solo archivo de configuración, lo más adecuado 
-sería tener un archivo de configuración por cada recurso que necesites exponer
-(ej. tu Sitio Web). El o los archivos de configuración los puedes trabajar 
-en el directorio <strong>/etc/nginx/sites-available</strong>, una vez listos genera un 
-<abbr title="Symbolic Link">enlace simbólico</abbr> del archivo de configuración
-en el directorio <strong>/etc/nginx/sites-enabled/</strong>. Reinicia el servidor para los 
-cambios se puedan reflejar.</li>
-</ul>
-
-<pre><code data-trim="" class="batch">
-sudo ln -s /etc/nginx/sites-available/tusitioweb /etc/nginx/sites-enabled/
-</code></pre>
-
-<pre><code data-trim="" class="batch">
-sudo service nginx restart
-</code></pre>
-<p><br /></p>
-
-<ul>
-  <li>Para el despliegue, debes copiar el contenido de tu Sitio Web en el directorio 
-que especificaste como <strong>root</strong> en tu archivo de configuración. Si necesitas 
-reemplazar el contenido, primero elimina los archivos anteriores y copia la 
-última versión de tu contenido.</li>
-</ul>
-
-<div class="alert alert-info alert-content" role="alert"><i class="fa fa-info-circle"></i> <b>Nota: </b><br />El directorio genérico para despliegue Web en 
-Ubuntu es <strong>/var/www</strong>.</div>
-
-<pre><code data-trim="" class="batch">
-rm -rf /var/www/tusitioweb/*
-</code></pre>
-
-<pre><code data-trim="" class="batch">
-// Copia desde la localización altual en directorio
-cp -a * /var/www/tusitioweb/
-</code></pre>
-
-<h3 id="nbsp-5"> </h3>
-
-<h4 id="asignacin-de-permisos-para-usuario-jenkins">Asignación de permisos para usuario Jenkins</h4>
-
-<p>Muy posiblemente y debido a la configuración de seguridad, tu usuario <strong>jenkins</strong>
-no pueda líbremente manipular el contenido del directorio <strong>/var/www/</strong> (si es que 
-lo utilizaste como directorio raíz). Así que necesitamos asignar algunos permisos 
-para que con el usuario <strong>jenkins</strong> se pueda trabajar apropiadamente.</p>
-
-<p>La manera más fácil de administrar configuración de seguridad es mediante la 
-gestión de grupos. Para este caso, el grupo por defecto que tiene privilegios 
-sobre el contenido Web en Ubuntu/Debian es <strong>www-data</strong>. Por lo tanto necesitamos
-asignar los permisos necesarios para que el grupo pueda manipular el contenido
-del directorio <strong>/var/www/</strong> [<a href="/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html#ref-2">2</a>].</p>
-
-<ul>
-  <li>Primero debemos agregar nuestro usuario <strong>jenkins</strong> al grupo <strong>www-data</strong>.</li>
-</ul>
-
-<pre><code data-trim="" class="batch">
-sudo usermod -a -G www-data jenkins
-</code></pre>
-<p><br /></p>
-
-<ul>
-  <li>Agregamos los permisos de lectura y escritura para el grupo <strong>www-data</strong> sobre
-el directorio <strong>/var/www/</strong>.</li>
-</ul>
-
-<pre><code data-trim="" class="batch">
-sudo chgrp -R www-data /var/www
-sudo chmod -R g+rw /var/www
-</code></pre>
-
-<h3 id="nbsp-6"> </h3>
-
-<h4 id="automatizacin-de-despliegue-de-sitio-jekyll">Automatización de despliegue de Sitio Jekyll</h4>
-
-<p>Aún cuando la operación para despliegue tanto de Nginx como para GitHub Pages resulta poco
-laboriosa, el estar escribiendo los comandos y cambiando entre branches es una tarea
-repetitiva que debiera automatizarse. Nada mejor como delegar estas tareas a un experto en
-despliegue: Jenkins.</p>
-
-<ul>
-  <li>Primero necesitas tener tu entorno listo, esto significa tener un repositorio en GitHub 
-(para este ejemplo utilizaremos un repositorio general), configurar la 
-<a href="/integration/2016/10/06/ejecucion-jenkins-mediante-push-github.html">ejecución de Jenkins por push</a> y tener <a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html#instalacin-de-ruby">instaladas las gemas</a> 
-necesarias para construir tu Sitio Web con Jekyll. Una versión nueva de tu Sitio se genera 
-con los siguiente comandos:</li>
-</ul>
-
-<pre><code data-trim="" class="batch">
-// JEKYLL_ENV=production solo si tienes definido el contenido por ambiente
-JEKYLL_ENV=production jekyll build
-</code></pre>
-<p><br /></p>
-
-<ul>
-  <li>Posteriormente <a href="/integration/2016/10/06/ejecucion-jenkins-mediante-push-github.html#configuracin-de-tarea">genera un Pipeline en Jenkins</a>. El proceso definido con 
-el archivo <em>Jenkinsfile</em> deberá contener el siguiente diseño:
-    <ul>
-      <li>Construir la nueva versión del Sito Web.</li>
-      <li>Almacenar temporalmente el contenido del Sitio Web.</li>
-      <li>Posicionarte en el branch de despliegue para GitHub (<em>master</em> o <em>gh-pages</em>).</li>
-      <li>Reemplazar el contenido del branch de despliegue con el contenido generado para la nueva versión 
-del  Sitio.</li>
-      <li>Reemplazar el contenido del Sitio Web para Nginx.</li>
-      <li>Generar el push hacia el branch de despliegue en GitHub.</li>
-    </ul>
-  </li>
-  <li>Para la construcción necesitas hacer referencia a la distribución de Jekyll, asignando la variable 
-de entorno para las gemas de Ruby.</li>
-</ul>
-
-<pre><code data-trim="" class="vi">
-node {
-  // Branch con el fuente del Sitio Web
-  git branch: 'personal', url: 'git@github.com:tu_usuario/tu_usuario.github.io.git'
-
-  // Debes conocer la ubicación exacta de Ruby
-  withEnv(["PATH+RB_SHIMS=/home/usuario/.rbenv/shims"]) {
-    // En este bloque es posible ver todas las gemas de Ruby
-    sh 'JEKYLL_ENV=production jekyll build'
-  }
-}
-</code></pre>
-<p><br /></p>
-
-<ul>
-  <li>Dentro de un flujo de Jenkins es posible almacenar de manera temporal archivos, mismos que 
-puedes utilizar a lo largo del proceso en cualquiera de los nodos sobre los que estés trabajando
-(¡esto es una maravilla!). Para ello utilizas un paso <strong>stash</strong> e identificas ese contenido 
-con un nombre. Con dicho paso guardaremos temporalmente el contenido del Sitio construido
-con Jekyll.</li>
-</ul>
-
-<pre><code data-trim="" class="vi">
-node {
-  // ...
-
-  // Te ubicas en el directorio generado para el Sitio Web
-  dir('_site') {
-    // Guardas todo el contenido de manera temporal
-    stash name: '_site', includes: '**'
-  }
-}
-</code></pre>
-<p><br /></p>
-
-<ul>
-  <li>Como el despliegue en GitHub es mediante un branch, necesitamos colocarnos en el
-branch de donde se tomará el contenido a publicar. Debido a que todo el contenido 
-del Sitio se genera en la construcción, la operación se traduce a borrar lo 
-actualmente incluido en el branch de despliegue y colocar todo contenido guardado 
-en temporal.</li>
-</ul>
-
-<pre><code data-trim="" class="vi">
-node {
-  // ...
-
-  // Creas otro workspace para no mezclar código fuente
-  ws {
-    // Branch para el deploy del Sitio Web
-    git branch: 'master', url: 'git@github.com:tu_usuario/tu_usuario.github.io.git'
-
-    // Se realiza la eliminación del contenido en el branch
-    sh 'rm -rf *'
-
-    // El contenido en temporal pasa se convierte en el nuevo contenido del branch
-    unstash '_site'
-  }
-}
-</code></pre>
-<p><br /></p>
-
-<ul>
-  <li>Una vez obtenido el contenido para la versión actualizada del Sitio, procedemos a 
-realizar el despliegue en Nginx. Que como se mencionó anteriormente solo necesitamos
-reemplazar el contenido actual por el contenido construido.</li>
-</ul>
-
-<pre><code data-trim="" class="vi">
-node {
-  // ...
-
-  ws {    
-    // ...
-
-    // Se elimina el contenido actual del Sitio
-    sh 'rm -rf /var/www/tusitioweb/*'
-    // Se copia todo el contenido nuevo a la directorio del Sitio
-    sh 'cp -a * /var/www/tusitioweb/'
-  }
-}
-</code></pre>
-<p><br /></p>
-
-<ul>
-  <li>Por último, efectuamos el commit de los cambios referidos al contenido construido
-en el branch de despliegue. Este despliegue lo tomaremos como de “alta disponibilidad”,
-ya que ninguno de nuestros experimientos (excepto los push) pueden alterar o atentar
-la estabilidad del Sitio.</li>
-</ul>
-
-<div class="alert alert-danger alert-content" role="alert"><i class="fa fa-times-circle"></i> <b>Peligro: Ejecuciones infinitas</b><br />Necesitas un mecanismo 
-que evique que el push que realizarás en GitHub para el despliegue en GitHub Pages 
-no genere un ciclio infinito de construcciones. Recuerda que la tarea de Jenkins se 
-ejecuta a partir de un evento de push.</div>
-
-<pre><code data-trim="" class="vi">
-node {
-  // ...
-
-  ws {    
-    // ...
-
-    sh 'git add -A'
-    sh "git commit -m \"Actualización a contenido Web.\""
-    sh 'git push origin master'
-  }
-}
-</code></pre>
-<p><br /></p>
-
-<ul>
-  <li>El <em>Jenkinsfile</em> completo tendría el siguiente aspecto (le puse unos adornos <em>stage</em>
-para identificar las actividades de ejecución):</li>
-</ul>
-
-<pre><code data-trim="" class="vi">
-node {
-  stage('Construcción del Sitio') {
-    git branch: 'personal', url: 'git@github.com:tu_usuario/tu_usuario.github.io.git'
-
-    withEnv(["PATH+RB_SHIMS=/home/usuario/.rbenv/shims"]) {
-      sh 'JEKYLL_ENV=production jekyll build'
-    }
-  }
-
-  stage('Almacenamiento temporal') {
-    dir('_site') {
-      stash name: '_site', includes: '**'
-    }
-  }
-
-  ws {
-    stage('Preparación de despliegue') {
-      git branch: 'master', url: 'git@github.com:tu_usuario/tu_usuario.github.io.git'
-
-      sh 'rm -rf *'
-
-      unstash '_site'
-    }
-
-    stage('Despliegue en Nginx') {
-      sh 'rm -rf /var/www/tusitioweb/*'
-      sh 'cp -a * /var/www/tusitioweb/'
-    }
-
-    stage('Despliegue en GitHub Pages') {
-      sh 'git add -A'
-      sh "git commit -m \"Actualización a contenido Web.\""
-      sh 'git push origin master'
-    }
-  }
-}
-</code></pre>
-
-<h3 id="nbsp-7"> </h3>
 
 <h3 id="consecuencias">Consecuencias</h3>
 
 <ul>
   <li>
-    <p>Como se comentó anteriormente, considera que los push producen las ejecuciones
-de Jenkins. Si tu incluyes un despliegue a GitHub Pages desencadenarás un ciclo
-de <em>ejecución-push-ejecución-push…</em> infinito. Se puede pensar en un mecanismo
-que funcione a partir del reconocimiento de los commits que se realizan.</p>
+    <p>El control mediante registro de último commit o validación de tag son mecanismos
+que puedes utilizar cuando la funcionalidad del <a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">Git Plugin</a> o el <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin">GitHub Plugin</a> 
+no logren estabilizar las ejecuciones de tu proceso o no logre proveer capacidad de 
+decisión en el diseño de tus procesos.</p>
   </li>
   <li>
-    <p>Otro paso adicional y muy importante puede ser la recuperación de errores o un
-plan de contingencia en el cual no se completarán los despliegues. Posiblemente 
-el paso <em>stash</em> de Jenkins lo manipules de manera que en temporal almacenes el
-último contenido correcto y mediante manejo de errores puedas recuperes el despliegue 
-anterior.</p>
-  </li>
-  <li>
-    <p>Podrías enriquecer el proceso para que puedas notificar sobre los eventos de tu 
-importancia, respecto a los despliegues realizados. Piensa en que tienes medios 
-como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html">integración de alguna herramienta de comunicación</a>.</p>
+    <p>Debido a la necesidad de crear archivos temporales para obtención de datos
+mediante comandos git, es posible que requieras asignación de permisos para manejo 
+de archivos con los usuarios determinados por los nodos de Jenkins que emplees 
+en tu proceso.</p>
   </li>
 </ul>
 
-<h3 id="nbsp-8"> </h3>
+<h3 id="nbsp-5"> </h3>
 
 <div>
   <ul class="nav nav-tabs" role="tablist">
@@ -1106,7 +932,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
       <p>
         <ul class="uses">
           <li><a href="/integration/2016/10/06/ejecucion-jenkins-mediante-push-github.html">Ejecución de Jenkins mediante push en GitHub</a></li>
-          <li><a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html">Notificaciones con Slack y Ryver en Jenkins</a></li>
+          <li><a href="/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html">Despliegue de Sitio Web en Jekyll con Jenkins</a></li>
         </ul>
       </p>
     </div>
@@ -1115,10 +941,16 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
         <ul>
           <li>
             Este <a href="https://github.com/gfarfanb/gfarfanb.github.io">Sitio Web</a>, se construye 
-            a partir del branch <strong>personal</strong>. El proceso de Jenkins se ejecuta mediante
-            un archivo <em>Jenkinsfile</em> en el branch <strong>scripts</strong> para realizar el deploy
-            automático del Sitio. 
+            mediante un <em>Jenkinsfile</em> en el branch <strong>scripts</strong>. La lógica del 
+            <em>Jenkinsfile</em> contiene la implementación de solución al sobre flujo de ejecuciones
+            por push en GitHub. 
             <a class="github-button" href="https://github.com/gfarfanb/gfarfanb.github.io/fork" aria-label="Fork gfarfanb/gfarfanb.github.io on GitHub">Fork</a>
+          </li>
+          <li>
+            El proyecto <a href="https://github.com/gfarfanb/jenkins-scripts">jenkins-scripts</a>
+            contiene la implementación de la solución del sobre flujo de ejecuciones como biblioteca. 
+            El archivo <em>Jenkinsfile-git</em> muestra el ejemplo de cómo utilizar dicha biblioteca.
+            <a class="github-button" href="https://github.com/gfarfanb/jenkins-scripts/fork" aria-label="Fork gfarfanb/jenkins-scripts on GitHub">Fork</a>
           </li>
         </ul>
       </p>
@@ -1126,23 +958,28 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
   </div>
 </div>
 
-<h3 id="nbsp-9"> </h3>
+<h3 id="nbsp-6"> </h3>
 
 <div class="panel panel-default">
   <div class="panel-heading"><h3 class="panel-title text-uppercase">Referencias</h3></div>
   <div class="panel-body">    
     <span class="references">
       
-      <br /><span id="ref-1"><b>[1]</b></span>
-      J. McGlone, "Creating and Hosting a Personal Site on GitHub," 2016. [Online]. 
-      Available: <a href="http://jmcglone.com/guides/github-pages/">http://jmcglone.com/guides/github-pages/</a>. 
-      Accessed: Oct. 24, 2016.
-
-      <br /><span id="ref-2"><b>[2]</b></span> 
-      "How can I give write-access of a folder to all users in linux?," 2009. [Online]. 
-      Available: <a href="http://superuser.com/questions/19318/how-can-i-give-write-access-of-a-folder-to-all-users-in-linux">http://superuser.com/questions/19318/how-can-i-give-write-access-of-a-folder-to-all-users-in-linux</a>. 
-      Accessed: Oct. 8, 2016.
+      <br /><span id="ref-1"><b>[1]</b></span> 
+      G. Farfán B., "Despliegue de Sitio web en Jekyll con Jenkins," 2016. [Online]. 
+      Available: <a href="https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html">https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html</a>. 
+      Accessed: Nov. 4, 2016.
       
+      <br /><span id="ref-2"><b>[2]</b></span> 
+      "Git - git-log documentation,". [Online]. 
+      Available: <a href="https://git-scm.com/docs/git-log">https://git-scm.com/docs/git-log</a>. 
+      Accessed: Nov. 28, 2016.
+
+      <br /><span id="ref-3"><b>[3]</b></span> 
+      "Git - git-tag documentation,". [Online]. 
+      Available: <a href="https://git-scm.com/docs/git-tag">https://git-scm.com/docs/git-tag</a>. 
+      Accessed: Nov. 28, 2016.
+
       <br /><br />
     </span>
   </div>
@@ -1192,7 +1029,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
 <ul class="rrssb-buttons clearfix">
   
     <li class="rrssb-facebook">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html&title=Despliegue de Sitio Web en Jekyll con Jenkins" class="popup">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html&title=Sobre flujo de ejecuciones en Jenkins por push en GitHub" class="popup">
         <span class="rrssb-icon">
           <svg xmlns="https://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="29" height="29" viewBox="0 0 29 29"><path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"
             class="cls-2" fill-rule="evenodd"></path></svg>
@@ -1203,7 +1040,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
   
   
     <li class="rrssb-twitter">
-      <a href="https://twitter.com/share?url=https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html&text=Despliegue de Sitio Web en Jekyll con Jenkins"
+      <a href="https://twitter.com/share?url=https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html&text=Sobre flujo de ejecuciones en Jenkins por push en GitHub"
       class="popup">
         <span class="rrssb-icon"><svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62c-3.122.162-6.22-.646-8.86-2.32 2.702.18 5.375-.648 7.507-2.32-2.072-.248-3.818-1.662-4.49-3.64.802.13 1.62.077 2.4-.154-2.482-.466-4.312-2.586-4.412-5.11.688.276 1.426.408 2.168.387-2.135-1.65-2.73-4.62-1.394-6.965C5.574 7.816 9.54 9.84 13.802 10.07c-.842-2.738.694-5.64 3.434-6.48 2.018-.624 4.212.043 5.546 1.682 1.186-.213 2.318-.662 3.33-1.317-.386 1.256-1.248 2.312-2.4 2.942 1.048-.106 2.07-.394 3.02-.85-.458 1.182-1.343 2.15-2.48 2.71z"></path></svg></span>
         <span class="rrssb-text">twitter</span>
@@ -1212,7 +1049,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
   
   
     <li class="rrssb-linkedin">
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html" class="popup">
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html" class="popup">
       <span class="rrssb-icon">
         <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
           <path d="M25.424 15.887v8.447h-4.896v-7.882c0-1.98-.71-3.33-2.48-3.33-1.354 0-2.158.91-2.514 1.802-.13.315-.162.753-.162 1.194v8.216h-4.9s.067-13.35 0-14.73h4.9v2.087c-.01.017-.023.033-.033.05h.032v-.05c.65-1.002 1.812-2.435 4.414-2.435 3.222 0 5.638 2.106 5.638 6.632zM5.348 2.5c-1.676 0-2.772 1.093-2.772 2.54 0 1.42 1.066 2.538 2.717 2.546h.032c1.71 0 2.77-1.132 2.77-2.546C8.056 3.593 7.02 2.5 5.344 2.5h.005zm-2.48 21.834h4.896V9.604H2.867v14.73z"></path>
@@ -1224,7 +1061,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
       
   
     <li class="rrssb-googleplus">
-      <a href="https://plus.google.com/share?url=https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html" class="popup">
+      <a href="https://plus.google.com/share?url=https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html" class="popup">
         <span class="rrssb-icon">
           <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 8.29h-1.95v2.6h-2.6v1.82h2.6v2.6H21v-2.6h2.6v-1.885H21V8.29zM7.614 10.306v2.925h3.9c-.26 1.69-1.755 2.925-3.9 2.925-2.34 0-4.29-2.016-4.29-4.354s1.885-4.353 4.29-4.353c1.104 0 2.014.326 2.794 1.105l2.08-2.08c-1.3-1.17-2.924-1.883-4.874-1.883C3.65 4.586.4 7.835.4 11.8s3.25 7.212 7.214 7.212c4.224 0 6.953-2.988 6.953-7.082 0-.52-.065-1.104-.13-1.624H7.614z"></path></svg>
         </span>
@@ -1256,7 +1093,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
 <ul class="rrssb-buttons collapse" id="collapseShare">
   
     <li class="rrssb-pocket">
-      <a href="https://getpocket.com/save?url=https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html">
+      <a href="https://getpocket.com/save?url=https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html">
         <span class="rrssb-icon">
           <svg width="32" height="28" viewBox="0 0 32 28" xmlns="http://www.w3.org/2000/svg">
             <path d="M28.782.002c2.03.002 3.193 1.12 3.182 3.106-.022 3.57.17 7.16-.158 10.7-1.09 11.773-14.588 18.092-24.6 11.573C2.72 22.458.197 18.313.057 12.937c-.09-3.36-.05-6.72-.026-10.08C.04 1.113 1.212.016 3.02.008 7.347-.006 11.678.004 16.006.002c4.258 0 8.518-.004 12.776 0zM8.65 7.856c-1.262.135-1.99.57-2.357 1.476-.392.965-.115 1.81.606 2.496 2.453 2.334 4.91 4.664 7.398 6.966 1.086 1.003 2.237.99 3.314-.013 2.407-2.23 4.795-4.482 7.17-6.747 1.203-1.148 1.32-2.468.365-3.426-1.01-1.014-2.302-.933-3.558.245-1.596 1.497-3.222 2.965-4.75 4.526-.706.715-1.12.627-1.783-.034-1.597-1.596-3.25-3.138-4.93-4.644-.47-.42-1.123-.647-1.478-.844z"></path>
@@ -1268,7 +1105,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
   
   
     <li class="rrssb-reddit">
-      <a href="https://www.reddit.com/submit?url=https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html&title=Despliegue de Sitio Web en Jekyll con Jenkins" target="_blank">
+      <a href="https://www.reddit.com/submit?url=https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html&title=Sobre flujo de ejecuciones en Jenkins por push en GitHub" target="_blank">
         <span class="rrssb-icon">
           <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
             <path d="M11.794 15.316c0-1.03-.835-1.895-1.866-1.895-1.03 0-1.893.866-1.893 1.896s.863 1.9 1.9 1.9c1.023-.016 1.865-.916 1.865-1.9zM18.1 13.422c-1.03 0-1.895.864-1.895 1.895 0 1 .9 1.9 1.9 1.865 1.03 0 1.87-.836 1.87-1.865-.006-1.017-.875-1.917-1.875-1.895zM17.527 19.79c-.678.68-1.826 1.007-3.514 1.007h-.03c-1.686 0-2.834-.328-3.51-1.005-.264-.265-.693-.265-.958 0-.264.265-.264.7 0 1 .943.9 2.4 1.4 4.5 1.402.005 0 0 0 0 0 .005 0 0 0 0 0 2.066 0 3.527-.46 4.47-1.402.265-.264.265-.693.002-.958-.267-.334-.688-.334-.988-.043z"></path>
@@ -1281,7 +1118,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
   
   
     <li class="rrssb-hackernews">
-      <a href="https://news.ycombinator.com/submitlink?u=https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html&t=Despliegue de Sitio Web en Jekyll con Jenkins&text=<p>Muy posiblemente alguien tendrá la misma inquietud por poner un Blog y quizá hasta coincida en la fórmula Jekyll-Nginx-GitHub. ¿En qué consiste? desarrollas un Sitio Web Estático con Jekyll y tienes tres posibles alternativas para publicarlo: levantas un servidor con Nginx y despliegas tu Sitio Web o generas un repositorio...">
+      <a href="https://news.ycombinator.com/submitlink?u=https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html&t=Sobre flujo de ejecuciones en Jenkins por push en GitHub&text=<p>Aún cuando resulta muy cómodo realizar la ejecución de Jenkins mediante push a GitHub, debes tener en cuenta lo siguiente: GitHub solo notifica a un Webhook que se ha efectuado un push sin importar la procedencia y Jenkins ejecuta tareas cuando le notifican algún push. Eso significa que si por...">
         <span class="rrssb-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewbox="0 0 28 28">
             <path fill="#FFF" d="M14 13.626l-4.508-9.19H6.588l6.165 12.208v6.92h2.51v-6.92l6.15-12.21H18.69"></path>
@@ -1306,7 +1143,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
   
   
     <li class="rrssb-pinterest">
-      <a href="https://pinterest.com/pin/create/button/?url=https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html" target="_blank">
+      <a href="https://pinterest.com/pin/create/button/?url=https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html" target="_blank">
         <span class="rrssb-icon">
           <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
             <path d="M14.02 1.57c-7.06 0-12.784 5.723-12.784 12.785S6.96 27.14 14.02 27.14c7.062 0 12.786-5.725 12.786-12.785 0-7.06-5.724-12.785-12.785-12.785zm1.24 17.085c-1.16-.09-1.648-.666-2.558-1.22-.5 2.627-1.113 5.146-2.925 6.46-.56-3.972.822-6.952 1.462-10.117-1.094-1.84.13-5.545 2.437-4.632 2.837 1.123-2.458 6.842 1.1 7.557 3.71.744 5.226-6.44 2.924-8.775-3.324-3.374-9.677-.077-8.896 4.754.19 1.178 1.408 1.538.49 3.168-2.13-.472-2.764-2.15-2.683-4.388.132-3.662 3.292-6.227 6.46-6.582 4.008-.448 7.772 1.474 8.29 5.24.58 4.254-1.815 8.864-6.1 8.532v.003z"></path>
@@ -1321,7 +1158,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
   
   
     <li class="rrssb-whatsapp">
-      <a href="whatsapp://send?text=Despliegue de Sitio Web en Jekyll con Jenkins%3A%20https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html" data-action="share/whatsapp/share">
+      <a href="whatsapp://send?text=Sobre flujo de ejecuciones en Jenkins por push en GitHub%3A%20https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html" data-action="share/whatsapp/share">
         <span class="rrssb-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewbox="0 0 90 90">
             <path d="M90 43.84c0 24.214-19.78 43.842-44.182 43.842a44.256 44.256 0 0 1-21.357-5.455L0 90l7.975-23.522a43.38 43.38 0 0 1-6.34-22.637C1.635 19.63 21.415 0 45.818 0 70.223 0 90 19.628 90 43.84zM45.818 6.983c-20.484 0-37.146 16.535-37.146 36.86 0 8.064 2.63 15.533 7.076 21.61l-4.64 13.688 14.274-4.537A37.122 37.122 0 0 0 45.82 80.7c20.48 0 37.145-16.533 37.145-36.857S66.3 6.983 45.818 6.983zm22.31 46.956c-.272-.447-.993-.717-2.075-1.254-1.084-.537-6.41-3.138-7.4-3.495-.993-.36-1.717-.54-2.438.536-.72 1.076-2.797 3.495-3.43 4.212-.632.72-1.263.81-2.347.27-1.082-.536-4.57-1.672-8.708-5.332-3.22-2.848-5.393-6.364-6.025-7.44-.63-1.076-.066-1.657.475-2.192.488-.482 1.084-1.255 1.625-1.882.543-.628.723-1.075 1.082-1.793.363-.718.182-1.345-.09-1.884-.27-.537-2.438-5.825-3.34-7.977-.902-2.15-1.803-1.793-2.436-1.793-.63 0-1.353-.09-2.075-.09-.722 0-1.896.27-2.89 1.344-.99 1.077-3.788 3.677-3.788 8.964 0 5.288 3.88 10.397 4.422 11.113.54.716 7.49 11.92 18.5 16.223 11.01 4.3 11.01 2.866 12.996 2.686 1.984-.18 6.406-2.6 7.312-5.107.9-2.513.9-4.664.63-5.112z"></path>
@@ -1333,7 +1170,7 @@ como la <a href="/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html
   
   
     <li class="rrssb-email">
-      <a href="mailto:?subject=Despliegue de Sitio Web en Jekyll con Jenkins&body=https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html" data-proofer-ignore>
+      <a href="mailto:?subject=Sobre flujo de ejecuciones en Jenkins por push en GitHub&body=https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html" data-proofer-ignore>
         <span class="rrssb-icon">
           <svg xmlns="https://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
             <path d="M20.11 26.147c-2.335 1.05-4.36 1.4-7.124 1.4C6.524 27.548.84 22.916.84 15.284.84 7.343 6.602.45 15.4.45c6.854 0 11.8 4.7 11.8 11.252 0 5.684-3.193 9.265-7.398 9.3-1.83 0-3.153-.934-3.347-2.997h-.077c-1.208 1.986-2.96 2.997-5.023 2.997-2.532 0-4.36-1.868-4.36-5.062 0-4.75 3.503-9.07 9.11-9.07 1.713 0 3.7.4 4.6.972l-1.17 7.203c-.387 2.298-.115 3.3 1 3.4 1.674 0 3.774-2.102 3.774-6.58 0-5.06-3.27-8.994-9.304-8.994C9.05 2.87 3.83 7.545 3.83 14.97c0 6.5 4.2 10.2 10 10.202 1.987 0 4.09-.43 5.647-1.245l.634 2.22zM16.647 10.1c-.31-.078-.7-.155-1.207-.155-2.572 0-4.596 2.53-4.596 5.53 0 1.5.7 2.4 1.9 2.4 1.44 0 2.96-1.83 3.31-4.088l.592-3.72z"></path>
@@ -1558,7 +1395,7 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
 <script>
 function addTohistory() {
   if (!window.location.host.startsWith("127.0.0.1")) {
-    history.pushState({}, 'Despliegue de Sitio Web en Jekyll con Jenkins', 'https://giovannifarfan.com/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html');
+    history.pushState({}, 'Sobre flujo de ejecuciones en Jenkins por push en GitHub', 'https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html');
   }
 }
 </script>
@@ -1578,14 +1415,14 @@ function addTohistory() {
       new Hammer(post).on('swipeleft', function(event) {
         addTohistory();
         
-          document.location.replace("/integration/2016/10/16/notificaciones-slack-ryver-jenkins.html");
+          document.location.replace("/deployment/2016/10/27/despliegue-sitio-web-jekyll-jenkins.html");
         
       });
 
       new Hammer(post).on('swiperight', function(event) {
         addTohistory();
         
-          document.location.replace("/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html");
+          document.location.replace("/");
         
       });
     </script>
