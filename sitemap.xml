@@ -111,6 +111,15 @@
   
   
     <url>
+      <loc>https://giovannifarfan.com/integration/2017/03/11/analisis-estatico-sonarqube-jenkins.html</loc>
+      
+        <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+      
+      <changefreq>weekly</changefreq>
+      <priority>1.0</priority>
+    </url>
+  
+    <url>
       <loc>https://giovannifarfan.com/issue/2016/12/01/sobre-flujo-ejecuciones-jenkins-push-github.html</loc>
       
         <lastmod>2016-12-01T00:00:00+00:00</lastmod>

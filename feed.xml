@@ -8,6 +8,28 @@
 		<atom:link href="https://giovannifarfan.com/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Análisis Estático con SonarQube en Jenkins</title>
+				
+				
+					<description>&lt;p&gt;Una de las actividades que se consideran relevantes durante el ciclo de desarrollo 
+de Software es la revisión de código, que puedes hacer en modo estático (sin 
+ejecutar el código fuente) y en modo dinámico (durante la ejecución del código
+fuente). El &lt;abbr title=&quot;Static Code Analysis&quot;&gt;Análisis Estático&lt;/abbr&gt; lo puedes 
+relacionar con el visto bueno que el desarrollador le dá a su trabajo antes de 
+promoverlo a su utilización, es decir revisión de errores potenciales, vulnerabilidades,
+impacto en calidad del diseño (&lt;em&gt;Code Smells&lt;/em&gt;), estándares de codificación,
+por mencionar algunos. Si esta revisión la delegas a un herramienta a la cual le 
+especificas reglas de revisión, puedes lograr un concepto de 
+&lt;abbr title=&quot;Continuous Code Quality&quot;&gt;Calidad de Codigo Continua&lt;/abbr&gt;.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Sat, 11 Mar 2017 00:00:00 +0000</pubDate>
+				<link>https://giovannifarfan.com/integration/2017/03/11/analisis-estatico-sonarqube-jenkins.html</link>
+				<guid isPermaLink="true">https://giovannifarfan.com/integration/2017/03/11/analisis-estatico-sonarqube-jenkins.html</guid>
+			</item>
+		
+			<item>
 				<title>Sobre flujo de ejecuciones en Jenkins por push en GitHub</title>
 				
 				
