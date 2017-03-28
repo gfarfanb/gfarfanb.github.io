@@ -1,0 +1,51 @@
+==================================================================
+https://keybase.io/gfarfanb
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am gfarfanb on github.
+  * I am gfarfanb (https://keybase.io/gfarfanb) on keybase.
+  * I have a public key with fingerprint D41C B14C 9534 6305 14F0  F47D FB3D BE75 E3B2 0B71
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120f05233a0c2a5febb568efce63dad27b926a30b676fb4ed608e141cf712ff8ec50a",
+            "fingerprint": "d41cb14c9534630514f0f47dfb3dbe75e3b20b71",
+            "host": "keybase.io",
+            "kid": "0120f05233a0c2a5febb568efce63dad27b926a30b676fb4ed608e141cf712ff8ec50a",
+            "uid": "74467c006f0ba1d4552b38a7f88d6c19",
+            "username": "gfarfanb"
+        },
+        "service": {
+            "hostname": "giovannifarfan.com",
+            "protocol": "https"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.20"
+    },
+    "ctime": 1490407227,
+    "expire_in": 504576000,
+    "prev": "1567ece0d47a6c6ae0c3e8b45de0d3cc61e817c37f6e0874befd4cd7f8b2c0f9",
+    "seqno": 10,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg8FIzoMKl/rtWjvzmPa0nuSajC2dvtO1gjhQc9xL/jsUKp3BheWxvYWTFAu17ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwZjA1MjMzYTBjMmE1ZmViYjU2OGVmY2U2M2RhZDI3YjkyNmEzMGI2NzZmYjRlZDYwOGUxNDFjZjcxMmZmOGVjNTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZjA1MjMzYTBjMmE1ZmViYjU2OGVmY2U2M2RhZDI3YjkyNmEzMGI2NzZmYjRlZDYwOGUxNDFjZjcxMmZmOGVjNTBhIiwidWlkIjoiNzQ0NjdjMDA2ZjBiYTFkNDU1MmIzOGE3Zjg4ZDZjMTkiLCJ1c2VybmFtZSI6ImdmYXJmYW5iIn0sInNlcnZpY2UiOnsibmFtZSI6ImdpdGh1YiIsInVzZXJuYW1lIjoiZ2ZhcmZhbmIifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMjAifSwiY3RpbWUiOjE0OTA0MDcyMjcsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ5MDQwNzE0OCwiaGFzaCI6IjU2YTlmYmQ0NTk5ZjdmMTkyMGJhN2Y5NTVjYjFmZGE2YjBjMTI1OGM0NDY1M2QyOWZkM2JiMjRkYzJmNDM5N2YzOTBhMDNkZWY5ODU3NWRjOGMzZWM4NDIxYjU4Yjk4OGFhNGIxNDJjNjhiOTJkMWQ0N2U4YWM1NTBjNDY2ZjYwIiwic2Vxbm8iOjk3NzI5OX0sInByZXYiOiIxNTY3ZWNlMGQ0N2E2YzZhZTBjM2U4YjQ1ZGUwZDNjYzYxZTgxN2MzN2Y2ZTA4NzRiZWZkNGNkN2Y4YjJjMGY5Iiwic2Vxbm8iOjEwLCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQAFBdgZrZSIeWNCJm2cPgeaVgznKRbbN49gY8h7neALfCm11OsM32F15L2mveSgJWrOWo4qJRCxmGh3+gikyXgGoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDaz+0bNc3uzEh3h36mS4fd1cJHcAprL7nBqAT7kshXLKN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/gfarfanb
+
+==================================================================
+
