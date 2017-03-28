@@ -64,12 +64,12 @@
   <!-- iOS Web App mode -->
 
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="apple-touch-icon" sizes="36x36" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-36p.png">
-  <link rel="apple-touch-icon" sizes="48x48" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-48p.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-72p.png">
-  <link rel="apple-touch-icon" sizes="96x96" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-96p.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-144p.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/web-app/icon-192p.png">
+  <link rel="apple-touch-icon" sizes="36x36" href="https://giovannifarfan.com/image/web-app/icon-36p.png">
+  <link rel="apple-touch-icon" sizes="48x48" href="https://giovannifarfan.com/image/web-app/icon-48p.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://giovannifarfan.com/image/web-app/icon-72p.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="https://giovannifarfan.com/image/web-app/icon-96p.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://giovannifarfan.com/image/web-app/icon-144p.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="https://giovannifarfan.com/image/web-app/icon-192p.png">
 
   <!-- Android Web App mode -->
 
@@ -676,7 +676,7 @@ un repositorio asociado a una tarea, la tarea se ejecuta.</p>
 
 <h3 id="estructura">Estructura</h3>
 
-<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-01-push.png" alt="Evento de push" /></p>
+<p><img src="https://giovannifarfan.com/image/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-01-push.png" alt="Evento de push" /></p>
 
 <div class="alert alert-info alert-content" role="alert"><i class="fa fa-info-circle"></i> <b>Nota: </b><br />El webhook es parte de la funcionalidad del <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+plugin">GitHub plugin</a>.</div>
 
@@ -722,7 +722,7 @@ Configure</strong>. En el apartado <strong>Build Triggers</strong> marca la opci
 change is pushed to GitHub</strong>.</li>
 </ul>
 
-<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-02-triggers.png" alt="Configuración de triggers" /></p>
+<p><img src="https://giovannifarfan.com/image/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-02-triggers.png" alt="Configuración de triggers" /></p>
 
 <ul>
   <li>En el apartado <strong>Pipeline</strong> (o <strong>Source Control Management</strong> según sea el caso) 
@@ -734,7 +734,7 @@ selecciona <em class="text-primary">Git</em> e ingresa la
 
 <div class="alert alert-info alert-content" role="alert"><i class="fa fa-info-circle"></i> <b>Nota: </b><br />Una <abbr title="Uniform Resource Locator">URL</abbr> con la forma <strong>https://github.com/usuario/repository.git</strong> necesita acceso por credenciales. La <abbr title="Uniform Resource Locator">URL</abbr> con la forma <strong>git@github.com:usuario/repository.git</strong> necesita acceso por <abbr title="Secure Shell">SSH</abbr></div>
 
-<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-03-scm.png" alt="Configuración de repositorio" /></p>
+<p><img src="https://giovannifarfan.com/image/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-03-scm.png" alt="Configuración de repositorio" /></p>
 
 <h3 id="nbsp-4"> </h3>
 
@@ -753,7 +753,7 @@ un nuevo servicio (<strong>Add service</strong>) del tipo
   </li>
 </ul>
 
-<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-04-service.png" alt="Integración y servicios" /></p>
+<p><img src="https://giovannifarfan.com/image/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-04-service.png" alt="Integración y servicios" /></p>
 
 <ul>
   <li>Escribe la <abbr title="Uniform Resource Locator">URL</abbr> de tu Jenkins 
@@ -763,14 +763,14 @@ servicio.</li>
 
 <div class="alert alert-warning alert-content" role="alert"><i class="fa fa-warning"></i> <b>Importante: </b><br />Si utilizas la <abbr title="Internet Protocol">IP</abbr> de tu servidor será necesario establecer el puerto de acceso. Aunque también considera que la <abbr title="Internet Protocol">IP</abbr> debe ser pública.</div>
 
-<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-05-webhook.png" alt="Webhook de Jenkins" /></p>
+<p><img src="https://giovannifarfan.com/image/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-05-webhook.png" alt="Webhook de Jenkins" /></p>
 
 <ul>
   <li>Ingresa al detalle del servicio que acabas de crear y selecciona la opción
 de <strong>Test service</strong> para verificar que está todo correcto.</li>
 </ul>
 
-<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-06-test.png" alt="Prueba de Webhook de Jenkins" /></p>
+<p><img src="https://giovannifarfan.com/image/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-06-test.png" alt="Prueba de Webhook de Jenkins" /></p>
 
 <h3 id="nbsp-5"> </h3>
 
@@ -796,7 +796,7 @@ git push origin master
 </code></pre>
 <p><br /></p>
 
-<p><img src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-07-log.png" alt="Log de cambios por push" /></p>
+<p><img src="https://giovannifarfan.com/image/post/161006_ejecucion-jenkins-mediante-push-github/jenkins-github-07-log.png" alt="Log de cambios por push" /></p>
 
 <h3 id="nbsp-6"> </h3>
 
@@ -1109,7 +1109,7 @@ también resulta ser desventaja si requieres una ejecución por evento push.</li
           <div class="author row">
             <div class="col-md-8 col-md-offset-2">
               <div class="row">
-                <img class="col-xs-4 col-sm-4 col-md-3" src="https://dl.dropboxusercontent.com/u/17067773/image/giovannifarfan_com/author.png" alt="Me" />
+                <img class="col-xs-4 col-sm-4 col-md-3" src="https://giovannifarfan.com/image/author.png" alt="Me" />
                 <p class="col-xs-8 col-sm-8 col-md-9">
                   <small> 
                     Giovanni Farfán Briceño es un desarrollador FullStack (BETA) con la decisión de conquistar al mundo como desarrollador; o al menos poder cambiarlo.
@@ -1148,6 +1148,8 @@ también resulta ser desventaja si requieres una ejecución por evento push.</li
     <div class="row">
 	  <div class="col-sm-4 col-sm-offset-1">
 	    <p class="footer-content">Copyright &copy; 2017 Giovanni Farfán Briceño</p>
+	    
+	    <p class="footer-content"><a href="https://keybase.io/gfarfanb" target="_blank"><i class="fa fa-key"></i> gfarfanb on Keybase</a></small></p>
 	    
 	    <br>
 	    <!-- Social Buttons Start -->
