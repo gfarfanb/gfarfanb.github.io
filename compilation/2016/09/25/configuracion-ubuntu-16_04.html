@@ -926,7 +926,7 @@ Ruby en Ubuntu [<a href="/compilation/2016/09/25/configuracion-ubuntu-16_04.html
 
 <pre><code data-trim="" class="batch">
 sudo apt-get update 
-sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev 
+sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev nodejs
 </code></pre>
 <p><br /></p>
 
@@ -944,8 +944,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' &gt;&gt; ~/.bashrc 
 exec $SHELL
 
-rbenv install 2.3.1 
-rbenv global 2.3.1 
+rbenv install 2.4.0
+rbenv global 2.4.0 
 ruby -v 
 </code></pre>
 <p><br /></p>
