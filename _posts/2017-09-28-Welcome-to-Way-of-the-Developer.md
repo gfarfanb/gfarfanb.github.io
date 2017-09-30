@@ -35,7 +35,7 @@ Do not worry this is just the beginning.
 After picking any roadmap you need to dominate a large list of technologies, for example, for Back-End
 Roadmap you need to know any tool for package management, frameworks, testing, debugging and profiling,
 web servers, authentication, containers, storage, search engine and API management. Plus to the previous list
-you need to know about... wait? more? yes, more, Does not make sense?. 
+you need to know about... wait! more? yes, more, Does not make sense? 
 
 Actually exists a lot of references about [every programmer should know](https://github.com/mr-mig/every-programmer-should-know),
 or about [software developer skills](https://simpleprogrammer.com/2016/07/18/technical-skills-software-developer/),
