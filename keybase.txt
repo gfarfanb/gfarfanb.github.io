@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/gfarfanb
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://gfarfanb.github.io
+  * I am gfarfanb (https://keybase.io/gfarfanb) on keybase.
+  * I have a public key with fingerprint D41C B14C 9534 6305 14F0  F47D FB3D BE75 E3B2 0B71
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120f05233a0c2a5febb568efce63dad27b926a30b676fb4ed608e141cf712ff8ec50a",
+      "fingerprint": "d41cb14c9534630514f0f47dfb3dbe75e3b20b71",
+      "host": "keybase.io",
+      "key_id": "fb3dbe75e3b20b71",
+      "kid": "0101767c050c41b3b3fc18253b2aa556b0c82cbe93fab2a9c09e7809841bc9b8e9920a",
+      "uid": "74467c006f0ba1d4552b38a7f88d6c19",
+      "username": "gfarfanb"
+    },
+    "service": {
+      "hostname": "gfarfanb.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1506635740,
+  "expire_in": 157680000,
+  "prev": "a17733514c83b8c92ab5dae114d833263a8056e10ae8489909a2600c264ed6ab",
+  "seqno": 36,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.74
+Comment: https://keybase.io/crypto
+
+yMNtAnicbZJtTBxVFIaXIkbWstCiqISPZlq6AQnc+Z7Z0AiNhgYiIlhphXa5d+bO
+7rCwu+wua4GS1qCtNCSkGlAas9gK0oJpAVsaFWqAJlorqYgYbYFIWymaAIEQWmwA
+Z9D+Mc6fmznzvO+859xzNSzYYAx6uOtKxZ2eJ8uDrg8EKgz7h13j1QRyyZWEpZpw
+4I0Dl8rY67M6VJmwEICkgAJYiqYhkCjIKhghlhOwImGOlqFM8UikOEgDxPGcghgs
+c0DAJENKCk9SiiJgiQWQSCYU1WnDHrdHdfo0W1kDEMlIIkszHA1YklGAwvCygmgZ
+YZ7FNKIA4klNaHd5dYUWDkEvTlFdWk17sW7E+x/+UW5A8hwvARZIDIloRCsSKVCs
+xkHIshwCkkBJCIu0ArWSKAER8wIQBQ2WRCRgUaQ2clds2PEMo5sBTgEIkjLDshSi
+BcgrgiBzEinqoBd7nLAMa7RNgR4FOhFRk0xoVb8qYX2weif/IVJsqs9egf7pyu1x
++VySq1T7bvf53F6LrvdVunXBmxhZ/7WyItUpa9PUFH7s8aouJ2EhNVLyqbo3yQKO
+o1meAckEPuRWPdiq6gTLcwLQHv0/2K9ZQpLnaVobvSTQSJBECiJWhpgkGVmgaYqj
+oQBYDpMAYoERRBGIkOKAtgWcfssQEXpz5U4XYaE5LSe0aZ5e1eaEvgoPJmoGB4oe
+MwQZDY+HbNLXzGAMjXi0fKeHw9dAblzW7NJXzcXGMEug6uzzJZGxCyttHDAvlwdg
+euTN3O6JnqzfxOhhZfTA5yWD9bthfnhT7Send7znMPzKNz4RKFyoXe/rP2pvb85Y
+/2K9q7f76eK2zJg7Kr0UlNDyaey+lLyEffReawyIbx0zrVdJqOdAb3v9zvN94uTo
+a1Fle2x724MTHiQdyagzTM7Nv9/w+ithk8eSz618eHLWfdg4bv4sZKTvj7xfnvX1
+3IyIPbUtavGsbcLdIs0UFK+2HJtK/T67MG8FNM32tdzO2TZ87nfnn50xiYfb89Sx
+TXHTa/kP31rcMmOPjv86+JtvlzvlxqTcC5e/C5zfmpz/atqZ6rt78JWOqZRmyduU
+fs90KtDR43jjpUt3w8fn5ucvnniq8UHEqjc2IcM6e6PjuENZMY/c9qft/HjOeJCL
++uliZl7/UKg5e/MO05Etoe+YJ5Vov+Ht6I8mNof3DnSVdFZe864KUSahNry8oPV4
+eqqavsSPLXTfOlM3V9RV2N+Y1VVn7au8dHD/c4kfdJsbnjnx8485U2xRVWtSTkNx
+e/FM5OWpppB803JqoXDv5aqq7ea1fg/dDOKmh4h3d7+YFX+t9oeh2ZyFq3Zv2/3R
+F8ancqcj6g8l0vWpIzWD1+tTju6aCktLCl0sy8jMLhwZCpgEodS2NfsGeysu2zZt
+2f6X437Blxe6/X8DefzBcA==
+=K+fy
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/gfarfanb
+
+==================================================================
