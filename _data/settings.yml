@@ -1,0 +1,49 @@
+
+title: Way of the Developer
+tagline: how I become a developer
+
+# Authors documented under _data
+
+# GitHub related
+github-repository: gfarfanb.github.io
+github-branch: master
+
+# Change to true for Disqus comments
+disqus:
+  comments: true
+  disqus-shortname: way-of-the-developer
+
+# Google Analytics
+google-tracking-id: UA-34247146-3
+
+# Donations with PayPal
+donate-paypal: 49ZMF7YEPCR34
+# Donations with BitCoins
+donate-blockchain: 1P4w32KT7NwjfGLmnr1eeWs2xJs468PKSk
+
+# Username for Keybase
+keybase-username: gfarfanb
+
+# Algolia Search API Key
+algolia-search: c9710bd3f1746de8286711a4f2a092c6
+algolia-hits: 5
+
+menu:
+- {name: 'About', url: 'about.html'}
+- {name: 'Blog', leafs: [
+    {name: 'Tags', url: 'blog/tag.html'}, 
+    {name: 'Categories', url: 'blog/category.html'},
+    {name: 'Archive', url: 'blog/archive.html'}
+  ]}
+- {name: 'Contact', url: 'contact.html'}
+
+# http://fontawesome.io/icons/ - Brand Icons
+social:
+- {icon: 'github', link: 'https://www.github.com/gfarfanb', head: true}
+- {icon: 'twitter', link: 'https://twitter.com/gfarfanb', head: false}
+- {icon: 'linkedin', link: 'http://www.linkedin.com/in/gfarfanb', head: false}
+- {icon: 'facebook', link: 'https://facebook.com/gfarfanb.dev', head: false}
+- {icon: 'google-plus-official', link: 'https://plus.google.com/communities/107569955928985848857', head: false}
+- {icon: 'stack-overflow', link: 'https://stackoverflow.com/users/5133929/gfarfanb', head: false}
+- {icon: 'envelope', link: 'mailto:gfarfanb@gmail.com', head: true}
+- {icon: 'rss', link: '/feed.xml', head: true}

@@ -1,0 +1,38 @@
+
+# Site Settings
+
+paginate: 5
+post-preview-words: 350
+
+# Related posts
+minimum-tags-difference: 1
+maximum-related-posts: 3
+# Available values: lt, gt
+related-date-condition: lt
+
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: none
+plugins: 
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - algoliasearch-jekyll
+
+# Search funcionality
+algolia:
+  application_id: LA72TS4EF8
+  index_name: prod_way-of-the-developer
+  excluded_files:
+    - index.html
+    - 404.html
+    - search.md
+    - blog
+
+exclude: 
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - _scripts

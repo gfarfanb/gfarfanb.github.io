@@ -1,48 +1,30 @@
-# gfarfanb.github.io
-Sitio Web de Giovanni Farfán Briceño.
 
-## OSS utilizados en gfarfanb.github.io
-Aquí están los proyectos con los que se hizo posible la construcción del Sitio Web:
-  1. [{ Personal } Jekyll Theme](https://github.com/PanosSakkos/personal-jekyll-theme/)
-    - Estructura y diseño principal del Sitio Web.
-  2. [Agency Jekyll Theme](https://github.com/y7kim/agency-jekyll-theme/)
-    - Portafolio de proyectos
-  3. [JekyllPlugins](https://github.com/ttscoff/JekyllPlugins/)
-    - Botón de donación
+# Way of the Developer
 
-## Accesibilidad
-Debido a los experimentos que pudieran estarse haciendo con el Sitio Web, posiblemente
-no se encuentre disponible para https://giovannifarfan.com. Sin embargo podrás
-accesar a través de [GitHub Pages] en https://gfarfanb.github.io.
+[![Build Status](https://travis-ci.org/gfarfanb/gfarfanb.github.io.svg?branch=master)](https://travis-ci.org/gfarfanb/gfarfanb.github.io)
 
-## Pull requests
-Por favor, siente la completa libertad de realizarlos.
+My personal site includes notes, conclusions, trenches experiences, discoveries, practices, 
+sharable code solutions and success/failure evidence of how I become an elite developer. 
 
-## Licencia
-**gfarfanb.github.io** está bajo la **[Licencia MIT]**. Los términos de la licencia 
-son los siguientes:
+## Blog TODO list
 
-    The MIT License (MIT)
+- [ ] Figure out my current developer status
+- [ ] Customize developer career roadmap
+- [ ] Take new technologies challenges
+- [ ] Ace my jobs
+- [ ] Develop an almost "silver bullet" project
+- [ ] Become the greatest developer ever
+- [ ] Take over the world
 
-    Copyright (c) 2016, Giovanni Farfán Briceño, Legadi, and a number of other contributors.
+## Contact
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
+Feel free to [file a GitHub issue](https://github.com/gfarfanb/gfarfanb.github.io/issues/new) or 
+[email me](mailto:gfarfanb@gmail.com), or follow me on [Twitter](https://twitter.com/gfarfanb), 
+[LinkedIn](http://www.linkedin.com/in/gfarfanb), [Facebook](https://facebook.com/gfarfanb.dev) or 
+[Google+](https://plus.google.com/communities/107569955928985848857). Q&A activity? look for me on
+[Stack Overflow](https://stackoverflow.com/users/5133929/gfarfanb). If you prefer a secure channel 
+chat with me on [Keybase](https://keybase.io/gfarfanb).
 
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
+## License
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
-
-[Licencia MIT]: https://opensource.org/licenses/MIT
-[GitHub Pages]: https://pages.github.com/
+Copyright © 2017, [Giovanni Farfán B](https://github.com/gfarfanb). Released under the [MIT License](https://opensource.org/licenses/MIT).

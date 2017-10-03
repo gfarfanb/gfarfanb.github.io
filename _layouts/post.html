@@ -1,0 +1,38 @@
+---
+layout: default
+---
+
+<h1>
+  {% if page.series %}{{ page.series }} - {% endif %}{{ page.title }}
+</h1>
+<div class="share-container hide-on-mobiles">
+	<span class="post-line"><a href="https://github.com/{{ site.data.authors.primary.github }}/{{ site.data.settings.github-repository }}/edit/{{ site.data.settings.github-branch }}/{{ page.path }}"><i class="fa fa-pencil"></i> Improve this page</a></span>
+</div>
+
+<span class="post-date">
+  <i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html item=page %} | {% include tags.html %}
+</span>
+
+{% if page.image.feature %}
+  <img src="{{ site.github.url }}/assets/img/{{ page.image.feature }}" alt="{{ page.image.credit }}">
+{% endif %}
+
+{{ content }}
+
+<span class="post-date">
+  {% include post-signature.html item=page %}
+</span>
+
+{% include donation.html %}
+
+{% include social-sharing.html %}
+
+{% if page.series %}
+  {% include series-posts.html %}
+{% endif %}
+
+{% include related-posts.html %}
+
+{% if site.data.settings.disqus.comments %}
+  {% include disqus.html %}
+{% endif %}

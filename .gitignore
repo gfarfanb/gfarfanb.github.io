@@ -1,3 +1,4 @@
+
 build
 _site
 
@@ -9,7 +10,6 @@ Gemfile.lock
 
 .jekyll-metadata
 
-.DS_Store
 tmp/
 log/
 *.log
@@ -17,3 +17,5 @@ log/
 bower_components/
 node_modules/
 vendor/
+
+.DS_Store
