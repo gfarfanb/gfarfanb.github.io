@@ -47,7 +47,7 @@ You guessed it! This is my personal challenge and the objective of this blog.
 ## Blog as a Channel
 
 You will find here all my personal notes, conclusions, trenches experiences, discoveries, practices, sharable 
-code solutions and everything I learned as success or failure evidence of how I become an elite developer. 
+code solutions and everything I learned as success or failure evidence of how to I become an elite developer. 
 
 The main idea is share, as a logger, the step-by-step of my developer transition trace. Maybe any part of this process
 is useful for you, maybe you can identify a pattern that helps you to figure out your own way, or maybe you are slapping 

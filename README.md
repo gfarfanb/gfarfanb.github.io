@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/gfarfanb/gfarfanb.github.io.svg?branch=master)](https://travis-ci.org/gfarfanb/gfarfanb.github.io)
 
 My personal blog includes notes, conclusions, trenches experiences, discoveries, practices, 
-sharable code solutions and success/failure evidence of how I become an elite developer. 
+sharable code solutions and success/failure evidence of how to I become an elite developer. 
 
 > This blog uses the [Way of the Developer theme](https://github.com/gfarfanb/way-of-the-developer).
 
