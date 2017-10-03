@@ -16,7 +16,7 @@ image:
 
 *"Be willing to part with some insistence, then freedom comes"*
 
-During my first job, I received a cup as present from my manager with this phrase. Maybe she picked 
+During my first job, I received a cup as present from my manager with that phrase. Maybe she picked 
 it randomly but cause a big impact in my next decisions: 
 
 *Am I following the correct path to becoming a developer?*
@@ -27,7 +27,7 @@ as a developer yet.
 
 ## Developer paths references
 
-So, in the searching of my developer way, I found an interesting [Developer Roadmap](https://github.com/kamranahmedse/developer-roadmap)
+So, in the searching of my developer way, I found an interesting [developer roadmap](https://github.com/kamranahmedse/developer-roadmap)
 where you can pick one of the three paths: Front-End, Back-End, and DevOps. Whatever you want you firstly
 need to have some basics topics: Git (or any related), SSH, HTTP/HTTPS, APIs, basic terminal usage, 
 research skills, data structures and algorithms, character encodings and GitHub (or any related). 
@@ -50,8 +50,8 @@ You guessed it! This is my personal challenge and the objective of this blog.
 You will find here all my personal notes, conclusions, trenches experiences, discoveries, practices, sharable 
 code solutions and everything I learned as success or failure evidence of how I become an elite developer. 
 
-The main idea is share, as a logger, the step-by-step of my developer transition trace. Maybe is useful for you any part of 
-this process, maybe you can identify a pattern that helps you to figure out your own way, or maybe you are slapping 
+The main idea is share, as a logger, the step-by-step of my developer transition trace. Maybe any part of this process
+is useful for you, maybe you can identify a pattern that helps you to figure out your own way, or maybe you are slapping 
 your keyboard until finding a solution without result and casually I wrote about that, whatever the case feel free to 
 use or enrich or discuss about this blog. 
 

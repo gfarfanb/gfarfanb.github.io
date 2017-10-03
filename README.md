@@ -27,6 +27,8 @@ Feel free to [file a GitHub issue](https://github.com/gfarfanb/gfarfanb.github.i
 [Stack Overflow](https://stackoverflow.com/users/5133929/gfarfanb). If you prefer a secure channel 
 chat with me on [Keybase](https://keybase.io/gfarfanb).
 
+[Consider making a donation!](https://gfarfanb.github.io/donation.html)
+
 ## License
 
 Copyright © 2017, [Giovanni Farfán B](https://github.com/gfarfanb). Released under the [MIT License](https://opensource.org/licenses/MIT).

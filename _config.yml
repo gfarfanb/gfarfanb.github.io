@@ -29,7 +29,10 @@ algolia:
     - index.html
     - 404.html
     - search.md
+    - donation.md
     - blog
+    - docs
+    - assets
 
 exclude: 
   - vendor
