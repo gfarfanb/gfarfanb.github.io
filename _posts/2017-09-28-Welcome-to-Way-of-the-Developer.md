@@ -62,7 +62,7 @@ The whole blog content can be summarized in the next TODO list:
 - [ ] Customize developer career roadmap
 - [ ] Take new technologies challenges
 - [ ] Ace my jobs
-- [ ] Develop an almost "silver bullet" project
+- [ ] Build an almost "silver bullet" project
 - [ ] Become the greatest developer ever
 - [ ] Take over the world
 

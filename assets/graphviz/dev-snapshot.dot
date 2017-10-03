@@ -1,0 +1,150 @@
+# Dev Snapshot
+digraph dev_snapshot {
+
+  "Dev Snapshot" -> Language
+
+  CSS_Framework [
+    shape=record
+    label="{Framework|Bootstrap\l}"
+  ]
+
+  Language -> CSS
+  CSS -> { CSS_Framework }
+
+  JavaScript_Framework [
+    shape=record
+    label="{Framework|GWT\lAngularJS\l}"
+  ]
+
+  Language -> JavaScript
+  JavaScript -> { JavaScript_Framework }
+
+  Java_Build [
+    shape=record
+    label="{Package Manager|Gradle\lMaven\lAnt\l}"
+  ]
+
+  Java_Framework [
+    shape=record
+    label="{Framework|Spring Framework\lSpring Security\lSpring Boot\l}"
+  ]
+
+  Java_Testing [
+    shape=record
+    label="{Testing|JUnit\lMockito\l}"
+  ]
+
+  Java_Server [
+    shape=record
+    label="{Web Server|Nginx\lWildfly\lJBoss\lGlassFish\lTomcat\lJetty\l}"
+  ]
+
+  Java_Web [
+    shape=record
+    label="{Web Framework|JAX-RS\lJAX-WS\lJSP\lJSF\lPrimefaces\l}"
+  ]
+
+  Java_Libraries [
+    shape=record
+    label="{Library|Lucene\lJasperReports\lJaCoCo\l}"
+  ]
+
+  Java_Extensions [
+    shape=record
+    label="{Extensions|AspectJ\l}"
+  ]
+
+  Language -> Java
+  Java -> { Java_Build Java_Framework Java_Testing Java_Server Java_Web Java_Libraries Java_Extensions }
+
+  "Dev Snapshot" -> "Q&A"
+
+  Static_Analysis [
+    shape=record
+    label="{Static Analysis|SonarQube\lFortify\l}"
+  ]
+
+  "Q&A" -> { Static_Analysis }
+
+  "Dev Snapshot" -> "CI/CD"
+
+  CI_CD [
+    shape=record
+    label="{Continuous Integration/Deployment|Jenkins\lTravis CI\l}"
+  ]
+
+  "CI/CD" -> { CI_CD }
+
+  "Dev Snapshot" -> SCM
+
+  Source_Control [
+    shape=record
+    label="{Source Control|Git\lSubversion\l}"
+  ]
+
+  Source_Control_Service [
+    shape=record
+    label="{Cloud Service|GitHub\lGitLab\l}"
+  ]
+
+  SCM -> { Source_Control Source_Control_Service }
+
+  "Dev Snapshot" -> Storage
+
+  Relational [
+    shape=record
+    label="{Relational|Oracle\lPostgreSQL\lDB2\lSybase\lSQLite\lHyperSQL\lMySQL\lAS400\l}"
+  ]
+
+  NoSQL [
+    shape=record
+    label="{NoSQL|Redis\lMongoDB\l}"
+  ]
+
+  Caching [
+    shape=record
+    label="{Caching|Redis\l}"
+  ]
+  
+  Storage -> { Relational NoSQL Caching }
+
+  OS [
+    shape=record
+    label="{OS|Windows\lUbuntu Server\l}"
+  ]
+
+  "Dev Snapshot" -> OS
+
+  IDE [
+    shape=record
+    label="{IDE|NetBeans\lEclipse\lSublime\l}"
+  ]
+
+  "Dev Snapshot" -> IDE
+
+  Cloud_Deployment [
+    shape=record
+    label="{Cloud Deployment|OpenShift\lDigitalOcean\lHeroku\lPivotal Cloud Foundry\lGitHub Pages\l}"
+  ]
+
+  "Dev Snapshot" -> Cloud_Deployment
+
+  Container [
+    shape=record
+    label="{Container|Docker\l}"
+  ]
+
+  Methodology [
+    shape=record
+    label="{Methodology|RUP\lScrum\lXP\lTDD\l}"
+  ]
+
+  "Dev Snapshot" -> Methodology
+
+  Design [
+    shape=record
+    label="{Design|GOF Design Patterns\lMVC\lMVP\lMVW\l}"
+  ]
+
+  "Dev Snapshot" -> Design
+}

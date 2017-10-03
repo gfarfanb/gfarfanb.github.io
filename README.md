@@ -14,7 +14,7 @@ sharable code solutions and success/failure evidence of how to I become an elite
 - [ ] Customize developer career roadmap
 - [ ] Take new technologies challenges
 - [ ] Ace my jobs
-- [ ] Develop an almost "silver bullet" project
+- [ ] Build an almost "silver bullet" project
 - [ ] Become the greatest developer ever
 - [ ] Take over the world
 

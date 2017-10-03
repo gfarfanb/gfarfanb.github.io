@@ -11,4 +11,4 @@ post = Date.today.strftime("%Y-%m-%d-") + draftname
 
 FileUtils.mv(draft, POSTS_DIR + post + ".md")
 
-puts("[+] Moved " + draftname + " post")
+puts "[+] Moved " + draftname + " post"

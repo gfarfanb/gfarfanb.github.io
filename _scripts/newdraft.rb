@@ -11,4 +11,4 @@ File.open(DRAFTS_DIR + name + '.md', 'w') {
 	)
 }
 
-puts("[+] Created " + name + " draft")
+puts "[+] Created " + name + " draft"

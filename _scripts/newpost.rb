@@ -13,4 +13,4 @@ File.open(POSTS_DIR + name + '.md', 'w') {
 	)
 }
 
-puts("[+] Created " + name + " post")
+puts "[+] Created " + name + " post"
