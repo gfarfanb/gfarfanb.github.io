@@ -39,7 +39,7 @@ menu:
 
 # http://fontawesome.io/icons/ - Brand Icons
 social:
-- {icon: 'github', link: 'https://www.github.com/gfarfanb', head: true}
+- {icon: 'github', link: 'https://github.com/gfarfanb', head: true}
 - {icon: 'twitter', link: 'https://twitter.com/gfarfanb', head: false}
 - {icon: 'linkedin', link: 'http://www.linkedin.com/in/gfarfanb', head: false}
 - {icon: 'facebook', link: 'https://facebook.com/gfarfanb.dev', head: false}

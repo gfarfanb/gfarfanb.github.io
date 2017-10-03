@@ -27,7 +27,7 @@ conversation to the community and your post deleted.
 #### No self-promotion
 
 So you’ve got a climate change solution that will simultaneously solve world poverty. Great. Send it through 
-my [contact form]({{ site.github.url }}/contact.hmtl). A discussion or comment that contains only a link to 
+my [contact form]({{ site.github.url }}/contact.html). A discussion or comment that contains only a link to 
 your blog, a product, or your article on another site will almost always be removed.
 
 #### No trolling 
