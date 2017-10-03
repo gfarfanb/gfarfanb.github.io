@@ -13,4 +13,4 @@ of define software development guidelines plus enrich to universal advance.
 
 He excites about people passion over own projects and if it is useful what he has learned, so his work is worth it.
 
-If you want to know more about this site, please check out the [Welcome to Way of the Developer]({{ site.github.url }}{% post_url 2017-09-27-Welcome-to-Way-of-the-Developer %}).
+If you want to know more about this site, please check out the [Welcome to Way of the Developer]({{ site.github.url }}{% post_url 2017-09-28-Welcome-to-Way-of-the-Developer %}).
