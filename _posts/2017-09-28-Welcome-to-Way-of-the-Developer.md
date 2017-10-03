@@ -17,9 +17,8 @@ image:
 *"Be willing to part with some insistence, then freedom comes"*
 
 During my first job, I received a cup as present from my manager with that phrase. Maybe she picked 
-it randomly but cause a big impact in my next decisions: 
-
-*Am I following the correct path to becoming a developer?*
+it randomly but cause a big impact in my next decisions, Am I following the correct path to 
+becoming a developer?
 
 I had a little bit worth development repertory, I had created two or more production projects 
 from drafts, I tried to share knowledge using a design pattern template based blog but I did not feel
