@@ -134,6 +134,8 @@ digraph dev_snapshot {
     label="{Container|Docker\l}"
   ]
 
+  "Dev Snapshot" -> Container
+
   Methodology [
     shape=record
     label="{Methodology|RUP\lScrum\lXP\lTDD\l}"

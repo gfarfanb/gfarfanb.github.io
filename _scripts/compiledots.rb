@@ -8,4 +8,8 @@ def compile_dot(name)
    puts "[+] Image " + name + " updated"
 end
 
-compile_dot 'dev-snapshot'
+Dir[INPUT_DIR + "/**/*.dot"].each do |filename|
+  if File.file? filename 
+  	compile_dot File.basename(filename, ".dot")
+  end
+end

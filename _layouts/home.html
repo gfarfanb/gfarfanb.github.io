@@ -8,10 +8,16 @@ title: Home
   <h1>
     <a href="{{ site.github.url }}{{ mypost.url }}">{{ mypost.title }}</a>
   </h1>
-  {% if mypost.image.teaser %}
-    <a href="{{ site.github.url }}{{ mypost.url }}">
-      <img src="{{ site.github.url }}/assets/img/{{ mypost.image.teaser }}" alt="{{ mypost.image.credit }}">
-    </a>
+  {% if mypost.image.feature %}
+    <div class="teaser">
+      <a href="{{ site.github.url }}{{ mypost.url }}">
+        {% if mypost.image.feature contains 'http://' or mypost.image.feature contains 'https://' %}
+          <img src="{{ mypost.image.feature }}" alt="">
+        {% else %}
+          <img src="{{ site.github.url }}/assets/img/{{ mypost.image.feature }}" alt="">
+        {% endif %}
+      </a>
+    </div>
   {% endif %}
   <p>
     {{ mypost.content | strip_html | truncate: site.post-preview-words }} <a class="more" href="{{ site.github.url }}{{ mypost.url }}">Read more</a>

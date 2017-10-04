@@ -7,7 +7,7 @@ name = draft.gsub(/\s+/, "-")
 
 File.open(DRAFTS_DIR + name + '.md', 'w') {
 	|f| f.write(
-		"---\nlayout: post\ntitle: " + draft + "\nauthor: \nauthorlink: \ncategories: \ntags: []\nseries: \nseriesnumber: \nimage:\n  feature: \n  teaser: \n  credit: \n  creditlink: \n---\n\n\n"
+		"---\nlayout: post\ntitle: " + draft + "\nauthor: \nauthorlink: \ncategories: \ntags: []\nseries: \nseriesnumber: \nimage:\n  feature: \n  credit: \n  creditlink: \n---\n\n\n"
 	)
 }
 

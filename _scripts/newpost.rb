@@ -9,7 +9,7 @@ name = Date.today.strftime("%Y-%m-%d-") + post.gsub(/\s+/, "-")
 
 File.open(POSTS_DIR + name + '.md', 'w') {
 	|f| f.write(
-		"---\nlayout: post\ntitle: " + post + "\nauthor: \nauthorlink: \ncategories: \ntags: []\nseries: \nseriesnumber: \nimage:\n  feature: \n  teaser: \n  credit: \n  creditlink: \n---\n\n\n"
+		"---\nlayout: post\ntitle: " + post + "\nauthor: \nauthorlink: \ncategories: \ntags: []\nseries: \nseriesnumber: \nimage:\n  feature: \n  credit: \n  creditlink: \n---\n\n\n"
 	)
 }
 

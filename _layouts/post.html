@@ -13,9 +13,25 @@ layout: default
   <i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html item=page %} | {% include tags.html %}
 </span>
 
-{% if page.image.feature %}
-  <img src="{{ site.github.url }}/assets/img/{{ page.image.feature }}" alt="{{ page.image.credit }}">
-{% endif %}
+<div class="feature">
+  {% if page.image.credit %}
+    {% assign title = 'title="Author: ' | append: page.image.credit | append: '"' %}
+  {% endif %}
+  
+  {% if page.image.creditlink %}
+    <a href="{{ page.image.creditlink }}">
+  {% endif %}
+  
+  {% if page.image.feature contains 'http://' or page.image.feature contains 'https://' %}
+    <img {{ title }} src="{{ page.image.feature }}" alt="">
+  {% else %}
+    <img {{ title }} src="{{ site.github.url }}/assets/img/{{ page.image.feature }}" alt="">
+  {% endif %}
+
+  {% if page.image.creditlink %}
+    </a>
+  {% endif %}
+</div>
 
 {{ content }}
 

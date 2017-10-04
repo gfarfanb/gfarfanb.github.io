@@ -9,7 +9,6 @@ series:
 seriesnumber: 
 image:
   feature: intro.jpg 
-  teaser: intro-teaser.jpg
   credit: 
   creditlink: 
 ---
