@@ -1,0 +1,5 @@
+{% assign filename = include.name | append: ".dot" %}
+{% assign path = "assets/graphviz/" | append: filename %}
+{% assign title = "Source code of " | append: filename %}
+[![{{ include.name }}]({{ site.github.url }}/assets/img/{{ include.name }}.svg)]({{ site.github.url }}/assets/img/{{ include.name }}.svg)
+{% include src.html src=path title=title %}

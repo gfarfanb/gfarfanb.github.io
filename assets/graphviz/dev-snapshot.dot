@@ -13,7 +13,7 @@ digraph dev_snapshot {
 
   JavaScript_Framework [
     shape=record
-    label="{Framework|GWT\lAngularJS\l}"
+    label="{Framework|GWT\lAngularJS\lAngular\l}"
   ]
 
   Language -> JavaScript
@@ -84,7 +84,7 @@ digraph dev_snapshot {
 
   Source_Control_Service [
     shape=record
-    label="{Cloud Service|GitHub\lGitLab\l}"
+    label="{Cloud Service|GitHub\lBitBucket\lGitLab\l}"
   ]
 
   SCM -> { Source_Control Source_Control_Service }
@@ -108,45 +108,59 @@ digraph dev_snapshot {
   
   Storage -> { Relational NoSQL Caching }
 
+  "Dev Snapshot" -> Environment
+
   OS [
     shape=record
     label="{OS|Windows\lUbuntu Server\l}"
   ]
-
-  "Dev Snapshot" -> OS
 
   IDE [
     shape=record
     label="{IDE|NetBeans\lEclipse\lSublime\l}"
   ]
 
-  "Dev Snapshot" -> IDE
+  Environment -> { OS IDE }
+
+  "Dev Snapshot" -> Deployment
 
   Cloud_Deployment [
     shape=record
     label="{Cloud Deployment|OpenShift\lDigitalOcean\lHeroku\lPivotal Cloud Foundry\lGitHub Pages\l}"
   ]
 
-  "Dev Snapshot" -> Cloud_Deployment
-
   Container [
     shape=record
     label="{Container|Docker\l}"
   ]
 
-  "Dev Snapshot" -> Container
+  Deployment -> { Cloud_Deployment Container }
+
+  "Dev Snapshot" -> Project
+
+  Project_Management [
+    shape=record
+    label="{Project Management|Jira\lZenHub\lConfluence\lRedmine\l}"
+  ]
 
   Methodology [
     shape=record
     label="{Methodology|RUP\lScrum\lXP\lTDD\l}"
   ]
 
-  "Dev Snapshot" -> Methodology
-
-  Design [
-    shape=record
-    label="{Design|GOF Design Patterns\lMVC\lMVP\lMVW\l}"
-  ]
+  Project -> { Project_Management Methodology }
 
   "Dev Snapshot" -> Design
+
+  Patterns [
+    shape=record
+    label="{Design Patterns|GOF Design Patterns\lJ2EE Patterns\l}"
+  ]
+  
+  Architectural [
+    shape=record
+    label="{Architectural Patterns|Layered\lClient-server\lMaster-slave\lBroker\lEvent-bus\lMVC\lMVP\lMVW\l}"
+  ]
+
+  Design -> { Patterns Architectural }
 }
