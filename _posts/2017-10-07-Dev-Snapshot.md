@@ -48,13 +48,13 @@ only reusable ideas, as resources. The goal is simple, convert from volatile
 knowledge to concrete knowledge. Therefore, this is my first perspective of what 
 and where capture my experience in a shareable and available place.
 
-| Service | Possible content  |
-|:------- | -----------------:|
-| [GitHub](https://github.com/) | Projects, Issues tracking, *Knowledge cartridge* |
-| [Gist GitHub](https://gist.github.com/) | Example, Practices, Experiments, Findings, Compilations, *Knowledge units* |
-| [Personal blog](https://gfarfanb.github.io/) | Articles, Posts, Notes, Experiences, *Knowledge notes* |
-| [GitBooks](https://www.gitbook.com/) | Books, Manuals, API, Knowledge base, *Knowledge references* |
-| [Trello](https://trello.com/) | Activities, Progress tracking, Time tracking ([Timeneye extension](https://www.timeneye.com/en/home/)), *Knowledge tracking* |
+Service | Possible content
+------- | ----------------
+[GitHub](https://github.com/) | Projects, Issues tracking, *Knowledge cartridge*
+[Gist GitHub](https://gist.github.com/) | Example, Practices, Experiments, Findings, Compilations, *Knowledge units*
+[Personal blog](https://gfarfanb.github.io/) | Articles, Posts, Notes, Experiences, *Knowledge notes*
+[GitBooks](https://www.gitbook.com/) | Books, Manuals, API, Knowledge base, *Knowledge references*
+[Trello](https://trello.com/) | Activities, Progress tracking, Time tracking ([Timeneye extension](https://www.timeneye.com/en/home/)), *Knowledge tracking*
 
 For each service you can find a knowledge concept: cartridge, unit, note, reference 
 and tracking. Let me explain what each one means.
@@ -73,7 +73,7 @@ searching in depth.
 or step-by-step implementations.
 
 **Knowledge reference**
-: Work's official documentation.
+: Official documentation.
 
 **Knowledge tracking**
 : Measurable activity log. 
