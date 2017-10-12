@@ -6,7 +6,10 @@
     - Publishing "[Dev Snapshot](https://gfarfanb.github.io/retrospective/Dev-Snapshot.html)" post
 - date: 2017-10-09
   entries:
-    - Designing overall architecture of Fuga
+    - Designing overall architecture of "Fuga"
 - date: 2017-10-10
   entries:
     - Publishing "[Fuga Specification (GitHub-flavoured Markdown)](https://gist.github.com/gfarfanb/64ac4a848e1b483bf63443cf9a2c8f59)" gist
+- date: 2017-10-12
+  entries:
+    - Publishing "[Gradle Commands Compilation](https://gist.github.com/gfarfanb/dcb20651c65e420122f4afe496e4f06d)" gist

@@ -1,1 +1,1 @@
-{{ include.date }} 00:00:00.000  INFO 5555 --- [main] w.o.t.d.DevLogger : {{ include.line }}
+{{ include.date }} 00:00:00 {{ include.number | prepend: '000' | slice: -3, 3 }} INFO 0000 --- [main] w.o.t.d.DevLogger : {{ include.line }}

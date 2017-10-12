@@ -3,12 +3,13 @@
     <a href="{{ item.link }}" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
   {% endfor %}
   <div class="post-date">
-  	<a href="{{ site.github.url }}/about.html">{{ site.data.settings.title }} | {{ site.data.settings.tagline }}</a>
+  	<a href="{{ site.github.url }}/about.html">{{ site.data.settings.title }}&nbsp;&nbsp;|&nbsp;&nbsp;{{ site.data.settings.tagline }}</a>
   	<div>
       <small>
         {% if site.data.settings.keybase-username %}
           <a href="https://keybase.io/{{ site.data.settings.keybase-username }}" target="_blank"><i class="fa fa-key"></i> {{site.data.settings.keybase-username}} on Keybase</a> |
         {% endif %}
+        <a href="{{ site.github.url }}/docs/log.html">Log</a> |
         <a href="{{ site.github.url }}/docs/terms.html">Terms and Conditions</a> |
         <a href="{{ site.github.url }}/about.html">About</a> |
         <a href="{{ site.github.url }}/contact.html">Contact</a>
