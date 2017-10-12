@@ -3,9 +3,7 @@ layout: default
 title: Categories
 ---
 
-<h1>
-  {{ page.title }}
-</h1>
+# {{ page.title }}
 
 {% assign rawcategories = "" %}
 {% for post in site.posts %}
@@ -32,7 +30,7 @@ title: Categories
 {% endfor %}
 </div>
 
-<hr>
+---
 
 {% for category in categorys %}
   <div class="related">

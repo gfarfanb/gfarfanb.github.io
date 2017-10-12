@@ -3,9 +3,7 @@ layout: default
 title: Tags
 ---
 
-<h1>
-  {{ page.title }}
-</h1>
+# {{ page.title }}
 
 {% comment %}
 =======================
@@ -47,7 +45,7 @@ The purpose of this snippet is to list all the tags you have in your site.
 {% endfor %}
 </div>
 
-<hr>
+---
 
 {% comment %}
 =======================

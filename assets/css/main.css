@@ -682,3 +682,15 @@ pre {
 .series-posts span {
   color: #9a9a9a;
 }
+
+.log {
+  font-size: 14px;
+  line-height: 1.75rem;
+}
+
+@media (max-width: 30em) {
+  log {
+    font-size: 12px;
+    line-height: 1.5rem;
+  }
+}
