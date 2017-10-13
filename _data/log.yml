@@ -16,3 +16,10 @@
     - Publishing "[Maven Commands Compilation](https://gist.github.com/gfarfanb/1732efeb307a7b9ca6a7d745be8cde38)" gist
     - Creating "[Gradle Projects](https://github.com/gfarfanb/gradle-projects)" repository
     - Publishing "[Git Commands Compilation](https://gist.github.com/gfarfanb/b0456eea91487a49b9fe231b1a4893f8)" gist
+- date: 2017-10-13
+  entries:
+    - Publishing "[Java Test Naming Convention](https://gist.github.com/gfarfanb/03cdfd0d3184a8537b2659848b24af5f)" gist
+    - Commiting "[Java Library](https://github.com/gfarfanb/gradle-projects/tree/master/java-library)" template
+    - Commiting "[Java Application](https://github.com/gfarfanb/gradle-projects/tree/master/java-application)" template
+    - Publishing "[Gradle Codes Compilation](https://gist.github.com/gfarfanb/02836bc97bfb32f2e2ee929619c73590)" gist
+    - Publishing "[Linux Commands Compilation](https://gist.github.com/gfarfanb/34074c5461870945841ac13fcaa71edb)" gist
