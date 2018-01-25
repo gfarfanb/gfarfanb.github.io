@@ -2,8 +2,9 @@
 {% assign filename = include.name | append: ".dot" %}
 {% assign path = site.data.settings.assets | append: "/_graphviz/" | append: filename %}
 {% assign title = "Source code of " | append: filename %}
-[![{{ include.name }}]({{ img }})]({{ img }})
-<a class="post-line" title="{{ title }}" href="{{ path }}"
-   target="_blank">
+<a title="{{ include.name }}" href="{{ img }}" target="_blank">
+  <img src="{{ img }}" alt="{{ include.name }}">
+</a>
+<a class="post-line" title="{{ title }}" href="{{ path }}" target="_blank">
   <i class="fa fa-external-link" aria-hidden="true"></i>
 </a>
