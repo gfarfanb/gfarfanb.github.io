@@ -21,11 +21,11 @@ sharable code solutions and success/failure evidence of how to I become an elite
 ## Contact
 
 Feel free to [file a GitHub issue](https://github.com/gfarfanb/gfarfanb.github.io/issues/new) or 
-[email me](mailto:gfarfanb@gmail.com), or follow me on [Twitter](https://twitter.com/gfarfanb), 
+[email me](mailto:giovanni.fb@hotmail.com), or follow me on [Twitter](https://twitter.com/gfarfanb), 
 [LinkedIn](http://www.linkedin.com/in/gfarfanb), [Facebook](https://facebook.com/gfarfanb.dev) or 
-[Google+](https://plus.google.com/communities/107569955928985848857). Q&A activity? look for me on
-[Stack Overflow](https://stackoverflow.com/users/5133929/gfarfanb). If you prefer a secure channel 
-chat with me on [Keybase](https://keybase.io/gfarfanb).
+join to [Google+](https://plus.google.com/communities/107569955928985848857) group. Q&A activity? 
+look for me on [Stack Overflow](https://stackoverflow.com/users/5133929/gfarfanb). If you prefer 
+a secure channel chat with me on [Keybase](https://keybase.io/gfarfanb).
 
 [Consider making a donation!](https://gfarfanb.github.io/donation.html)
 

@@ -14,7 +14,7 @@ title: Home
         {% if mypost.image.feature contains 'http://' or mypost.image.feature contains 'https://' %}
           <img src="{{ mypost.image.feature }}" alt="">
         {% else %}
-          <img src="{{ site.github.url }}/assets/img/{{ mypost.image.feature }}" alt="">
+          <img src="{{ site.data.settings.assets }}/img/{{ mypost.image.feature }}" alt="">
         {% endif %}
       </a>
     </div>

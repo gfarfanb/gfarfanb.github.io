@@ -39,4 +39,3 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - _scripts
-  - assets/graphviz

@@ -1,5 +1,5 @@
 {% assign filename = include.name | append: ".dot" %}
-{% assign path = "assets/graphviz/" | append: filename %}
+{% assign path = site.data.settings.assets | append: "/_graphviz/" | append: filename %}
 {% assign title = "Source code of " | append: filename %}
-[![{{ include.name }}]({{ site.github.url }}/assets/img/{{ include.name }}.svg)]({{ site.github.url }}/assets/img/{{ include.name }}.svg)
+[![{{ include.name }}]({{ site.data.settings.assets }}/img/{{ include.name }}.svg)]({{ site.data.settings.assets }}/img/{{ include.name }}.svg)
 {% include src.html src=path title=title %}
