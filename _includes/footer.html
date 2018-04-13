@@ -1,8 +1,11 @@
 <footer class="footer">
   {% for item in site.data.settings.social %}
-    {% assign link = item.link | append: site.data.authors.primary[item.icon] %}
-    <a href="{{ link }}" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
+    {% if site.data.authors.primary[item.icon] %}
+      {% assign link = item.link | append: site.data.authors.primary[item.icon] %}
+      <a href="{{ link }}" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
+    {% endif %}
   {% endfor %}
+  <a href="{{ site.github.url }}/feed.xml" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a>
   <div class="post-date">
   	<a href="{{ site.github.url }}/about.html">{{ site.data.settings.title }}&nbsp;&nbsp;|&nbsp;&nbsp;{{ site.data.settings.tagline }}</a>
   	<div>

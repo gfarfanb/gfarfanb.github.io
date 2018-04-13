@@ -46,4 +46,3 @@ social:
 - {icon: 'google-plus', link: 'https://plus.google.com/communities/', head: false}
 - {icon: 'stack-overflow', link: 'https://stackoverflow.com/users/', head: false}
 - {icon: 'envelope', link: 'mailto:', head: true}
-- {icon: 'rss', link: '/feed.xml', head: true}
