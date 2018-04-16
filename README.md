@@ -1,6 +1,8 @@
 
 # Way of the Developer
 
+[![Join the chat at https://gitter.im/gfarfanb-github-io/Lobby](https://badges.gitter.im/gfarfanb-github-io/Lobby.svg)](https://gitter.im/gfarfanb-github-io/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![Build Status](https://travis-ci.org/gfarfanb/gfarfanb.github.io.svg?branch=master)](https://travis-ci.org/gfarfanb/gfarfanb.github.io)
 
 My personal blog includes notes, conclusions, trenches experiences, discoveries, practices, 
