@@ -2,6 +2,7 @@
 # Way of the Developer
 
 [![Build Status](https://travis-ci.org/gfarfanb/gfarfanb.github.io.svg?branch=master)](https://travis-ci.org/gfarfanb/gfarfanb.github.io)
+[![Join the chat at https://gitter.im/way-of-the-developer/tech-blog](https://badges.gitter.im/way-of-the-developer/tech-blog.svg)](https://gitter.im/way-of-the-developer/tech-blog?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 My personal blog includes notes, conclusions, trenches experiences, discoveries, practices, 
 sharable code solutions and success/failure evidence of how to I become an elite developer. 
