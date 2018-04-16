@@ -9,7 +9,7 @@ github-repository: gfarfanb.github.io
 github-branch: master
 
 # Assets root
-assets: https://raw.githubusercontent.com/wiki/gfarfanb/gfarfanb.github.io
+assets-img: https://raw.githubusercontent.com/wiki/gfarfanb/gfarfanb.github.io/img
 
 # Change to true for Disqus comments
 disqus:

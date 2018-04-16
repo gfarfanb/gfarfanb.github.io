@@ -14,7 +14,7 @@ title: Home
         {% if mypost.image.feature contains 'http://' or mypost.image.feature contains 'https://' %}
           <img src="{{ mypost.image.feature }}" alt="">
         {% else %}
-          <img src="{{ site.data.settings.assets }}/img/{{ mypost.image.feature }}" alt="">
+          <img src="{{ site.data.settings.assets-img }}/{{ mypost.image.feature }}" alt="">
         {% endif %}
       </a>
     </div>
@@ -38,7 +38,7 @@ title: Home
   {% endif %}
   
   {% if paginator.next_page %}
-    <a class="pagination-button pagination-active" href="{{ site.github.url }}{{ paginator.next_page_path }}" class="next">Older</a>
+    <a class="pagination-button pagination-active next" href="{{ site.github.url }}{{ paginator.next_page_path }}">Older</a>
   {% else %}
     <span class="pagination-button">Older</span>
   {% endif %}

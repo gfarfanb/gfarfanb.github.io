@@ -1,4 +1,4 @@
-{% assign img = site.data.settings.assets | append: "/img/" | append: include.name | append: ".png" %}
+{% assign img = site.data.settings.assets-img | append: "/" | append: include.name | append: ".png" %}
 {% assign filename = include.name | append: ".dot" %}
 {% assign path = site.data.settings.assets | append: "/_graphviz/" | append: filename %}
 {% assign title = "Source code of " | append: filename %}
