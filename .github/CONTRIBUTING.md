@@ -1,5 +1,5 @@
 
-# Hot to contribute
+# How to contribute
 
 I'm really glad you're reading this, thanks.
 
@@ -10,7 +10,7 @@ any other community document in a pull request.
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the Way of the Developer
-[Code of Conduct](./CODE_OF_CONDUCT.md). Please report unacceptable behavior 
+[Code of Conduct](./CODE_OF_CONDUCT.md). Please report any unacceptable behavior 
 to giovanni.fb@hotmail.com.
 
 ## Getting started
@@ -22,8 +22,8 @@ To start using this repository right away,
 
 For a full local installation,
  [download your own copy](https://github.com/gfarfanb/way-of-the-developer/archive/gh-pages.zip) 
- and unzip it into it's own directory. From there, open up your favorite command line tool, 
- and enter `jekyll serve`. Your site should be up and running locally at 
+ and unzip it into its own directory. From there, open up your favorite command line tool, 
+ and enter `jekyll serve`. Your site should be up and run locally at 
  [http://localhost:4000](http://localhost:4000). If you do not have installed `jekyll` command 
  follow the next instructions:
 
@@ -72,7 +72,9 @@ jekyll 3.5.2
 ```
 * Jekyll is already to use.
 
-### Posts
+## Posts contribution
+
+### Generating a post
 
 Head over to the `_posts` directory to view all the posts that are currently on the website, 
 and to see examples of what post files generally look like. You can simply just duplicate the 
@@ -99,15 +101,14 @@ _scripts/newpost.rb "Title of your post"
 
 ### Posting images
 
-Basically you need to put your images under [Wiki's project repository](https://github.com/gfarfanb/gfarfanb.github.io.wiki.git), 
-after that the images will be accesible using this root `https://raw.githubusercontent.com/wiki/gfarfanb/gfarfanb.github.io`.
-The file `_data/settings.yml` contains a property `assets` with the root path and whatever part
+Basically, you need to put your images under [Wiki's project repository](https://github.com/gfarfanb/gfarfanb.github.io.wiki.git), 
+after that the images will be accessible using this root `https://raw.githubusercontent.com/wiki/gfarfanb/gfarfanb.github.io`.
+The file `_data/settings.yml` contains a `assets` property with the root path and whatever part
 you want to show an image, just put the resource like 
 `{{ site.data.settings.assets }}/img/any_image_you_already_push_to_wiki.png`.
 
-### Graphviz images
-
-
+If you prefer to make your own graphs using Graphviz, 
+follow [this page](https://github.com/gfarfanb/gfarfanb.github.io/wiki/Graphviz-Image-Generation).
 
 ### Authors
 
@@ -128,9 +129,9 @@ or whatever you need to include). Please do not edit the `primary` author inform
   stack-overflow: <author-stackoverflow-username>
 ```
 
-Remember update the post headers with your authro information. Do not forget include
-the credits of the image author if apply (is not necessary to include this person 
-in the authors file, only in post headers).
+Remember to update the post headers with your author information. Do not forget to 
+include the credits of the image author if apply (it is not necessary to include 
+this person in the authors file, only in post headers).
 
 ```yml
 author: 
@@ -155,8 +156,8 @@ tags: [tag,"tag-name-with-spaces"]
 
 ### Series
 
-If you want to include a group of sequential post, please indicate the name of the series
-into the post headers as well as the post order in the series. Be careful, for correctly group
+If you want to include a group of sequential posts, please indicate the name of the series
+into the post headers as well as the post order in the series. Be careful, for grouping
 by series, the name of the series must be exactly the same (case sensitive) in each post.
 
 ```yml
@@ -164,19 +165,44 @@ series:
 seriesnumber:
 ```
 
-### Any other kind of contribution
+## How can I contribute in a different way?
 
-It is always welcome a big change idea, just propose via pull request.
+### Reporting bugs
 
-## Reporting bugs
+- Fill the [required template](.github/ISSUE_TEMPLATE.md).
+- Make sure you are correctly following the checklist section.
+- The description must be concise.
+- It is important the indicate environment you are testing.
+- Do not make support questions or comments, there are specific
+channels for this: [chat room](https://gitter.im/way-of-the-developer/tech-blog)
+or post discussion (at the end of posts).
+- Include screenshots and animated GIFs in your pull request whenever possible.
 
-.github/ISSUE_TEMPLATE.md
+### Suggesting enhancements
 
-Gitter 
-Disqus
+It is always welcome a new change idea, refactoring, design, features,
+new pages (not only posts), just propose it via issue requests or if
+consider better via pull requests. 
 
 ## Pull Requests
 
-.github/PULL_REQUEST_TEMPLATE.md
+- Fill the [required template](.github/PULL_REQUEST_TEMPLATE.md).
+- Include screenshots and animated GIFs in your pull request whenever possible.
+- Describe every change you made in a new bullet.
+- End all files with a newline.
+- Do not forget to list the contributors.
+- Every pull request must have one review, must be up to date and must have
+verified signatures, so wait and process the feeback.
 
-[Contribution guidelines for this project](.github/CONTRIBUTING.md)
+Once your pull request is ready to be merged, the repository maintainers 
+will integrate it. There is no additional action required from pull request 
+contributors at this point.
+
+## Copyright
+
+Way of the Developer is licensed under 
+[Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/), 
+with a few exceptions like pure executable code which uses [MIT License](https://opensource.org/licenses/MIT). 
+We consider all contributions as CC BY-SA or MIT unless it's explicitly stated otherwise. 
+Any-incompatible code contributions will be rejected. Contributions under Any-compatible licenses 
+may be also rejected if they are not ultimately necessary.
