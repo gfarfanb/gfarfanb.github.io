@@ -174,7 +174,7 @@ seriesnumber:
 - The description must be concise.
 - It is important the indicate environment you are testing.
 - Do not make support questions or comments, there are specific
-channels for this: [chat room](https://gitter.im/way-of-the-developer/tech-blog)
+channels for [this chat room](https://gitter.im/way-of-the-developer/tech-blog)
 or post discussion (at the end of posts).
 - Include screenshots and animated GIFs in your pull request whenever possible.
 
@@ -201,8 +201,12 @@ contributors at this point.
 ## Copyright
 
 Way of the Developer is licensed under 
-[Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/), 
-with a few exceptions like pure executable code which uses [MIT License](https://opensource.org/licenses/MIT). 
-We consider all contributions as CC BY-SA or MIT unless it's explicitly stated otherwise. 
-Any-incompatible code contributions will be rejected. Contributions under Any-compatible licenses 
-may be also rejected if they are not ultimately necessary.
+[Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)][cc_by-sa-4.0], 
+with a few exceptions like pure executable code which uses [MIT License][mit_license]. 
+We consider all contributions as [CC BY-SA][cc_by-sa-4.0] or [MIT][mit_license] unless
+it's explicitly stated otherwise. Any-incompatible code contributions will be rejected.
+Contributions under Any-compatible licenses may be also rejected if they are not ultimately
+necessary.
+
+[cc_by-sa-4.0]: https://creativecommons.org/licenses/by-sa/4.0/
+[mit_license]: https://opensource.org/licenses/MIT
