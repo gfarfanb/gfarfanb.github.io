@@ -11,7 +11,7 @@ any other community document in a pull request.
 
 This project and everyone participating in it is governed by the Way of the Developer
 [Code of Conduct](./CODE_OF_CONDUCT.md). Please report any unacceptable behavior 
-to giovanni.fb@hotmail.com.
+to @gfarfanb.
 
 ## Getting started
 
