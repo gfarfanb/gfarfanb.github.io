@@ -169,7 +169,7 @@ seriesnumber:
 
 ### Reporting bugs
 
-- Fill the [required template](.github/ISSUE_TEMPLATE.md).
+- Fill the [required template](./ISSUE_TEMPLATE.md).
 - Make sure you are correctly following the checklist section.
 - The description must be concise.
 - It is important the indicate environment you are testing.
@@ -186,7 +186,7 @@ consider better via pull requests.
 
 ## Pull Requests
 
-- Fill the [required template](.github/PULL_REQUEST_TEMPLATE.md).
+- Fill the [required template](./PULL_REQUEST_TEMPLATE.md).
 - Include screenshots and animated GIFs in your pull request whenever possible.
 - Describe every change you made in a new bullet.
 - End all files with a newline.
