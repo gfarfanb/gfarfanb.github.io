@@ -24,10 +24,6 @@ donate-paypal: 49ZMF7YEPCR34
 # Donations with BitCoins
 donate-blockchain: 1P4w32KT7NwjfGLmnr1eeWs2xJs468PKSk
 
-# Algolia Search API Key
-algolia-search: 96f66a5d1fb9249100d1c6312f76bfcb
-algolia-hits: 5
-
 menu:
 - {name: 'About', url: 'about.html'}
 - {name: 'Blog', leafs: [
