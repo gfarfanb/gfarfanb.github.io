@@ -42,7 +42,5 @@ social:
 - {icon: 'github', link: 'https://github.com/', head: true}
 - {icon: 'twitter', link: 'https://twitter.com/', head: false}
 - {icon: 'linkedin', link: 'http://www.linkedin.com/in/', head: false}
-- {icon: 'facebook', link: 'https://facebook.com/', head: false}
-- {icon: 'google-plus', link: 'https://plus.google.com/communities/', head: false}
 - {icon: 'stack-overflow', link: 'https://stackoverflow.com/users/', head: false}
 - {icon: 'envelope', link: 'mailto:', head: true}
