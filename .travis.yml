@@ -8,10 +8,10 @@ branches:
     - master
 
 script: 
-  - bundle exec jekyll algolia push
+  - bundle exec jekyll algolia
   - bundle exec jekyll build 
   - bundle exec htmlproofer ./_site --disable-external --empty-alt-ignore
 
 rvm:
- - 2.2.2
+ - 2.6.1
  
