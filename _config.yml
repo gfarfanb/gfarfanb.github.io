@@ -33,6 +33,7 @@ algolia:
   application_id: 2HS4H6WLCZ
   index_name: prod_way-of-the-developer
   search_only_api_key: 96f66a5d1fb9249100d1c6312f76bfcb
+  algolia-hits: 5
   excluded_files:
     - index.html
     - 404.html
