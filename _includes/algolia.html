@@ -51,16 +51,9 @@ search.addWidget(
 search.addWidget(
   instantsearch.widgets.hits({
     container: '#search-hits',
-    hitsPerPage: '{{ site.algolia.algolia-hits }}',
     templates: {
       item: hitTemplate
     }
-  })
-);
-
-search.addWidget(
-  instantsearch.widgets.pagination({
-    container: '#pagination'
   })
 );
 
