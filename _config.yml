@@ -47,4 +47,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - _scripts
-  - _excludes
+  - _history
