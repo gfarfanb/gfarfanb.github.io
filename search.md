@@ -10,14 +10,15 @@ title: Search
   <div class="post-list" id="search-hits">
     {% for post in site.posts %}
       <div class="post-item">
-        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h2>
+        <h3>
+            <a class="post-link" href="{{ site.github.url }}{{ post.url }}">
+              {{ post.title }}&nbsp;&nbsp;&nbsp;
+              <small class="post-line">
+                <i class="fa fa-calendar" aria-hidden="true"></i> {{ post.date | date_to_string }} - 
+                <i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html item=post %}
+              </small>
+            </a>
+        </h3>
 
         <div class="post-snippet">{{ post.excerpt }}</div>
       </div>
@@ -26,6 +27,3 @@ title: Search
 </main>
 
 {% include algolia.html %}
-
-<p class="rss-subscribe">subscribe <a href="{{ '/feed.xml' | relative_url }}">via RSS</a></p>
-
