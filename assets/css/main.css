@@ -5,7 +5,7 @@
 body {
   font-family: "PT Serif", Georgia, "Times New Roman", serif;
   font-size: 18px;
-  color: #515151;
+  color: black;
   line-height: 1.75rem;
 }
 
@@ -25,11 +25,12 @@ h1{
 
 h1 a {
   text-decoration: none;
+  color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Quattrocento Sans", sans-serif;
-  color: #333;
+  color: black;
 }
 
 a {
@@ -51,7 +52,7 @@ img {
 blockquote {
   border-left: 0.25rem solid #ccc;
   margin: 1.5em 10px;
-  color: #999;
+  color: #333;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
 }
@@ -117,18 +118,18 @@ th, td {
 }
 
 .masthead a:hover {
-  color:black;
+  color: black;
 }
 
 .masthead-title a {
   font-size: 1.5rem;
   text-decoration: none;
-  color: #505050;
+  color: #333;
 }
 
 .masthead-subtitle {
   font-size: 1rem;
-  color: #999;
+  color: #333;
 }
 
 /*
@@ -153,13 +154,13 @@ th, td {
   display: block;
   margin-top:3px;
   margin-bottom: 1rem;
-  color: #9a9a9a;
+  color: #333;
   font-family: 'Quattrocento Sans', sans-serif;
   font-size:0.8rem;
 }
 
 .post-line {
-  color: #9a9a9a;
+  color: #333;
   font-family: 'Quattrocento Sans', sans-serif;
   font-size:0.8rem;
 }
@@ -198,8 +199,8 @@ th, td {
 }
 
 .pagination-button {
-  color: #999;
-  border: 1px solid #e0e0e0;
+  color: #f5f5f5;
+  border: 1px solid #f5f5f5;
   padding: 10px 50px;
   display: inline-block;
   font-size: 16px;
@@ -207,11 +208,12 @@ th, td {
 }
 
 .pagination-active {
-  color: black;
+  color: #333;
 }
 
 .pagination-active:hover {
-  background-color: #e0e0e0;
+  background-color: #f5f5f5;
+  color: black;
 }
 
 /*
@@ -219,19 +221,19 @@ th, td {
 */
 
 .footer {
-  color: #999;
+  color: #333;
   text-align: center;
   margin: 2rem;
 }
 
 .footer a {
-  color: #999;
+  color: #333;
   padding: 10px;
   text-decoration: none;
 }
 
 .footer a:hover {
-  color: #333;
+  color: black;
 }
 
 /*
@@ -248,13 +250,17 @@ th, td {
 }
 
 .menu-content a {
-  color: #999;
+  color: #333;
   font-size: 1rem;
   padding-right: 10px;
 }
 
+.menu-content a:hover {
+  color: black;
+}
+
 .menu-content span {
-  color: #999;
+  color: #333;
   font-size: 1rem;
   padding-right: 10px;
 }
@@ -264,7 +270,7 @@ th, td {
 }
 
 .social-icons a {
-  color: #999;
+  color: #333;
   font-size: 1rem;
 }
 
@@ -344,6 +350,32 @@ pre {
 	color: #f39c12;
 }
 
+.fa-rss {
+  padding: 5px;
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-rss:hover {
+	color: #f39c12;
+}
+
+.fa-search {
+  padding: 5px;
+	-o-transition:.5s;
+  	-ms-transition:.5s;
+  	-moz-transition:.5s;
+  	-webkit-transition:.5s;
+  	transition: .5s;
+}
+
+.fa-search:hover {
+	color: #343434;
+}
+
 .fa-twitter {
   padding: 5px;
 	-o-transition:.5s;
@@ -407,19 +439,6 @@ pre {
 
 .fa-facebook:hover {
 	color: #3d5b99;
-}
-
-.fa-google-plus {
-  padding: 5px;
-	-o-transition:.5s;
-  	-ms-transition:.5s;
-  	-moz-transition:.5s;
-  	-webkit-transition:.5s;
-  	transition: .5s;
-}
-
-.fa-google-plus:hover {
-	color: #e64a41;
 }
 
 .fa-pinterest {
@@ -618,52 +637,8 @@ pre {
   margin:-15% 0 0 0;
 }
 
-.search-input {
-  width: 100%;
-}
-
-.search-hits {
-}
-
-.search-hits p {
-  font-family: "Quattrocento Sans", sans-serif;
-}
-
-.search-hits a {
-  text-decoration: none;
-  color: #9a9a9a;
-}
-
-.search-hits a:hover {
-  color: #333;
-}
-
-.search-pagination {
-  font-family: "Quattrocento Sans", sans-serif;
-  text-align: center;
-}
-
-.search-pagination span {
-  display: none;
-}
-
-.search-pagination ul li {
-  display: inline-block;
-  padding: 5px;
-}
-
-.search-pagination a {
-  text-decoration: none;
-  color: #9a9a9a;
-}
-
-.search-pagination a:hover {
-  color: #333;
-}
-
-.algolia__result-highlight {
-  color: #333;
-  font-weight: bold;
+.post-link {
+    text-decoration: none;
 }
 
 .series {

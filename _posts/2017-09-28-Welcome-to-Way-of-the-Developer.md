@@ -50,7 +50,7 @@ code solutions and everything I learned as success or failure evidence of how to
 
 The main idea is share, as a logger, the step-by-step of my developer transition trace. Maybe any part of this process
 is useful for you, maybe you can identify a pattern that helps you to figure out your own way, or maybe you are slapping 
-your keyboard until finding a solution without result and casually I wrote about that, whatever the case feel free to 
+your keyboard until find a solution without result and casually I wrote about that, whatever the case feel free to 
 use or enrich or discuss about this blog. 
 
 ### TODO list
