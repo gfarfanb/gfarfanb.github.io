@@ -7,7 +7,7 @@
 My personal blog includes notes, conclusions, trenches experiences, discoveries, practices, 
 sharable code solutions and success/failure evidence of how to I become an elite developer. 
 
-> This blog uses the [Way of the Developer theme](https://github.com/gfarfanb/way-of-the-developer).
+> This blog uses the [Way of the Developer theme](https://github.com/gfarfanb/way-of-the-developer). _Which is no longer actively maintained_.
 
 ## Blog TODO list
 
