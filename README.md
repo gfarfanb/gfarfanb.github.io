@@ -21,9 +21,9 @@ sharable code solutions and success/failure evidence of how to I become an elite
 
 ## Contact
 
-Feel free to [file a GitHub issue](https://github.com/gfarfanb/gfarfanb.github.io/issues/new) or 
-[email me](mailto:giovanni.fb@hotmail.com), or follow me on [Twitter](https://twitter.com/gfarfanb).
-If you prefer a secure channel chat with me on [Keybase](https://keybase.io/gfarfanb).
+Feel free to [file a GitHub issue](https://github.com/gfarfanb/gfarfanb.github.io/issues/new) 
+or follow me on [Twitter](https://twitter.com/gfarfanb). If you prefer a secure channel chat 
+with me on [Keybase](https://keybase.io/gfarfanb).
 
 [Consider making a donation!](https://gfarfanb.github.io/donation.html)
 

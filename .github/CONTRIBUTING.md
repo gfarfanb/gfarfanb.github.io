@@ -51,11 +51,11 @@ jekyll 3.5.2
 #### Ubuntu approach
 
 * Check Ruby installation in command line `ruby --version`. If you do not have Ruby you can follow 
-[this guide for installing Ruby on Ubuntu](https://gorails.com/setup/ubuntu/14.04) 
+[this guide for installing Ruby on Ubuntu](https://gorails.com/setup/ubuntu/16.04) 
 (remember choice the best setup based on Ubuntu version using `lsb_release -a`). 
 In case that you already have Ruby, the output must be similar to:
 ```bash
-ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
+ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-linux]
 ```
 * Install Bundler via command line:
 ```bash
@@ -63,11 +63,11 @@ gem install bundler
 ```
 * Install Jekyll and all dependencies.
 ```bash
-bundle install
+gem install jekyll bundler
 ```
-* Check Jekyll installation in command line `jekyll --version`, output must be similar to:
+* Check Jekyll installation in command line `bundle exec jekyll --version`, output must be similar to:
 ```bash
-jekyll 3.5.2
+jekyll 3.8.6
 ```
 * Jekyll is already to use.
 
