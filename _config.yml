@@ -27,6 +27,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-algolia
+  - jekyll-seo-tag
 
 # Search funcionality
 algolia:
