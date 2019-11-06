@@ -71,6 +71,18 @@ jekyll 3.8.6
 ```
 * Jekyll is already to use.
 
+#### Codenvy configuration
+
+Create a new *Run* command in the *Manage commands* panel:
+| Field | Value |
+| --- | --- |
+| Name | jekyll-server (or whatever makes sense) |
+| Command Line | `cd ${current.project.path} && <USER_HOME>/.rbenv/shims/bundle exec jekyll serve --host 0.0.0.0 --port <ADDED_SERVER_PORT>` |
+| Preview URL | `http://${server.port.<ADDED_SERVER_PORT>}` |
+> * ADDED_SERVER_PORT: Port selected in the *Command Macros*, previously added in the workspace configuration as new server
+> * USER_HOME: User home in the VM
+
+
 ## Posts contribution
 
 ### Generating a post
