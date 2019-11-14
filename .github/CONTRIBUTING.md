@@ -63,7 +63,7 @@ gem install bundler
 ```
 * Install Jekyll and all dependencies.
 ```bash
-gem install jekyll bundler
+bundle install
 ```
 * Check Jekyll installation in command line `bundle exec jekyll --version`, output must be similar to:
 ```bash

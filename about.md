@@ -3,7 +3,7 @@ layout: page
 title: About the author
 ---
 
-![Photo of Author]({{ site.data.settings.assets }}/img/author.png)
+![Photo of Author]({{ site.data.settings.assets }}/img/author.jpg)
 
 Giovanni Farfán B. is a developer decided to take over the world as a developer, or at least change it.
 
