@@ -6,16 +6,19 @@ The following is a set of guidelines for contributing to Way of the Developer.
 Use your best judgment, and feel free to propose changes to this document or 
 any other community document in a pull request.
 
+
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the Way of the Developer
 [Code of Conduct](./CODE_OF_CONDUCT.md). Please report any unacceptable behavior 
 to @gfarfanb.
 
+
 ## Getting started
 
 To start using this repository right away, 
 [fork this repository on GitHub](https://github.com/gfarfanb/gfarfanb.github.io/fork).
+
 
 ### How to install it
 
@@ -25,6 +28,7 @@ For a full local installation,
  and enter `jekyll serve`. Your site should be up and run locally at 
  [http://localhost:4000](http://localhost:4000). If you do not have installed `jekyll` command 
  follow the next instructions:
+
 
 #### Windows approach
 
@@ -48,6 +52,7 @@ jekyll 3.5.2
 ```
 * Jekyll is already to use.
 
+
 #### Ubuntu approach
 
 * Check Ruby installation in command line `ruby --version`. If you do not have Ruby you can follow 
@@ -70,6 +75,33 @@ bundle install
 jekyll 3.8.6
 ```
 * Jekyll is already to use.
+
+
+#### Docker approach
+Pull [gfarfanb.github.io Docker image](https://hub.docker.com/repository/docker/gfarfanb/gfarfanb.github.io):
+```
+docker pull gfarfanb/gfarfanb.github.io:[version]
+docker image ls
+```
+
+Run container with downloaded image:
+```
+docker run -it -d -p 4000:4000 --name [custom-container-name] -v [/local/gfarfanb.github.io/path]:/usr/src/app gfarfanb/gfarfanb.github.io:[version]
+```
+
+Now you have access to enter the container:
+```
+docker ps -a
+docker exec -it [container-id] bash
+```
+
+Run server:
+```
+bundle exec jekyll serve --host 0.0.0.0 --port 4000
+```
+
+Open it in a browser as [http://localhost:4000](http://localhost:4000). The code changes are not automatically updated so it is necessary to re-run the Jekyll server.
+
 
 #### Codenvy configuration
 
@@ -123,6 +155,7 @@ you want to show an image, just put the resource like
 If you prefer to make your own graphs using Graphviz, 
 follow [this page](https://github.com/gfarfanb/gfarfanb.github.io/wiki/Graphviz-Image-Generation).
 
+
 ### Authors
 
 Your contact information edit in the `_data/authors.yml` (name, email, Twitter and GitHub, 
@@ -156,6 +189,7 @@ image:
   credit: 
   creditlink: 
 ```
+
 
 ### Categories and Tags
 
@@ -191,11 +225,13 @@ channels for [this chat room](https://gitter.im/way-of-the-developer/tech-blog)
 or post discussion (at the end of posts).
 - Include screenshots and animated GIFs in your pull request whenever possible.
 
+
 ### Suggesting enhancements
 
 It is always welcome a new change idea, refactoring, design, features,
 new pages (not only posts), just propose it via [feature requests](./ISSUE_TEMPLATE/feature_request.md)
 or if consider better via pull requests. 
+
 
 ## Pull Requests
 
@@ -210,6 +246,7 @@ verified signatures, so wait and process the feeback.
 Once your pull request is ready to be merged, the repository maintainers 
 will integrate it. There is no additional action required from pull request 
 contributors at this point.
+
 
 ## Copyright
 
