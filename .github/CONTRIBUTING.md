@@ -221,7 +221,7 @@ seriesnumber:
 - The description must be concise.
 - It is important the indicate environment you are testing.
 - Do not make support questions or comments, there are specific
-channels for [this chat room](https://gitter.im/way-of-the-developer/tech-blog)
+channels for [this chat room](https://gitter.im/way-of-the-developer/blog)
 or post discussion (at the end of posts).
 - Include screenshots and animated GIFs in your pull request whenever possible.
 
