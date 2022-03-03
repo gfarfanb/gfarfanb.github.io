@@ -30,8 +30,8 @@
             'Invitaciones'
         ];
 
-        $("#count").click(function() {
-            let txt = $("#info").val();
+        $('#count').click(function() {
+            let txt = $('#info').val();
             let lines = txt.split(/\n/);
 
             let counters = new Map();
@@ -100,8 +100,14 @@
                 results += key + ' = ' + pesos.format(value) + '<br>';
             });
 
-            $("#results").html(results);
-            $("#discarded").html(discarded);
+            $('#results').html(results);
+            $('#discarded').html(discarded);
+        });
+
+        $('#clean').click(function() {
+            $("#info").val('');
+            $('#results').text('');
+            $('#discarded').text('');
         });
     });
 </script>
@@ -117,6 +123,7 @@
 
 <br>
 <button id="count">Contar</button>
+<button id="clean">Limpiar</button>
 
 <h4>Resultados</h4>
 <p id="results"></p>
