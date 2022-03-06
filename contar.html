@@ -5,127 +5,345 @@
 <script>
     $(document).ready(function()
     {
-        let keywords = [
-            'Número de Jugadores',
-            'Número de Vendedores',
-            'Maletas Meta',
-            'Maletas Real',
-            'Demos Meta',
-            'Demos Real',
-            'Citas Instantáneas',
-            'Citas',
-            '4/14 Meta',
-            '4/14 Real',
-            'Referidos Meta',
-            'Referidos Real',
-            'Número de Ventas Meta',
-            'Número de Ventas',
-            'Ventas Meta',
-            'Ventas Real',
-            'Ventas Agregado',
-            'Nuevos Pros',
-            'Meta de Reclutamiento',
-            'Reclutamiento Real',
-            'Entrevistas',
-            'Invitaciones'
-        ];
+        let data = new Map();
+        data.set('número de jugadores real', {
+            currency: false,
+            aliases: [
+                'número de jugadores',
+                '# de jugadores',
+                '# de jugadores real'
+            ]
+        });
+        data.set('número de jugadores meta', {
+            currency: false,
+            aliases: [
+                '# de jugadores meta'
+            ]
+        });
+        data.set('número de vendedores real', {
+            currency: false,
+            aliases: [
+                'de vendedores real',
+                'número de vendedores'
+            ]
+        });
+        data.set('número de vendedores meta', {
+            currency: false,
+            aliases: [
+                'de vendedores meta',
+                'de vendedores un meta'
+            ]
+        });
+        data.set('maletas real', {
+            currency: false,
+            aliases: [
+                'maleta real'
+            ]
+        });
+        data.set('maletas meta', {
+            currency: false,
+            aliases: [
+                'maleta meta',
+                'de maletas met'
+            ]
+        });
+        data.set('demos real', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('demos meta', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('citas instantáneas real', {
+            currency: false,
+            aliases: [
+                'citas instantáneas',
+                'cita instantánea real',
+                'cita instantánea',
+                'instantáneas'
+            ]
+        });
+        data.set('citas instantáneas meta', {
+            currency: false,
+            aliases: [
+                'cita instantánea meta'
+            ]
+        });
+        data.set('citas real', {
+            currency: false,
+            aliases: [
+                'citas'
+            ]
+        });
+        data.set('citas meta', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('4/14 real', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('4/14 meta', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('referidos real', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('referidos meta', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('número de ventas real', {
+            currency: false,
+            aliases: [
+                'número de ventas',
+                '# ventas real'
+            ]
+        });
+        data.set('número de ventas meta', {
+            currency: false,
+            aliases: [
+                '# ventas meta'
+            ]
+        });
+        data.set('ventas real', {
+            currency: true,
+            aliases: [
+                'monto de venta',
+                'monto real'
+            ]
+        });
+        data.set('ventas meta', {
+            currency: true,
+            aliases: [
+            ]
+        });
+        data.set('ventas agregado', {
+            currency: true,
+            aliases: [
+                'venta agregado',
+                'ventas de agregado'
+            ]
+        });
+        data.set('nuevos pros', {
+            currency: false,
+            aliases: [
+                'nuevos ptos reclutamiento',
+                'nuevos ptos en reclutamiento'
+            ]
+        });
+        data.set('reclutamiento calido', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('reclutamiento real', {
+            currency: false,
+            aliases: [
+                'rrhh real'
+            ]
+        });
+        data.set('meta de reclutamiento', {
+            currency: false,
+            aliases: [
+                'meta rrhh',
+                'meta reclutamiento',
+                'meta de reclut'
+            ]
+        });
+        data.set('entrevistas', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('invitaciones', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('ingresos', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('referidos', {
+            currency: false,
+            aliases: [
+            ]
+        });
+
+        let keywords = new Map();
+        data.forEach(function (value, key) {
+            keywords.set(key, key);
+            value.aliases.forEach(function (alias) {
+                keywords.set(alias, key);
+            });
+        });
+        let keywordsArray = [...keywords];
+        let keywordsSorted = keywordsArray.sort(
+            ([key1, value1], [key2, value2]) => key2.length - key1.length
+        );
+        keywords = new Map(keywordsSorted);
+
+        let pesos = new Intl.NumberFormat('es-MX', {
+            currency: 'MXN',
+            style: 'currency',
+        });
+
+        function generateId() {
+            let id = "";
+            let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            for(let i = 0; i < 12; i++) {
+                id += characters.charAt(Math.floor(Math.random() * 36));
+            }
+            return id;
+        }
+
+        let counters;
+        function initCounters() {
+            counters = new Map();
+            data.forEach(function (value, key) {
+                let keyword = key.toLowerCase();
+                let counter = {
+                    id: generateId(),
+                    counter: 0,
+                    elements: [],
+                    currency: value.currency
+                };
+                counters.set(keyword, counter);
+            });
+        }
+
+        function clearLine(line) {
+            line = line.replace(/\s+/g, ' ');
+
+            line = line.replace('1️⃣', '1');
+            line = line.replace('2️⃣', '2');
+            line = line.replace('3️⃣', '3');
+            line = line.replace('4️⃣', '4');
+            line = line.replace('5️⃣', '5');
+            line = line.replace('6️⃣', '6');
+            line = line.replace('7️⃣', '7');
+            line = line.replace('8️⃣', '8');
+            line = line.replace('9️⃣', '9');
+            line = line.replace('🔟', '10');
+            line = line.replace('0️⃣', '0');
+
+            return line.toLowerCase();
+        }
+
+        function cleanCount() {
+            initCounters();
+            $('#info').val('');
+            $('#results').text('');
+            $('#discarded').text('');
+        }
 
         $('#count').click(function() {
             let txt = $('#info').val();
+
+            cleanCount();
+
             let lines = txt.split(/\n/);
-
-            let counters = new Map();
-            keywords.forEach(function (keyword, i) {
-                keyword = keyword.toLowerCase();
-                keywords[i] = keyword;
-                counters.set(keyword, 0);
-            });
-
             let discarded = '<ul>';
 
             for(let i = 0; i < lines.length; i++) {
-                let line = lines[i].trim();
+                let originalLine = lines[i].trim();
+                let line = originalLine;
                 let accepted = false;
 
                 if (!line && line.length == 0) {
                     continue;
                 }
 
-                keywords.forEach(function (keyword) {
+                keywords.forEach(function (value, key) {
                     if(accepted) {
                         return;
                     }
 
-                    line = line.replace(/\s+/g, ' ');
-                    
-                    line = line.replace('1️⃣', '1');
-                    line = line.replace('2️⃣', '2');
-                    line = line.replace('3️⃣', '3');
-                    line = line.replace('4️⃣', '4');
-                    line = line.replace('5️⃣', '5');
-                    line = line.replace('6️⃣', '6');
-                    line = line.replace('7️⃣', '7');
-                    line = line.replace('8️⃣', '8');
-                    line = line.replace('9️⃣', '9');
-                    line = line.replace('🔟', '10');
-                    line = line.replace('0️⃣', '0');
+                    line = clearLine(line);
 
-                    line = line.toLowerCase();
-                    
-                    line = line.replace('# de jugadores', 'Número de Jugadores');
-                    line = line.replace('# de vendedores', 'Número de Vendedores');
-                    line = line.replace('meta rrhh', 'Meta de Reclutamiento');
-                    line = line.replace('rrhh real', 'Reclutamiento Real');
-                    line = line.replace('maleta real', 'Maletas Real');
-                    line = line.replace('cita instantánea', 'Citas Instantáneas');
-                    line = line.replace('venta agregado', 'Ventas Agregado');
-                    line = line.replace('monto de venta', 'Ventas Real');
-                    line = line.replace('# ventas real', 'Número de Ventas');
-                    line = line.replace('# ventas meta', 'Número de Ventas Meta');
-
-                    line = line.toLowerCase();
-
-                    if(line.includes(keyword)) {
-                        let position = line.search(keyword);
-                        let rightPart = line.substring(position + keyword.length, line.length);
-                        let value = parseInt(rightPart.replace(/[^\d.-]/g, ''));
-                        counters.set(keyword, counters.get(keyword) + value);
+                    if(line.includes(key)) {
+                        let position = line.search(key);
+                        let rightPart = line.substring(position + key.length, line.length);
+                        let quantity = parseInt(rightPart.replace(/[^\d.-]/g, ''));
+                        let counter = counters.get(value);
+                        counter.counter += isNaN(quantity) ? 0 : quantity;
+                        counter.elements.push(originalLine);
                         accepted = true;
                     }
                 });
 
                 if(!accepted) {
-                    discarded += '<li>' + line + '</li>';
+                    discarded += '<li>' + originalLine + '</li>';
                 }
             }
             discarded += '</ul>'
 
-            let pesos = new Intl.NumberFormat('es-MX', {
-                currency: 'MXN',
-                style: 'currency',
-            });
             let results = '<table>';
-
             counters.forEach(function (value, key) {
-                results += '<tr>' + '<td>' + key + '</td><td>' + pesos.format(value) + '</td></tr>';
+                results += '<tr>';
+                results += '<td>' + key + '</td>';
+                if(value.currency) {
+                    results += '<td>' + pesos.format(value.counter) + '</td>';
+                } else {
+                    results += '<td>' + value.counter + '</td>';
+                }
+                results += '<td>';
+                results += '<button id="details-' + value.id + '">Detalle</button>';
+                results += '<button id="hide-' + value.id + '">Ocultar</button>';
+                results += '<ul id="list-' + value.id + '">';
+                value.elements.forEach(function (element) {
+                    results += '<li>' + element + '</li>';
+                });
+                results += '</ul>';
+                results += '</td>';
+                results += '</tr>';
             });
             results += "</table>"
 
             $('#results').html(results);
             $('#discarded').html(discarded);
+
+            counters.forEach(function (value, key) {
+                $("#list-" + value.id).hide();
+                $("#hide-" + value.id).hide();
+
+                $("#details-" + value.id).click(function(){
+                    $("#list-" + value.id).show();
+                    $("#details-" + value.id).hide();
+                    $("#hide-" + value.id).show();
+                });
+
+                $("#hide-" + value.id).click(function(){
+                    $("#list-" + value.id).hide();
+                    $("#details-" + value.id).show();
+                    $("#hide-" + value.id).hide();
+                });
+            });
         });
 
         $('#clean').click(function() {
-            $('#info').val('');
-            $('#results').text('');
-            $('#discarded').text('');
+            cleanCount();
         });
+
+        initCounters();
     });
 </script>
 </head>
 <body>
 
-<h3>Analizador informes</h3>
+<h3>Analizador de informes</h3>
 
 <p>Pega los informes en la caja de texto</p>
 
@@ -137,10 +355,10 @@
 <button id="clean">Limpiar</button>
 
 <h4>Resultados</h4>
-<p id="results"></p>
+<div id="results"></div>
 
 <h4>Líneas no leídas</h4>
-<p id="discarded"></p>
+<div id="discarded"></div>
 
 </body>
 </html>
