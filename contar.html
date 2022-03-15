@@ -91,12 +91,14 @@
         data.set('4/14 real', {
             currency: false,
             aliases: [
-            ]
+            ],
+            canBeGrouped: true
         });
         data.set('4/14 meta', {
             currency: false,
             aliases: [
-            ]
+            ],
+            canBeGrouped: true
         });
         data.set('referidos real', {
             currency: false,
@@ -418,7 +420,7 @@
         }
 
         function getGroupedValues(i, originalLine, rightPart) {
-            let delimiterPosition = rightPart.search('\\$');
+            let delimiterPosition = getDelimiterPosition(rightPart);
             if(delimiterPosition != -1) {
                 let groupedLeft = rightPart.substring(0, delimiterPosition);
                 let groupedRight = rightPart.substring(delimiterPosition + 1, rightPart.length);
@@ -435,6 +437,18 @@
                     right: 0,
                     found: false
                 };
+            }
+        }
+
+        function getDelimiterPosition(rightPart) {
+            let dollarPosition = rightPart.search('\\$');
+            let separatorPosition = rightPart.search('\\/');
+            if(dollarPosition > separatorPosition) {
+                return dollarPosition;
+            } else if(separatorPosition > dollarPosition) {
+                return separatorPosition;
+            } else {
+                return -1;
             }
         }
 
@@ -587,7 +601,7 @@
 <div id="discarded"></div>
 
 <footer>
-    <p>2022.03.15.15.03</p>
+    <p>2022.03.15.15.18</p>
 </footer>
 
 </body>
