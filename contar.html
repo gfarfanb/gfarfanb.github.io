@@ -12,7 +12,8 @@
                 'número de jugadores',
                 '# de jugadores',
                 '# de jugadores real',
-                'núm. jugadores'
+                'núm. jugadores',
+                '# jugadores'
             ]
         });
         data.set('número de jugadores meta', {
@@ -40,7 +41,8 @@
         data.set('maletas real', {
             currency: false,
             aliases: [
-                'maleta real'
+                'maleta real',
+                'maletas'
             ]
         });
         data.set('maletas meta', {
@@ -100,11 +102,26 @@
             currency: false,
             aliases: [
                 'referidos'
+            ],
+            anotherExpectedKeys: [
+                'número de ventas meta',
+                'número de ventas real',
+                'ventas meta',
+                'ventas real',
+                'ventas agregado'
             ]
         });
         data.set('referidos meta', {
             currency: false,
             aliases: [
+                '# referidos meta'
+            ],
+            anotherExpectedKeys: [
+                'número de ventas meta',
+                'número de ventas real',
+                'ventas meta',
+                'ventas real',
+                'ventas agregado'
             ]
         });
         data.set('número de ventas real', {
@@ -191,11 +208,17 @@
             currency: false,
             aliases: [
                 'enztrevistas'
+            ],
+            anotherExpectedKeys: [
+                'invitaciones'
             ]
         });
         data.set('invitaciones', {
             currency: false,
             aliases: [
+            ],
+            anotherExpectedKeys: [
+                'entrevistas'
             ]
         });
         data.set('ingresos', {
@@ -255,14 +278,81 @@
                     id: generateId(),
                     key: key,
                     counter: 0,
-                    elements: [],
-                    currency: value.currency,
-                    maxExpected: value.maxExpected,
-                    canBeGrouped: value.canBeGrouped,
-                    related: value.related
+                    elements: []
                 };
                 counters.set(keyword, counter);
             });
+        }
+
+        function processLine(i, originalLine, keyword, masterKeyword) {
+            let line = clearLine(originalLine);
+
+            if(line.includes(keyword)) {
+                let counter = counters.get(masterKeyword);
+
+                if(counter) {
+                    return processLineParts(i, originalLine, line, keyword, counter);
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+
+        function processLineParts(i, originalLine, line, keyword, counter) {
+            let config = data.get(counter.key);
+
+            if(config.anotherExpectedKeys) {
+                let lineParts = extractLines(line);
+                let expectedKeys = Array.from(config.anotherExpectedKeys);
+
+                expectedKeys.push(counter.key);
+
+                let expectedKeywords = getExpectedKeywords(expectedKeys);
+
+                lineParts.forEach(function (linePart) {
+                    let accepted = false;
+
+                    expectedKeywords.forEach(function (expectedMasterKeyword, expectedKeyword) {
+                        if(accepted) {
+                            return;
+                        }
+
+                        linePart = clearLine(linePart);
+
+                        if(linePart.includes(expectedKeyword)) {
+                            let expectedCounter = counters.get(expectedMasterKeyword);
+                            let fromField = (expectedMasterKeyword === counter.key ? null : counter.key);
+                            countLine(i, originalLine, linePart, expectedKeyword, expectedCounter, fromField);
+                            accepted = true;
+                        }
+                    });
+                });
+            } else {
+                countLine(i, originalLine, line, keyword, counter, null);
+            }
+
+            return true;
+        }
+
+        function countLine(i, originalLine, line, keyword, counter, fromField) {
+            let position = line.search(keyword);
+            let rightPart = line.substring(position + keyword.length, line.length);
+            let config = data.get(counter.key);
+
+            if(config.canBeGrouped) {
+                let grouped = getGroupedValues(i, originalLine, rightPart);
+                if(grouped.found) {
+                    assignValues(i, originalLine, counter, grouped.left, grouped.right, fromField);
+                } else {
+                    let lineValue = getLineValue(rightPart);
+                    assignValues(i, originalLine, counter, 1, lineValue, fromField);
+                }
+            } else {
+                let lineValue = getLineValue(rightPart);
+                assignValues(i, originalLine, counter, 1, lineValue, fromField);
+            }
         }
 
         function clearLine(line) {
@@ -279,13 +369,52 @@
             line = line.replace('9️⃣', '9');
             line = line.replace('🔟', '10');
             line = line.replace('0️⃣', '0');
+            line = line.replace(' ', ' ');
 
             return line.toLowerCase();
         }
 
+        function extractLines(line) {
+            let parts = line.split(/ /);
+            let lines = Array.of('');
+
+            for(let i = 0; i < parts.length; i++) {
+                let part = parts[i];
+
+                if (!part && part.length == 0) {
+                    continue;
+                }
+
+                let value = parseValue(part);
+
+                if(isNaN(value)) {
+                    lines[lines.length - 1] += (part + ' ');
+                } else {
+                    lines[lines.length - 1] += (value + ' ');
+                    lines.push('');
+                }
+            }
+
+            return lines;
+        }
+
+        function getExpectedKeywords(anotherExpectedKeys) {
+            let expectedKeywords = new Map();
+            keywords.forEach(function (masterKeyword, keyword) {
+                if(anotherExpectedKeys.includes(masterKeyword)) {
+                    expectedKeywords.set(keyword, masterKeyword);
+                }
+            });
+            return expectedKeywords;
+        }
+
         function getLineValue(line) {
-            let quantity = parseInt(line.replace(/[^\d.-]/g, ''));
+            let quantity = parseValue(line);
             return isNaN(quantity) ? 0 : quantity;
+        }
+
+        function parseValue(line) {
+            return parseInt(line.replace(/[^\d.-]/g, ''));
         }
 
         function getGroupedValues(i, originalLine, rightPart) {
@@ -293,8 +422,8 @@
             if(delimiterPosition != -1) {
                 let groupedLeft = rightPart.substring(0, delimiterPosition);
                 let groupedRight = rightPart.substring(delimiterPosition + 1, rightPart.length);
-                let quantityLeft = parseInt(groupedLeft.replace(/[^\d.-]/g, ''));
-                let quantityRight = parseInt(groupedRight.replace(/[^\d.-]/g, ''));
+                let quantityLeft = parseValue(groupedLeft);
+                let quantityRight = parseValue(groupedRight);
                 return {
                     left: isNaN(quantityLeft) ? 1 : quantityLeft,
                     right: isNaN(quantityRight) ? 0 : quantityRight,
@@ -309,24 +438,34 @@
             }
         }
 
-        function assignValues(i, originalLine, counter, leftValue, rightValue) {
+        function assignValues(i, originalLine, counter, leftValue, rightValue, fromField) {
             let lineValue = (leftValue * rightValue);
+            let config = data.get(counter.key);
 
-            if(counter.maxExpected && lineValue > counter.maxExpected) {
-                let relatedCounter = counters.get(counter.related);
+            fromField = (fromField !== null
+                    ? '<spam class="tag">[OBTENIDO DE GRUPO: <b>' + fromField + '</b>]</spam> '
+                    : '');
+
+            if(config.maxExpected && lineValue > config.maxExpected) {
+                let relatedCounter = counters.get(config.related);
                 if(relatedCounter) {
                     counter.counter += leftValue;
-                    counter.elements.push('<spam class="tag">[ENVIADO A GRUPO: <b>' + counter.related + '</b>]</spam> ' + originalLine);
+                    counter.elements.push(
+                        '<spam class="tag">[ENVIADO A GRUPO: <b>' + config.related + '</b>]</spam> '
+                        + fromField
+                        + originalLine);
 
                     relatedCounter.counter += lineValue;
-                    relatedCounter.elements.push('<spam class="tag">[OBTENIDA DE GRUPO: <b>' + counter.key + '</b>]</spam> ' + originalLine);
+                    relatedCounter.elements.push(
+                        '<spam class="tag">[OBTENIDO DE GRUPO: <b>' + counter.key + '</b>]</spam> '
+                        + originalLine);
                 } else {
                     counter.counter += lineValue;
-                    counter.elements.push(originalLine);
+                    counter.elements.push(fromField +  originalLine);
                 }
             } else {
                 counter.counter += lineValue;
-                counter.elements.push(originalLine);
+                counter.elements.push(fromField + originalLine);
             }
         }
 
@@ -347,40 +486,17 @@
 
             for(let i = 0; i < lines.length; i++) {
                 let originalLine = lines[i].trim();
-                let line = originalLine;
                 let accepted = false;
 
-                if (!line && line.length == 0) {
+                if (!originalLine && originalLine.length == 0) {
                     continue;
                 }
 
-                keywords.forEach(function (value, key) {
+                keywords.forEach(function (masterKeyword, keyword) {
                     if(accepted) {
                         return;
                     }
-
-                    line = clearLine(line);
-
-                    if(line.includes(key)) {
-                        let position = line.search(key);
-                        let rightPart = line.substring(position + key.length, line.length);
-                        let counter = counters.get(value);
-
-                        if(counter.canBeGrouped) {
-                            let grouped = getGroupedValues(i, originalLine, rightPart);
-                            if(grouped.found) {
-                                assignValues(i, originalLine, counter, grouped.left, grouped.right);
-                            } else {
-                                let lineValue = getLineValue(rightPart);
-                                assignValues(i, originalLine, counter, 1, lineValue);
-                            }
-                        } else {
-                            let lineValue = getLineValue(rightPart);
-                            assignValues(i, originalLine, counter, 1, lineValue);
-                        }
-
-                        accepted = true;
-                    }
+                    accepted = processLine(i, originalLine, keyword, masterKeyword);
                 });
 
                 if(!accepted) {
@@ -391,9 +507,10 @@
 
             let results = '<table>';
             counters.forEach(function (value, key) {
+                let config = data.get(key);
                 results += '<tr>';
                 results += '<td>' + key + '</td>';
-                if(value.currency) {
+                if(config.currency) {
                     results += '<td>' + pesos.format(value.counter) + '</td>';
                 } else {
                     results += '<td>' + value.counter + '</td>';
@@ -470,7 +587,7 @@
 <div id="discarded"></div>
 
 <footer>
-    <p>2022.03.14.18.55</p>
+    <p>2022.03.15.15.03</p>
 </footer>
 
 </body>
