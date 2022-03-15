@@ -26,7 +26,8 @@
             aliases: [
                 'de vendedores real',
                 'número de vendedores',
-                'núm. de vendedores'
+                'núm. de vendedores',
+                '# de vendedores'
             ]
         });
         data.set('número de vendedores meta', {
@@ -113,34 +114,48 @@
                 '# ventas real',
                 '#ventas real',
                 'numer de ventas real'
-            ]
+            ],
+            maxExpected: 50,
+            canBeGrouped: true,
+            related: 'ventas real'
         });
         data.set('número de ventas meta', {
             currency: false,
             aliases: [
                 '# ventas meta',
                 '#ventas meta'
-            ]
+            ],
+            maxExpected: 100,
+            canBeGrouped: true,
+            related: 'ventas meta'
         });
         data.set('ventas real', {
             currency: true,
             aliases: [
                 'monto de venta',
                 'monto real',
-                'importe real'
-            ]
-        });
-        data.set('ventas meta', {
-            currency: true,
-            aliases: [
-            ]
+                'importe real',
+                'real monto',
+                'monto'
+            ],
+            canBeGrouped: true
         });
         data.set('ventas agregado', {
             currency: true,
             aliases: [
                 'venta agregado',
-                'ventas de agregado'
-            ]
+                'ventas de agregado',
+                'importe de agregado'
+            ],
+            canBeGrouped: true
+        });
+        data.set('ventas meta', {
+            currency: true,
+            aliases: [
+                'monto meta',
+                'meta monto'
+            ],
+            canBeGrouped: true
         });
         data.set('nuevos pros', {
             currency: false,
@@ -175,6 +190,7 @@
         data.set('entrevistas', {
             currency: false,
             aliases: [
+                'enztrevistas'
             ]
         });
         data.set('invitaciones', {
@@ -193,6 +209,11 @@
             ]
         });
         data.set('prospectadores', {
+            currency: false,
+            aliases: [
+            ]
+        });
+        data.set('invitados', {
             currency: false,
             aliases: [
             ]
@@ -232,9 +253,13 @@
                 let keyword = key.toLowerCase();
                 let counter = {
                     id: generateId(),
+                    key: key,
                     counter: 0,
                     elements: [],
-                    currency: value.currency
+                    currency: value.currency,
+                    maxExpected: value.maxExpected,
+                    canBeGrouped: value.canBeGrouped,
+                    related: value.related
                 };
                 counters.set(keyword, counter);
             });
@@ -256,6 +281,53 @@
             line = line.replace('0️⃣', '0');
 
             return line.toLowerCase();
+        }
+
+        function getLineValue(line) {
+            let quantity = parseInt(line.replace(/[^\d.-]/g, ''));
+            return isNaN(quantity) ? 0 : quantity;
+        }
+
+        function getGroupedValues(i, originalLine, rightPart) {
+            let delimiterPosition = rightPart.search('\\$');
+            if(delimiterPosition != -1) {
+                let groupedLeft = rightPart.substring(0, delimiterPosition);
+                let groupedRight = rightPart.substring(delimiterPosition + 1, rightPart.length);
+                let quantityLeft = parseInt(groupedLeft.replace(/[^\d.-]/g, ''));
+                let quantityRight = parseInt(groupedRight.replace(/[^\d.-]/g, ''));
+                return {
+                    left: isNaN(quantityLeft) ? 1 : quantityLeft,
+                    right: isNaN(quantityRight) ? 0 : quantityRight,
+                    found: true
+                };
+            } else {
+                return {
+                    left: 0,
+                    right: 0,
+                    found: false
+                };
+            }
+        }
+
+        function assignValues(i, originalLine, counter, leftValue, rightValue) {
+            let lineValue = (leftValue * rightValue);
+
+            if(counter.maxExpected && lineValue > counter.maxExpected) {
+                let relatedCounter = counters.get(counter.related);
+                if(relatedCounter) {
+                    counter.counter += leftValue;
+                    counter.elements.push('<spam class="tag">[ENVIADO A GRUPO: <b>' + counter.related + '</b>]</spam> ' + originalLine);
+
+                    relatedCounter.counter += lineValue;
+                    relatedCounter.elements.push('<spam class="tag">[OBTENIDA DE GRUPO: <b>' + counter.key + '</b>]</spam> ' + originalLine);
+                } else {
+                    counter.counter += lineValue;
+                    counter.elements.push(originalLine);
+                }
+            } else {
+                counter.counter += lineValue;
+                counter.elements.push(originalLine);
+            }
         }
 
         function cleanCount() {
@@ -292,10 +364,21 @@
                     if(line.includes(key)) {
                         let position = line.search(key);
                         let rightPart = line.substring(position + key.length, line.length);
-                        let quantity = parseInt(rightPart.replace(/[^\d.-]/g, ''));
                         let counter = counters.get(value);
-                        counter.counter += isNaN(quantity) ? 0 : quantity;
-                        counter.elements.push(originalLine);
+
+                        if(counter.canBeGrouped) {
+                            let grouped = getGroupedValues(i, originalLine, rightPart);
+                            if(grouped.found) {
+                                assignValues(i, originalLine, counter, grouped.left, grouped.right);
+                            } else {
+                                let lineValue = getLineValue(rightPart);
+                                assignValues(i, originalLine, counter, 1, lineValue);
+                            }
+                        } else {
+                            let lineValue = getLineValue(rightPart);
+                            assignValues(i, originalLine, counter, 1, lineValue);
+                        }
+
                         accepted = true;
                     }
                 });
@@ -361,6 +444,10 @@
         text-align: center;
         color: gray;
     }
+
+    .tag {
+        color: orange;
+    }
 </style>
 </head>
 <body>
@@ -383,7 +470,7 @@
 <div id="discarded"></div>
 
 <footer>
-    <p>2022.03.08.13.43</p>
+    <p>2022.03.14.18.55</p>
 </footer>
 
 </body>
